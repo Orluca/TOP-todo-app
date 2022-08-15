@@ -1,4 +1,5 @@
 .main {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: 2fr 7fr;
+  grid-template-rows: 1fr;
 }

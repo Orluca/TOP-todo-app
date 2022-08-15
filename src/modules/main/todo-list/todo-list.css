@@ -4,6 +4,7 @@
   padding: 2rem 5rem;
   display: flex;
   flex-direction: column;
+  grid-area: 1 / 2 / 2 / 3;
 }
 
 .btn-new-todo {

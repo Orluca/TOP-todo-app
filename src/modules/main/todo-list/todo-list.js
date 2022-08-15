@@ -22,6 +22,7 @@ function todoList() {
 
   todoList.appendChild(header());
   todoList.appendChild(todoItem("Wash dishes"));
+  todoList.appendChild(todoItem("Walk the dog"));
   todoList.appendChild(newTodoBtn());
 
   return todoList;
