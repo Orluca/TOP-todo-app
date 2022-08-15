@@ -31,5 +31,5 @@ body {
 
 /* UTILITY CLASSES */
 .hidden {
-  display: none;
+  display: none !important;
 }
