@@ -2,6 +2,7 @@
 
 :root {
   --color-frame: rgb(160, 160, 160);
+  --color-main: red;
 }
 
 *,
@@ -14,6 +15,15 @@
 
 html,
 body {
+  height: 100%;
+  width: 100%;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1.5fr 30fr 1fr;
+
   height: 100%;
   width: 100%;
 }
