@@ -27,3 +27,8 @@ body {
   height: 100%;
   width: 100%;
 }
+
+/* UTILITY CLASSES */
+.hidden {
+  display: none;
+}

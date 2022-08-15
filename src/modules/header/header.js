@@ -14,6 +14,11 @@ function btnToggleSidebar() {
   btnToggleSidebar.classList.add("btn-toggle-sidebar");
   btnToggleSidebar.textContent = "Toggle Side";
 
+  btnToggleSidebar.addEventListener("click", function () {
+    const sidebar = document.querySelector(".sidebar");
+    sidebar.classList.toggle("hidden");
+  });
+
   return btnToggleSidebar;
 }
 
