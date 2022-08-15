@@ -1,4 +1,4 @@
 .todo-list {
-  background-color: yellowgreen;
+  background-color: var(--color-todo);
   flex-grow: 1;
 }

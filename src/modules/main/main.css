@@ -1,6 +1,4 @@
 .main {
-  background-color: var(--color-main);
-
   display: flex;
   flex-direction: row;
 }
