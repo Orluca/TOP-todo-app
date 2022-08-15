@@ -1,4 +1,5 @@
 import todoModalStyle from "./todo-modal.css";
+import todoItem from "../todo-list/todo-item/todo-item.js";
 
 // ----------------------- TITLE -----------------------
 function titleLabel() {
@@ -108,10 +109,16 @@ function priority() {
 }
 
 // ----------------------- CANCEL BUTTON -----------------------
+function closeModal() {
+  const modal = document.querySelector(".modal-background");
+  modal.classList.add("hidden");
+}
+
 function btnCancel() {
   const btnCancel = document.createElement("button");
   btnCancel.textContent = "Cancel";
   btnCancel.setAttribute("id", "btn-cancel");
+  btnCancel.addEventListener("click", closeModal);
 
   return btnCancel;
 }
@@ -133,7 +140,10 @@ function getData() {
 
 function handleConfirmBtn() {
   const data = getData();
-  console.log(data);
+
+  const todoList = document.querySelector(".todo-list");
+
+  todoList.appendChild(todoItem(data));
 }
 
 function btnConfirm() {

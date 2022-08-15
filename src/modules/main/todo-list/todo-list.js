@@ -21,8 +21,7 @@ function todoList() {
   todoList.classList.add("todo-list");
 
   todoList.appendChild(header());
-  todoList.appendChild(todoItem("Wash dishes"));
-  todoList.appendChild(todoItem("Walk the dog"));
+  todoList.appendChild(todoItem({ title: "Wash dishes", description: "Wahs dishes description", date: "24.4", priority: "medium" }));
   todoList.appendChild(newTodoBtn());
 
   return todoList;
