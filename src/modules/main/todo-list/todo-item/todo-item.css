@@ -14,3 +14,7 @@
 .todo-item-title {
   flex-grow: 1;
 }
+
+.todo-item-title:hover {
+  cursor: pointer;
+}

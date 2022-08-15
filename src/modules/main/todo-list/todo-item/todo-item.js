@@ -14,6 +14,11 @@ function title(val) {
   title.classList.add("todo-item-title");
   title.textContent = val;
 
+  title.addEventListener("click", function (e) {
+    const correspondingBottom = e.target.closest(".todo-item").querySelector(".todo-item-bottom");
+    correspondingBottom.classList.toggle("hidden");
+  });
+
   return title;
 }
 
@@ -79,7 +84,7 @@ function description() {
 function bottom() {
   const bottom = document.createElement("div");
   bottom.classList.add("todo-item-bottom");
-  //   bottom.classList.add("hidden");
+  bottom.classList.add("hidden");
 
   bottom.appendChild(description());
 
