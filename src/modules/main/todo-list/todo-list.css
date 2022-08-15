@@ -1,4 +1,16 @@
 .todo-list {
   background-color: var(--color-todo);
   flex-grow: 1;
+  padding: 2rem 5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.btn-new-todo {
+  border: 1px solid black;
+  width: 6rem;
+  align-self: center;
+  text-align: center;
+  margin: 4rem;
+  background-color: #fff;
 }
