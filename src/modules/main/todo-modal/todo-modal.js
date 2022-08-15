@@ -1,5 +1,6 @@
 import todoModalStyle from "./todo-modal.css";
 import todoItem from "../todo-list/todo-item/todo-item.js";
+import { updateTodos } from "../todo-list/todo-list.js";
 
 // ----------------------- TITLE -----------------------
 function titleLabel() {
@@ -144,6 +145,7 @@ function handleConfirmBtn() {
   const todoList = document.querySelector(".todo-list");
 
   todoList.appendChild(todoItem(data));
+  updateTodos(data);
 }
 
 function btnConfirm() {
