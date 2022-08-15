@@ -14,3 +14,8 @@
   margin: 4rem;
   background-color: #fff;
 }
+
+.btn-new-todo:hover {
+  cursor: pointer;
+  background-color: rgb(198, 255, 200);
+}
