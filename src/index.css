@@ -1,4 +1,9 @@
 /* GLOBALS */
+
+:root {
+  --color-header: rgb(160, 160, 160);
+}
+
 *,
 *::after,
 *::before {
