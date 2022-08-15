@@ -3,30 +3,7 @@
   width: 300px;
   height: 100%;
   padding: 2rem;
-}
-
-/* SIDEBAR BUTTONS */
-.sidebar-btn {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.5rem;
-  border-radius: 10px;
-  background-color: bisque;
-}
-
-.sidebar-btn:hover {
-  cursor: pointer;
-  background-color: white;
-}
-
-.sidebar-btn-left {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  column-gap: 0.5rem;
-}
-
-.sidebar-btn-icon {
-  width: 25px;
+  flex-direction: column;
+  row-gap: 1rem;
 }
