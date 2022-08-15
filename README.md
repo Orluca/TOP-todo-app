@@ -4,4 +4,4 @@
 
 ### icon credit:
 
-- FLATICON: freepik
+- FLATICON: freepik, DinosoftLabs
