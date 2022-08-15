@@ -62,7 +62,7 @@ function dateLabel() {
 
 function dateInput() {
   const dateInput = document.createElement("input");
-  dateInput.type = "date";
+  dateInput.type = "datetime-local";
   dateInput.setAttribute("id", "date-input");
 
   return dateInput;
@@ -90,9 +90,9 @@ function priorityInput() {
   const priorityInput = document.createElement("select");
   priorityInput.setAttribute("id", "priority-input");
   priorityInput.innerHTML = `
-    <option value="low">Low</option>
-    <option value="medium">Medium</option>
-    <option value="high">High</option>
+    <option value="low">🟢 Low</option>
+    <option value="medium">🟡 Medium</option>
+    <option value="high">🔴 High</option>
   `;
 
   return priorityInput;
@@ -117,10 +117,30 @@ function btnCancel() {
 }
 
 // ----------------------- CONFIRM BUTTON -----------------------
+function getData() {
+  const titleInput = document.querySelector("#title-input");
+  const descriptionInput = document.querySelector("#description-input");
+  const dateInput = document.querySelector("#date-input");
+  const priorityInput = document.querySelector("#priority-input");
+
+  const title = titleInput.value;
+  const description = descriptionInput.value;
+  const date = dateInput.value;
+  const priority = priorityInput.value;
+
+  return { title, description, date, priority };
+}
+
+function handleConfirmBtn() {
+  const data = getData();
+  console.log(data);
+}
+
 function btnConfirm() {
   const btnConfirm = document.createElement("button");
   btnConfirm.textContent = "Confirm";
   btnConfirm.setAttribute("id", "btn-confirm");
+  btnConfirm.addEventListener("click", handleConfirmBtn);
 
   return btnConfirm;
 }
