@@ -1,34 +1,5 @@
 import todoModalStyle from "./todo-modal.css";
 
-// function createInput(inputName, inputType) {
-//   function label() {
-//     const label = document.createElement("label");
-//     label.textContent = inputName.slice(0, 1).toUpperCase() + inputName.slice(1);
-//     label.htmlFor = `${inputName}-input`;
-
-//     return label;
-//   }
-
-//   function input() {
-//     const input = document.createElement("input");
-//     input.type = inputType;
-//     input.setAttribute("id", `${inputName}-input`);
-
-//     return input;
-//   }
-
-//   function container() {
-//     const container = document.createElement("div");
-
-//     container.appendChild(label());
-//     container.appendChild(input());
-
-//     return container;
-//   }
-
-//   return container();
-// }
-
 // ----------------------- TITLE -----------------------
 function titleLabel() {
   const titleLabel = document.createElement("label");
@@ -136,6 +107,24 @@ function priority() {
   return priority;
 }
 
+// ----------------------- CANCEL BUTTON -----------------------
+function btnCancel() {
+  const btnCancel = document.createElement("button");
+  btnCancel.textContent = "Cancel";
+  btnCancel.setAttribute("id", "btn-cancel");
+
+  return btnCancel;
+}
+
+// ----------------------- CONFIRM BUTTON -----------------------
+function btnConfirm() {
+  const btnConfirm = document.createElement("button");
+  btnConfirm.textContent = "Confirm";
+  btnConfirm.setAttribute("id", "btn-confirm");
+
+  return btnConfirm;
+}
+
 // ----------------------- WINDOW -----------------------
 function modalWindow() {
   const modalWindow = document.createElement("div");
@@ -145,9 +134,8 @@ function modalWindow() {
   modalWindow.appendChild(description());
   modalWindow.appendChild(date());
   modalWindow.appendChild(priority());
-  // modalWindow.appendChild(createInput("title", "text"));
-  // modalWindow.appendChild(createInput("description", "text"));
-  // modalWindow.appendChild(createInput("duedate", "date"));
+  modalWindow.appendChild(btnCancel());
+  modalWindow.appendChild(btnConfirm());
 
   return modalWindow;
 }
