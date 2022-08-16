@@ -1,4 +1,6 @@
 import MainStyle from "./Main.css";
+import Sidebar from "./Sidebar/Sidebar.js";
+import TodoList from "./TodoList/TodoList.js";
 
 const Main = (function () {
   let Main;
@@ -8,7 +10,10 @@ const Main = (function () {
     Main.classList.add("main");
   }
 
-  function addComponents() {}
+  function addComponents() {
+    Main.appendChild(Sidebar.get());
+    Main.appendChild(TodoList.get());
+  }
 
   function get() {
     return Main;
@@ -16,7 +21,7 @@ const Main = (function () {
 
   function init() {
     create();
-    // addComponents();
+    addComponents();
   }
 
   return { init, get };
