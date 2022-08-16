@@ -1,14 +1,23 @@
-// import indexStyle from "./index.css";
+import indexStyle from "./index.css";
 // import Header from "./modules/header/header.js";
 // import Footer from "./modules/footer/footer.js";
-// import Main from "./modules/main/main.js";
+import Main from "./modules/UI Components/main/Main.js";
+import Data from "./modules/Data.js";
 
-// function app() {
-//   const content = document.querySelector(".content");
+function buildUI() {
+  const content = document.querySelector(".content");
+  content.appendChild(Main());
+}
 
-//   content.appendChild(Header());
-//   content.appendChild(Main());
-//   content.appendChild(Footer());
-// }
+function initData() {
+  // const data = new Data();
+  // const localStorage = data.getFromLocalStorage();
+  // if (localStorage) data.setTodos(localStorage);
+}
 
-// app();
+function app() {
+  buildUI();
+  initData();
+}
+
+app();
