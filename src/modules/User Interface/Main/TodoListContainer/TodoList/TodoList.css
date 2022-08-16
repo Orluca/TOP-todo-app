@@ -1,0 +1,4 @@
+.todo-list {
+  background-color: blueviolet;
+  grid-area: 1 / 1 / 2 / 2;
+}

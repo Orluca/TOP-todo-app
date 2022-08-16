@@ -1,5 +1,6 @@
 import TodoListContainerStyle from "./TodoListContainer.css";
 import AddTodoModal from "./AddTodoModal/AddTodoModal.js";
+import TodoList from "./TodoList/TodoList";
 
 const TodoListContainer = (function () {
   let TodoListContainer;
@@ -10,8 +11,8 @@ const TodoListContainer = (function () {
   }
 
   function addComponents() {
-    console.log(AddTodoModal.get());
     TodoListContainer.appendChild(AddTodoModal.get());
+    TodoListContainer.appendChild(TodoList.get());
   }
 
   function get() {
