@@ -1,5 +1,5 @@
 import Data from "./modules/Data/Data.js";
-import UserInterface from "./modules/User Interface/UserInterface.js";
+import UserInterface from "./modules/UserInterface/UserInterface.js";
 
 function buildUI() {
   const content = document.querySelector(".content");

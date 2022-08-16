@@ -8,7 +8,9 @@ const AddTodoModal = (function () {
     AddTodoModal.classList.add("add-todo-modal-background");
   }
 
-  function addComponents() {}
+  function addComponents() {
+    AddTodoModal.appendChild(AddTodoModalComponents.modalWindow());
+  }
 
   function get() {
     return AddTodoModal;
@@ -16,10 +18,21 @@ const AddTodoModal = (function () {
 
   function init() {
     create();
-    // addComponents();
+    addComponents();
   }
 
   return { init, get };
+})();
+
+const AddTodoModalComponents = (function () {
+  function modalWindow() {
+    const modalWindow = document.createElement("div");
+    modalWindow.classList.add("add-todo-modal-window");
+
+    return modalWindow;
+  }
+
+  return { modalWindow };
 })();
 
 AddTodoModal.init();
