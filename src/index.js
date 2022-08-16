@@ -1,23 +1,18 @@
-import indexStyle from "./index.css";
-// import Header from "./modules/header/header.js";
-// import Footer from "./modules/footer/footer.js";
-import Main from "./modules/UI Components/main/Main.js";
-import Data from "./modules/Data.js";
+import Data from "./modules/Data/Data.js";
+import UserInterface from "./modules/User Interface/UserInterface.js";
 
 function buildUI() {
   const content = document.querySelector(".content");
-  content.appendChild(Main());
+  content.appendChild(UserInterface.get());
 }
 
 function initData() {
-  // const data = new Data();
-  // const localStorage = data.getFromLocalStorage();
-  // if (localStorage) data.setTodos(localStorage);
+  Data.init();
 }
 
-function app() {
+function startApp() {
   buildUI();
   initData();
 }
 
-app();
+startApp();
