@@ -15,12 +15,13 @@
 }
 
 html,
-body {
+body,
+.content {
   height: 100%;
   width: 100%;
 }
 
-.content {
+.user-interface {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1.5fr 30fr 1fr;

@@ -1,5 +1,7 @@
 import UserInterfaceStyle from "./UserInterface.css";
 import Main from "./Main/Main.js";
+import Footer from "./Footer/Footer.js";
+import Header from "./Header/Header.js";
 
 const UserInterface = (function () {
   let UserInterface;
@@ -10,7 +12,9 @@ const UserInterface = (function () {
   }
 
   function addComponents() {
+    UserInterface.appendChild(Header.get());
     UserInterface.appendChild(Main.get());
+    UserInterface.appendChild(Footer.get());
   }
 
   function get() {
