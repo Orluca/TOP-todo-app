@@ -1,9 +1,0 @@
-.sidebar {
-  background-color: var(--color-sidebar);
-  height: 100%;
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  row-gap: 1rem;
-  grid-area: 1 / 1 / 2 / 2;
-}
