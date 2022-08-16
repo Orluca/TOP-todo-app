@@ -1,4 +1,5 @@
 import HeaderStyle from "./Header.css";
+import Sidebar from "../Main/Sidebar/Sidebar";
 
 const Header = (function () {
   let Header;
@@ -8,7 +9,9 @@ const Header = (function () {
     Header.classList.add("header");
   }
 
-  function addComponents() {}
+  function addComponents() {
+    Header.appendChild(HeaderComponents.sidebarToggle());
+  }
 
   function get() {
     return Header;
@@ -16,10 +19,23 @@ const Header = (function () {
 
   function init() {
     create();
-    // addComponents();
+    addComponents();
   }
 
   return { init, get };
+})();
+
+const HeaderComponents = (function () {
+  function sidebarToggle() {
+    const sidebarToggle = document.createElement("button");
+    sidebarToggle.textContent = "Sidebar";
+
+    sidebarToggle.addEventListener("click", Sidebar.toggle);
+
+    return sidebarToggle;
+  }
+
+  return { sidebarToggle };
 })();
 
 Header.init();

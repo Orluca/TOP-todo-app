@@ -14,12 +14,8 @@ const Sidebar = (function () {
     return Sidebar;
   }
 
-  function hide() {
-    Sidebar.classList.add("hidden");
-  }
-
-  function show() {
-    Sidebar.classList.remove("hidden");
+  function toggle() {
+    Sidebar.classList.toggle("hidden");
   }
 
   function init() {
@@ -27,7 +23,7 @@ const Sidebar = (function () {
     // addComponents();
   }
 
-  return { init, get, hide, show };
+  return { init, get, toggle };
 })();
 
 Sidebar.init();
