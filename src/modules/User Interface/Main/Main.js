@@ -1,6 +1,6 @@
 import MainStyle from "./Main.css";
 import Sidebar from "./Sidebar/Sidebar.js";
-import TodoList from "./TodoList/TodoList.js";
+import TodoList from "./TodoList/TodoListContainer.js";
 
 const Main = (function () {
   let Main;

@@ -1,0 +1,5 @@
+.todo-list-container {
+  background-color: rgb(221, 206, 93);
+  flex-grow: 4;
+  display: flex;
+}

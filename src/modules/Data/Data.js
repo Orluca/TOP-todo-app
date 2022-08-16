@@ -28,7 +28,6 @@ const Data = (function () {
   function init() {
     const localStorage = getFromLocalStorage();
     if (localStorage) setTodos(localStorage);
-    console.log(todos);
   }
 
   return { init, setTodos, getTodos, addTodo, saveToLocalStorage, getFromLocalStorage, clearLocalStorage };
