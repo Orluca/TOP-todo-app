@@ -1,4 +1,6 @@
 import AddTodoModalStyle from "./AddTodoModal.css";
+import Data from "../../../../Data/Data.js";
+import Todo from "../../../../Data/Todo.js";
 
 const AddTodoModal = (function () {
   let AddTodoModal;
@@ -40,7 +42,6 @@ const ModalWindow = (function () {
 
   function inputTitle() {
     const inputTitle = document.createElement("div");
-    // inputTitle.setAttribute("id", "title-input");
 
     inputTitle.innerHTML = `
       <label for="title-input">Title:</label>
@@ -52,7 +53,6 @@ const ModalWindow = (function () {
 
   function inputDescription() {
     const inputDescription = document.createElement("div");
-    // inputDescription.setAttribute("id", "description-input");
 
     inputDescription.innerHTML = `
       <label for="description-input">Description:</label>
@@ -64,7 +64,6 @@ const ModalWindow = (function () {
 
   function inputDate() {
     const inputDate = document.createElement("div");
-    // inputDate.setAttribute("id", "date-input");
 
     inputDate.innerHTML = `
       <label for="date-input">Date:</label>
@@ -87,28 +86,28 @@ const ModalWindow = (function () {
     return inputPriority;
   }
 
+  // --------------------- CONFIRM BUTTON ---------------------
+
   function confirmBtn() {
     const confirmBtn = document.createElement("button");
     confirmBtn.textContent = "Confirm";
-    confirmBtn.addEventListener("click", function () {
-      console.log(getData());
-    });
+    confirmBtn.addEventListener("click", handleConfirmBtn);
 
     return confirmBtn;
   }
 
+  function handleConfirmBtn() {
+    const todo = new Todo(getData());
+    Data.addTodo(todo);
+  }
+
   function getData() {
-    const titleInput = document.querySelector("#title-input");
-    const descriptionInput = document.querySelector("#description-input");
-    const dateInput = document.querySelector("#date-input");
-    const priorityInput = document.querySelector("#priority-input");
+    const title = document.querySelector("#title-input").value;
+    const description = document.querySelector("#description-input").value;
+    const dueDate = document.querySelector("#date-input").value;
+    const priority = document.querySelector("#priority-input").value;
 
-    const title = titleInput.value;
-    const description = descriptionInput.value;
-    const date = dateInput.value;
-    const priority = priorityInput.value;
-
-    return { title, description, date, priority };
+    return { title, description, dueDate, priority };
   }
 
   return { get };

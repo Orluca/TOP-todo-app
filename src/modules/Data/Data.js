@@ -11,6 +11,7 @@ const Data = (function () {
 
   function addTodo(data) {
     todos.push(data);
+    console.log(todos);
   }
 
   function saveToLocalStorage() {
