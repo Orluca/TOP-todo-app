@@ -9,7 +9,7 @@ const AddTodoModal = (function () {
   }
 
   function addComponents() {
-    AddTodoModal.appendChild(AddTodoModalComponents.modalWindow());
+    AddTodoModal.appendChild(ModalWindow.get());
   }
 
   function get() {
@@ -24,8 +24,8 @@ const AddTodoModal = (function () {
   return { init, get };
 })();
 
-const AddTodoModalComponents = (function () {
-  function modalWindow() {
+const ModalWindow = (function () {
+  function get() {
     const modalWindow = document.createElement("div");
     modalWindow.classList.add("add-todo-modal-window");
 
@@ -33,12 +33,14 @@ const AddTodoModalComponents = (function () {
     modalWindow.appendChild(inputDescription());
     modalWindow.appendChild(inputDate());
     modalWindow.appendChild(inputPriority());
+    modalWindow.appendChild(confirmBtn());
 
     return modalWindow;
   }
 
   function inputTitle() {
     const inputTitle = document.createElement("div");
+    // inputTitle.setAttribute("id", "title-input");
 
     inputTitle.innerHTML = `
       <label for="title-input">Title:</label>
@@ -50,6 +52,7 @@ const AddTodoModalComponents = (function () {
 
   function inputDescription() {
     const inputDescription = document.createElement("div");
+    // inputDescription.setAttribute("id", "description-input");
 
     inputDescription.innerHTML = `
       <label for="description-input">Description:</label>
@@ -61,6 +64,7 @@ const AddTodoModalComponents = (function () {
 
   function inputDate() {
     const inputDate = document.createElement("div");
+    // inputDate.setAttribute("id", "date-input");
 
     inputDate.innerHTML = `
       <label for="date-input">Date:</label>
@@ -72,6 +76,7 @@ const AddTodoModalComponents = (function () {
 
   function inputPriority() {
     const inputPriority = document.createElement("select");
+    inputPriority.setAttribute("id", "priority-input");
 
     inputPriority.innerHTML = `
       <option value="low">🟢 Low</option>
@@ -82,7 +87,31 @@ const AddTodoModalComponents = (function () {
     return inputPriority;
   }
 
-  return { modalWindow };
+  function confirmBtn() {
+    const confirmBtn = document.createElement("button");
+    confirmBtn.textContent = "Confirm";
+    confirmBtn.addEventListener("click", function () {
+      console.log(getData());
+    });
+
+    return confirmBtn;
+  }
+
+  function getData() {
+    const titleInput = document.querySelector("#title-input");
+    const descriptionInput = document.querySelector("#description-input");
+    const dateInput = document.querySelector("#date-input");
+    const priorityInput = document.querySelector("#priority-input");
+
+    const title = titleInput.value;
+    const description = descriptionInput.value;
+    const date = dateInput.value;
+    const priority = priorityInput.value;
+
+    return { title, description, date, priority };
+  }
+
+  return { get };
 })();
 
 AddTodoModal.init();
