@@ -2,3 +2,14 @@
   background-color: blueviolet;
   grid-area: 1 / 1 / 2 / 2;
 }
+
+.add-todo-btn {
+  background-color: gold;
+  position: fixed;
+  bottom: 5%;
+  right: 2%;
+  border-radius: 50%;
+  border: 1px solid black;
+  height: 50px;
+  width: 50px;
+}

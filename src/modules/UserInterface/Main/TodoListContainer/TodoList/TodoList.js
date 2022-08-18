@@ -22,6 +22,7 @@ const TodoList = (function () {
 
   function ButtonAddTodo() {
     const ButtonAddTodo = document.createElement("button");
+    ButtonAddTodo.classList.add("add-todo-btn");
     ButtonAddTodo.textContent = "Add Todo";
 
     return ButtonAddTodo;
@@ -61,31 +62,6 @@ const TodoList = (function () {
 
   return { init, get, update };
 })();
-
-// const TodoListComponents = (function () {
-//   function Header() {
-//     const Header = document.createElement("h2");
-//     Header.textContent = "Header Placeholder";
-
-//     return Header;
-//   }
-
-//   function Todos() {
-//     const Todos = document.createElement("div");
-//     Todos.classList.add("todos");
-
-//     return Todos;
-//   }
-
-//   function ButtonAddTodo() {
-//     const ButtonAddTodo = document.createElement("button");
-//     ButtonAddTodo.textContent = "Add Todo";
-
-//     return ButtonAddTodo;
-//   }
-
-//   return { Header, Todos, ButtonAddTodo };
-// })();
 
 TodoList.init();
 

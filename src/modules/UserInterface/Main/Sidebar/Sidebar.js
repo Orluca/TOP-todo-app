@@ -1,13 +1,31 @@
 import SidebarStyle from "./Sidebar.css";
+import iconToday from "./assets/icon-today.svg";
 
 const Sidebar = (function () {
   let Sidebar;
 
-  function temp() {
-    const temp = document.createElement("div");
-    temp.textContent = "This Week";
+  function TodaysTodos() {
+    const TodaysTodos = document.createElement("div");
+    TodaysTodos.classList.add("sidebar-button");
 
-    return temp;
+    const leftContainer = document.createElement("div");
+    leftContainer.classList.add("sidebar-button-left");
+    const icon = document.createElement("img");
+    icon.src = iconToday;
+    icon.classList.add("sidebar-icon");
+    const name = document.createElement("div");
+    name.textContent = "Today";
+    leftContainer.appendChild(icon);
+    leftContainer.appendChild(name);
+
+    const counter = document.createElement("div");
+    counter.classList.add("today-count");
+    counter.textContent = "0";
+
+    TodaysTodos.appendChild(leftContainer);
+    TodaysTodos.appendChild(counter);
+
+    return TodaysTodos;
   }
 
   function create() {
@@ -16,7 +34,7 @@ const Sidebar = (function () {
   }
 
   function addComponents() {
-    Sidebar.appendChild(temp());
+    Sidebar.appendChild(TodaysTodos());
   }
 
   function get() {

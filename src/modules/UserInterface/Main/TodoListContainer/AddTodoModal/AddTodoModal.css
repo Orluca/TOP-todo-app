@@ -10,8 +10,8 @@
 
 .add-todo-modal-window {
   background-color: aliceblue;
-  height: 50%;
-  width: 75%;
+  height: 300px;
+  width: 500px;
   position: fixed;
   top: 25%;
 }
