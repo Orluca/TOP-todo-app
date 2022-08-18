@@ -5,10 +5,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 .add-todo-modal-window {
   background-color: aliceblue;
   height: 50%;
   width: 75%;
+  position: fixed;
+  top: 25%;
 }

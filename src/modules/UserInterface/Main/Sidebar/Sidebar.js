@@ -3,12 +3,21 @@ import SidebarStyle from "./Sidebar.css";
 const Sidebar = (function () {
   let Sidebar;
 
+  function temp() {
+    const temp = document.createElement("div");
+    temp.textContent = "This Week";
+
+    return temp;
+  }
+
   function create() {
     Sidebar = document.createElement("div");
     Sidebar.classList.add("sidebar");
   }
 
-  function addComponents() {}
+  function addComponents() {
+    Sidebar.appendChild(temp());
+  }
 
   function get() {
     return Sidebar;
@@ -20,7 +29,7 @@ const Sidebar = (function () {
 
   function init() {
     create();
-    // addComponents();
+    addComponents();
   }
 
   return { init, get, toggle };
