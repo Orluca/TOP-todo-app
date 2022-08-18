@@ -1,12 +1,14 @@
 import SidebarStyle from "./Sidebar.css";
 import iconToday from "./assets/icon-today.svg";
+import TodoList from "../TodoListContainer/TodoList/TodoList.js";
 
 const Sidebar = (function () {
   let Sidebar;
+  let todayBtn;
 
-  function TodaysTodos() {
-    const TodaysTodos = document.createElement("div");
-    TodaysTodos.classList.add("sidebar-button");
+  function TodayBtn() {
+    todayBtn = document.createElement("div");
+    todayBtn.classList.add("sidebar-button");
 
     const leftContainer = document.createElement("div");
     leftContainer.classList.add("sidebar-button-left");
@@ -22,10 +24,17 @@ const Sidebar = (function () {
     counter.classList.add("today-count");
     counter.textContent = "0";
 
-    TodaysTodos.appendChild(leftContainer);
-    TodaysTodos.appendChild(counter);
+    todayBtn.appendChild(leftContainer);
+    todayBtn.appendChild(counter);
 
-    return TodaysTodos;
+    todayBtn.addEventListener("click", handleTodayClicks);
+
+    return todayBtn;
+  }
+
+  function handleTodayClicks() {
+    console.log("CLICKY");
+    TodoList.showToday();
   }
 
   function create() {
@@ -34,7 +43,7 @@ const Sidebar = (function () {
   }
 
   function addComponents() {
-    Sidebar.appendChild(TodaysTodos());
+    Sidebar.appendChild(TodayBtn());
   }
 
   function get() {

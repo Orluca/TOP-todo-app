@@ -38,20 +38,6 @@ const TodoItem = function ({ title: titleVal, description: descriptionVal, dueDa
     return priority;
   }
 
-  // function create(titleVal, descriptionVal, dueDateVal, priorityVal) {
-  //   console.log("TEST");
-  //   const TodoItem = document.createElement("div");
-  //   TodoItem.classList.add("todo-item");
-
-  //   TodoItem.appendChild(title(titleVal));
-  //   TodoItem.appendChild(description(descriptionVal));
-  //   TodoItem.appendChild(dueDate(dueDateVal));
-  //   TodoItem.appendChild(priority(priorityVal));
-
-  //   return TodoItem;
-  // }
-
-  console.log("TEST");
   const TodoItem = document.createElement("div");
   TodoItem.classList.add("todo-item");
 
