@@ -43,7 +43,9 @@ const TodoList = (function () {
   }
 
   function update() {
+    TodosContainer.innerHTML = "";
     const data = Data.getTodos();
+    console.log(data);
     data.forEach((todoData) => {
       const todoItem = TodoItem(todoData);
       TodosContainer.appendChild(todoItem);
@@ -53,6 +55,8 @@ const TodoList = (function () {
   function init() {
     create();
     addComponents();
+    Data.init();
+    update();
   }
 
   return { init, get, update };

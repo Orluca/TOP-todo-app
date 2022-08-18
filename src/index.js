@@ -11,8 +11,8 @@ function initData() {
 }
 
 function startApp() {
-  buildUI();
   initData();
+  buildUI();
 }
 
 startApp();

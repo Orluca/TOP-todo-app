@@ -1,5 +1,5 @@
 .sidebar {
   background-color: rgb(189, 87, 87);
-
   flex-grow: 1;
+  /* position: fixed; */
 }
