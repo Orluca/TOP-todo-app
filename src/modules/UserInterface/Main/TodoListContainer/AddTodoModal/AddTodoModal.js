@@ -31,6 +31,7 @@ const ModalWindow = (function () {
     const modalWindow = document.createElement("div");
     modalWindow.classList.add("add-todo-modal-window");
 
+    modalWindow.appendChild(header());
     modalWindow.appendChild(inputTitle());
     modalWindow.appendChild(inputDescription());
     modalWindow.appendChild(inputDate());
@@ -38,6 +39,19 @@ const ModalWindow = (function () {
     modalWindow.appendChild(confirmBtn());
 
     return modalWindow;
+  }
+
+  function header() {
+    const headerContainer = document.createElement("div");
+    const header = document.createElement("h2");
+    const hr = document.createElement("hr");
+
+    header.textContent = "New Todo";
+
+    headerContainer.appendChild(header);
+    headerContainer.appendChild(hr);
+
+    return headerContainer;
   }
 
   function inputTitle() {

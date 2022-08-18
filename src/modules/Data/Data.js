@@ -12,7 +12,7 @@ const Data = (function () {
   function addTodo(data) {
     todos.push(data);
     console.log(todos);
-    saveToLocalStorage(); // Automatic save after every new todo is added, good idea?!
+    saveToLocalStorage(); // Automatic save after a new todo is added, good idea?!
   }
 
   function saveToLocalStorage() {
