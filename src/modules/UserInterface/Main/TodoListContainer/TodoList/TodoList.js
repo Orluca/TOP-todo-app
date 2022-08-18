@@ -1,32 +1,11 @@
 import TodoListStyle from "./TodoList.css";
+import Data from "../../../../Data/Data.js";
+import TodoItem from "./TodoItem/TodoItem.js";
 
 const TodoList = (function () {
   let TodoList;
+  let TodosContainer;
 
-  function create() {
-    TodoList = document.createElement("div");
-    TodoList.classList.add("todo-list");
-  }
-
-  function addComponents() {
-    TodoList.appendChild(TodoListComponents.Header());
-    TodoList.appendChild(TodoListComponents.Todos());
-    TodoList.appendChild(TodoListComponents.ButtonAddTodo());
-  }
-
-  function get() {
-    return TodoList;
-  }
-
-  function init() {
-    create();
-    addComponents();
-  }
-
-  return { init, get };
-})();
-
-const TodoListComponents = (function () {
   function Header() {
     const Header = document.createElement("h2");
     Header.textContent = "Header Placeholder";
@@ -35,10 +14,10 @@ const TodoListComponents = (function () {
   }
 
   function Todos() {
-    const Todos = document.createElement("div");
-    Todos.classList.add("todos");
+    TodosContainer = document.createElement("div");
+    TodosContainer.classList.add("todos");
 
-    return Todos;
+    return TodosContainer;
   }
 
   function ButtonAddTodo() {
@@ -48,8 +27,61 @@ const TodoListComponents = (function () {
     return ButtonAddTodo;
   }
 
-  return { Header, Todos, ButtonAddTodo };
+  function create() {
+    TodoList = document.createElement("div");
+    TodoList.classList.add("todo-list");
+  }
+
+  function addComponents() {
+    TodoList.appendChild(Header());
+    TodoList.appendChild(Todos());
+    TodoList.appendChild(ButtonAddTodo());
+  }
+
+  function get() {
+    return TodoList;
+  }
+
+  function update() {
+    const data = Data.getTodos();
+    data.forEach((todoData) => {
+      const todoItem = TodoItem(todoData);
+      TodosContainer.appendChild(todoItem);
+    });
+  }
+
+  function init() {
+    create();
+    addComponents();
+  }
+
+  return { init, get, update };
 })();
+
+// const TodoListComponents = (function () {
+//   function Header() {
+//     const Header = document.createElement("h2");
+//     Header.textContent = "Header Placeholder";
+
+//     return Header;
+//   }
+
+//   function Todos() {
+//     const Todos = document.createElement("div");
+//     Todos.classList.add("todos");
+
+//     return Todos;
+//   }
+
+//   function ButtonAddTodo() {
+//     const ButtonAddTodo = document.createElement("button");
+//     ButtonAddTodo.textContent = "Add Todo";
+
+//     return ButtonAddTodo;
+//   }
+
+//   return { Header, Todos, ButtonAddTodo };
+// })();
 
 TodoList.init();
 

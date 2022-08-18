@@ -1,6 +1,8 @@
 import AddTodoModalStyle from "./AddTodoModal.css";
 import Data from "../../../../Data/Data.js";
 import Todo from "../../../../Data/Todo.js";
+import TodoItem from "../TodoList/TodoItem/TodoItem.js";
+import TodoList from "../TodoList/TodoList";
 
 const AddTodoModal = (function () {
   let AddTodoModal;
@@ -113,6 +115,10 @@ const ModalWindow = (function () {
   function handleConfirmBtn() {
     const todo = new Todo(getData());
     Data.addTodo(todo);
+    // const test = TodoItem("Walk dog", "walky doggy", "12.15", "low");
+    // console.log(test);
+    // console.log(TodoItem);
+    TodoList.update();
   }
 
   function getData() {
