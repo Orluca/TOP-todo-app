@@ -23,7 +23,7 @@ const Sidebar = (function () {
 
     const counter = document.createElement("div");
     counter.classList.add("today-count");
-    counter.textContent = "0";
+    counter.textContent = Data.getAmountOfTasksToday();
 
     todayBtn.appendChild(leftContainer);
     todayBtn.appendChild(counter);
@@ -36,6 +36,11 @@ const Sidebar = (function () {
   function handleTodayClicks() {
     TodoList.showToday();
     console.log(Data.getAmountOfTasksToday());
+  }
+
+  function updateTaskAmounts() {
+    const todayCount = document.querySelector(".today-count");
+    todayCount.textContent = Data.getAmountOfTasksToday();
   }
 
   function create() {
@@ -60,7 +65,7 @@ const Sidebar = (function () {
     addComponents();
   }
 
-  return { init, get, toggle };
+  return { init, get, toggle, updateTaskAmounts };
 })();
 
 Sidebar.init();

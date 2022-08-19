@@ -1,8 +1,8 @@
 import AddTodoModalStyle from "./AddTodoModal.css";
 import Data from "../../../../Data/Data.js";
 import Todo from "../../../../Data/Todo.js";
-import TodoItem from "../TodoList/TodoItem/TodoItem.js";
-import TodoList from "../TodoList/TodoList";
+import TodoList from "../TodoList/TodoList.js";
+import Sidebar from "../../Sidebar/Sidebar.js";
 
 const AddTodoModal = (function () {
   let AddTodoModal;
@@ -116,6 +116,7 @@ const ModalWindow = (function () {
     const todo = new Todo(getData());
     Data.addTodo(todo);
     TodoList.update();
+    Sidebar.updateTaskAmounts();
   }
 
   function getData() {
