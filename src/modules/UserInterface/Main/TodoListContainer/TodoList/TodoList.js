@@ -1,7 +1,7 @@
 import TodoListStyle from "./TodoList.css";
 import Data from "../../../../Data/Data.js";
 import TodoItem from "./TodoItem/TodoItem.js";
-import { format, parseISO } from "date-fns";
+import { format, parseISO, isSameWeek } from "date-fns";
 
 const TodoList = (function () {
   let TodoList;
@@ -68,16 +68,14 @@ const TodoList = (function () {
   }
 
   function showThisWeek() {
-    // TodosContainer.innerHTML = "";
-    // const data = Data.getTodos();
-    // data.forEach((todoData) => {
-    //   if (!todoData.dueDate) return;
-    //   const todoDate = format(parseISO(todoData.dueDate), "MM/dd/yyyy");
-    //   const todaysDate = format(new Date(), "MM/dd/yyyy");
-    //   if (todoDate !== todaysDate) return;
-    //   const todoItem = TodoItem(todoData);
-    //   TodosContainer.appendChild(todoItem);
-    // });
+    TodosContainer.innerHTML = "";
+    const data = Data.getTodos();
+    data.forEach((todoData) => {
+      if (!todoData.dueDate) return;
+      if (!isSameWeek(new Date(), parseISO(todoData.dueDate), { weekStartsOn: 1 })) return;
+      const todoItem = TodoItem(todoData);
+      TodosContainer.appendChild(todoItem);
+    });
   }
 
   function init() {

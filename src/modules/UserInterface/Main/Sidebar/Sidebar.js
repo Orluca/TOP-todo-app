@@ -63,12 +63,10 @@ const Sidebar = (function () {
 
   function handleTodayClicks() {
     TodoList.showToday();
-    console.log(Data.getAmountOfTasksToday());
   }
 
   function handleWeekClicks() {
     TodoList.showThisWeek();
-    console.log(Data.getAmountOfTasksThisWeek());
   }
 
   function updateTaskAmounts() {
