@@ -1,3 +1,5 @@
+import { format, parseISO } from "date-fns";
+
 const Data = (function () {
   let todos = [];
 
@@ -27,12 +29,25 @@ const Data = (function () {
     localStorage.removeItem("todos");
   }
 
+  function getAmountOfTasksToday() {
+    let amount = 0;
+    todos.forEach((todoData) => {
+      if (!todoData.dueDate) return;
+      const todoDate = format(parseISO(todoData.dueDate), "MM/dd/yyyy");
+      const todaysDate = format(new Date(), "MM/dd/yyyy");
+      if (todoDate !== todaysDate) return;
+
+      amount++;
+    });
+    return amount;
+  }
+
   function init() {
     const localStorage = getFromLocalStorage();
     if (localStorage) setTodos(localStorage);
   }
 
-  return { init, setTodos, getTodos, addTodo, saveToLocalStorage, getFromLocalStorage, clearLocalStorage };
+  return { init, setTodos, getTodos, addTodo, saveToLocalStorage, getFromLocalStorage, clearLocalStorage, getAmountOfTasksToday };
 })();
 
 export default Data;

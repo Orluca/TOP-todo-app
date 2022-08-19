@@ -1,6 +1,7 @@
 import SidebarStyle from "./Sidebar.css";
 import iconToday from "./assets/icon-today.svg";
 import TodoList from "../TodoListContainer/TodoList/TodoList.js";
+import Data from "../../../Data/Data.js";
 
 const Sidebar = (function () {
   let Sidebar;
@@ -33,8 +34,8 @@ const Sidebar = (function () {
   }
 
   function handleTodayClicks() {
-    console.log("CLICKY");
     TodoList.showToday();
+    console.log(Data.getAmountOfTasksToday());
   }
 
   function create() {

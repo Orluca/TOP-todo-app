@@ -82,7 +82,7 @@ const ModalWindow = (function () {
     const inputDate = document.createElement("div");
 
     inputDate.innerHTML = `
-      <label for="date-input">Date:</label>
+      <label for="date-input">Date <em>(optional)</em>:</label>
       <input type="datetime-local" id="date-input"/>
     `;
 
