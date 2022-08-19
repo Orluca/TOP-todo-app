@@ -1,4 +1,4 @@
-import { format, parseISO } from "date-fns";
+import { format, parseISO, isSameWeek } from "date-fns";
 
 const Data = (function () {
   let todos = [];
@@ -13,7 +13,6 @@ const Data = (function () {
 
   function addTodo(data) {
     todos.push(data);
-    console.log(todos);
     saveToLocalStorage(); // Automatic save after a new todo is added, good idea?!
   }
 
@@ -42,12 +41,25 @@ const Data = (function () {
     return amount;
   }
 
+  function getAmountOfTasksThisWeek() {
+    let amount = 0;
+    todos.forEach((todoData) => {
+      if (!todoData.dueDate) return;
+      // const todoDate = format(parseISO(todoData.dueDate), "MM/dd/yyyy");
+      // const todaysDate = format(new Date(), "MM/dd/yyyy");
+      if (!isSameWeek(new Date(), parseISO(todoData.dueDate), { weekStartsOn: 1 })) return;
+
+      amount++;
+    });
+    return amount;
+  }
+
   function init() {
     const localStorage = getFromLocalStorage();
     if (localStorage) setTodos(localStorage);
   }
 
-  return { init, setTodos, getTodos, addTodo, saveToLocalStorage, getFromLocalStorage, clearLocalStorage, getAmountOfTasksToday };
+  return { init, setTodos, getTodos, addTodo, saveToLocalStorage, getFromLocalStorage, clearLocalStorage, getAmountOfTasksToday, getAmountOfTasksThisWeek };
 })();
 
 export default Data;

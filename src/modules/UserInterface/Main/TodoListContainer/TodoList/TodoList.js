@@ -67,6 +67,19 @@ const TodoList = (function () {
     });
   }
 
+  function showThisWeek() {
+    // TodosContainer.innerHTML = "";
+    // const data = Data.getTodos();
+    // data.forEach((todoData) => {
+    //   if (!todoData.dueDate) return;
+    //   const todoDate = format(parseISO(todoData.dueDate), "MM/dd/yyyy");
+    //   const todaysDate = format(new Date(), "MM/dd/yyyy");
+    //   if (todoDate !== todaysDate) return;
+    //   const todoItem = TodoItem(todoData);
+    //   TodosContainer.appendChild(todoItem);
+    // });
+  }
+
   function init() {
     create();
     addComponents();
@@ -74,7 +87,7 @@ const TodoList = (function () {
     update();
   }
 
-  return { init, get, update, showToday };
+  return { init, get, update, showToday, showThisWeek };
 })();
 
 TodoList.init();
