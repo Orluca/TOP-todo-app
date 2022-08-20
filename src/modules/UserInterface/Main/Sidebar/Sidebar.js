@@ -148,9 +148,21 @@ const Sidebar = (function () {
     Sidebar.classList.toggle("hidden");
   }
 
+  function updateProjectButtons() {
+    const projects = Data.getProjects();
+    if (!projects) return;
+
+    projects.forEach((projectName) => {
+      const projectBtn = document.createElement("div");
+      projectBtn.textContent = projectName;
+      Sidebar.appendChild(projectBtn);
+    });
+  }
+
   function init() {
     create();
     addComponents();
+    updateProjectButtons();
   }
 
   return { init, get, toggle, updateTaskAmounts };
