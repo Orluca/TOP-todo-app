@@ -12,6 +12,7 @@ const Sidebar = (function () {
   function TodayBtn() {
     todayBtn = document.createElement("div");
     todayBtn.classList.add("sidebar-button");
+    todayBtn.classList.add("today-btn");
 
     const leftContainer = document.createElement("div");
     leftContainer.classList.add("sidebar-button-left");
@@ -38,6 +39,7 @@ const Sidebar = (function () {
   function WeekBtn() {
     weekBtn = document.createElement("div");
     weekBtn.classList.add("sidebar-button");
+    weekBtn.classList.add("week-btn");
 
     const leftContainer = document.createElement("div");
     leftContainer.classList.add("sidebar-button-left");
@@ -61,12 +63,20 @@ const Sidebar = (function () {
     return weekBtn;
   }
 
-  function handleTodayClicks() {
-    TodoList.showToday();
+  function handleTodayClicks(e) {
+    const todayBtn = e.target.closest(".today-btn");
+    const weekBtn = document.querySelector(".week-btn");
+    todayBtn.classList.toggle("clicked");
+    todayBtn.classList.contains("clicked") ? TodoList.showToday() : TodoList.showAll();
+    weekBtn.classList.remove("clicked");
   }
 
-  function handleWeekClicks() {
-    TodoList.showThisWeek();
+  function handleWeekClicks(e) {
+    const weekBtn = e.target.closest(".week-btn");
+    const todayBtn = document.querySelector(".today-btn");
+    weekBtn.classList.toggle("clicked");
+    weekBtn.classList.contains("clicked") ? TodoList.showThisWeek() : TodoList.showAll();
+    todayBtn.classList.remove("clicked");
   }
 
   function updateTaskAmounts() {

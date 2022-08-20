@@ -115,7 +115,7 @@ const ModalWindow = (function () {
   function handleConfirmBtn() {
     const todo = new Todo(getData());
     Data.addTodo(todo);
-    TodoList.update();
+    TodoList.showAll();
     Sidebar.updateTaskAmounts();
   }
 

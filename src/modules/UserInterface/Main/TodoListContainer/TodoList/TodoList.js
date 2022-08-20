@@ -44,7 +44,7 @@ const TodoList = (function () {
     return TodoList;
   }
 
-  function update() {
+  function showAll() {
     TodosContainer.innerHTML = "";
     const data = Data.getTodos();
     data.forEach((todoData) => {
@@ -82,10 +82,10 @@ const TodoList = (function () {
     create();
     addComponents();
     Data.init();
-    update();
+    showAll();
   }
 
-  return { init, get, update, showToday, showThisWeek };
+  return { init, get, showAll, showToday, showThisWeek };
 })();
 
 TodoList.init();
