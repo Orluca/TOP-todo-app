@@ -152,6 +152,7 @@ const ModalWindow = (function () {
     Data.addTodo(todo);
     TodoList.showAll();
     Sidebar.updateTaskAmounts();
+    console.log(Data.getTodos());
   }
 
   function getData() {
@@ -159,8 +160,9 @@ const ModalWindow = (function () {
     const description = document.querySelector("#description-input").value;
     const dueDate = document.querySelector("#date-input").value;
     const priority = document.querySelector("#priority-input").value;
+    const project = document.querySelector("#project-input").value;
 
-    return { title, description, dueDate, priority };
+    return { title, description, dueDate, priority, project };
   }
 
   return { get, updateProjectInputs, addProjectInput };
