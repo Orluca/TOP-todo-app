@@ -58,6 +58,16 @@ const Data = (function () {
     return amount;
   }
 
+  function getProjectCount(projectName) {
+    let amount = 0;
+    todos.forEach((todoData) => {
+      if (todoData.project !== projectName) return;
+
+      amount++;
+    });
+    return amount;
+  }
+
   function addProject(project) {
     projects.push(project);
   }
@@ -78,7 +88,7 @@ const Data = (function () {
     if (storedProjects) setProjects(storedProjects);
   }
 
-  return { init, setTodos, getTodos, addTodo, saveToLocalStorage, clearLocalStorage, getAmountOfTasksToday, getAmountOfTasksThisWeek, addProject, getProjects };
+  return { init, setTodos, getTodos, addTodo, saveToLocalStorage, clearLocalStorage, getAmountOfTasksToday, getAmountOfTasksThisWeek, addProject, getProjects, getProjectCount };
 })();
 
 export default Data;

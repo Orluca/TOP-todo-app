@@ -11,6 +11,7 @@ const Sidebar = (function () {
   let Sidebar;
   let todayBtn;
   let weekBtn;
+  let projectButtons;
 
   function TodayBtn() {
     todayBtn = document.createElement("div");
@@ -73,6 +74,13 @@ const Sidebar = (function () {
     return projectsHeader;
   }
 
+  function ProjectButtons() {
+    projectButtons = document.createElement("div");
+    projectButtons.classList.add("project-buttons");
+
+    return projectButtons;
+  }
+
   function NewProjectButton() {
     const newProjectButton = document.createElement("div");
     newProjectButton.classList.add("sidebar-button");
@@ -117,12 +125,19 @@ const Sidebar = (function () {
     CreateProjectBtn(name);
   }
 
-  function CreateProjectBtn(name) {
+  function CreateProjectBtn(projectName) {
     const projectBtn = document.createElement("div");
-    projectBtn.textContent = name;
     projectBtn.classList.add("project-btn");
+    projectBtn.classList.add(`${projectName.toLowerCase()}-button`);
+    const projectBtnName = document.createElement("div");
+    projectBtnName.textContent = projectName;
+    const projectBtnCount = document.createElement("div");
+    projectBtnCount.textContent = Data.getProjectCount(projectName);
+    projectBtnCount.classList.add(`${projectName.toLowerCase()}-counter`);
+    projectBtn.appendChild(projectBtnName);
+    projectBtn.appendChild(projectBtnCount);
 
-    Sidebar.appendChild(projectBtn);
+    projectButtons.appendChild(projectBtn);
   }
 
   function updateTaskAmounts() {
@@ -141,6 +156,7 @@ const Sidebar = (function () {
     Sidebar.appendChild(TodayBtn());
     Sidebar.appendChild(WeekBtn());
     Sidebar.appendChild(ProjectsHeader());
+    Sidebar.appendChild(ProjectButtons());
     Sidebar.appendChild(NewProjectButton());
   }
 
@@ -156,6 +172,8 @@ const Sidebar = (function () {
     const projects = Data.getProjects();
     if (!projects) return;
 
+    projectButtons.innerHTML = "";
+
     projects.forEach((projectName) => {
       const projectBtn = document.createElement("div");
       projectBtn.classList.add("project-btn");
@@ -163,12 +181,12 @@ const Sidebar = (function () {
       const projectBtnName = document.createElement("div");
       projectBtnName.textContent = projectName;
       const projectBtnCount = document.createElement("div");
-      projectBtnCount.textContent = 0;
+      projectBtnCount.textContent = Data.getProjectCount(projectName);
       projectBtnCount.classList.add(`${projectName.toLowerCase()}-counter`);
 
       projectBtn.appendChild(projectBtnName);
       projectBtn.appendChild(projectBtnCount);
-      Sidebar.appendChild(projectBtn);
+      projectButtons.appendChild(projectBtn);
     });
   }
 
@@ -178,7 +196,7 @@ const Sidebar = (function () {
     updateProjectButtons();
   }
 
-  return { init, get, toggle, updateTaskAmounts };
+  return { init, get, toggle, updateTaskAmounts, updateProjectButtons };
 })();
 
 Sidebar.init();

@@ -152,7 +152,7 @@ const ModalWindow = (function () {
     Data.addTodo(todo);
     TodoList.showAll();
     Sidebar.updateTaskAmounts();
-    console.log(Data.getTodos());
+    Sidebar.updateProjectButtons();
   }
 
   function getData() {
