@@ -1,6 +1,7 @@
 import SidebarStyle from "./Sidebar.css";
 import iconToday from "./assets/icon-today.svg";
 import iconWeek from "./assets/icon-week.svg";
+import iconPlus from "./assets/icon-plus.svg";
 import TodoList from "../TodoListContainer/TodoList/TodoList.js";
 import Data from "../../../Data/Data.js";
 
@@ -63,6 +64,30 @@ const Sidebar = (function () {
     return weekBtn;
   }
 
+  function ProjectsHeader() {
+    const projectsHeader = document.createElement("h3");
+    projectsHeader.textContent = "Projects";
+
+    return projectsHeader;
+  }
+
+  function NewProjectButton() {
+    const newProjectButton = document.createElement("div");
+    newProjectButton.classList.add("sidebar-button");
+    newProjectButton.classList.add("new-project-btn");
+
+    const plusIcon = document.createElement("img");
+    plusIcon.src = iconPlus;
+    plusIcon.classList.add("sidebar-icon");
+    const text = document.createElement("div");
+    text.textContent = "New Project";
+
+    newProjectButton.appendChild(plusIcon);
+    newProjectButton.appendChild(text);
+
+    return newProjectButton;
+  }
+
   function handleTodayClicks(e) {
     const todayBtn = e.target.closest(".today-btn");
     const weekBtn = document.querySelector(".week-btn");
@@ -94,6 +119,8 @@ const Sidebar = (function () {
   function addComponents() {
     Sidebar.appendChild(TodayBtn());
     Sidebar.appendChild(WeekBtn());
+    Sidebar.appendChild(ProjectsHeader());
+    Sidebar.appendChild(NewProjectButton());
   }
 
   function get() {

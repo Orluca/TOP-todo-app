@@ -29,6 +29,11 @@
   width: 25px;
 }
 
+.new-project-btn {
+  display: flex;
+  justify-content: flex-start;
+}
+
 /* UTILITY */
 .clicked {
   background-color: yellowgreen;
