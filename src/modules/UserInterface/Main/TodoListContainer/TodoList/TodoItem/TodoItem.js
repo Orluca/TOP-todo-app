@@ -1,4 +1,3 @@
-import Todo from "../../../../../Data/Todo";
 import TodoItemStyle from "./TodoItem.css";
 
 const TodoItem = function ({ title: titleVal, description: descriptionVal, dueDate: dueDateVal, priority: priorityVal }) {

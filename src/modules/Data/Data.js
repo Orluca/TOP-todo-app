@@ -2,6 +2,7 @@ import { format, parseISO, isSameWeek } from "date-fns";
 
 const Data = (function () {
   let todos = [];
+  let projects = [];
 
   function setTodos(data) {
     todos = data;
@@ -18,10 +19,15 @@ const Data = (function () {
 
   function saveToLocalStorage() {
     localStorage.setItem("todos", JSON.stringify(todos));
+    localStorage.setItem("projects", JSON.stringify(projects));
   }
 
-  function getFromLocalStorage() {
+  function getStoredTodos() {
     return JSON.parse(localStorage.getItem("todos"));
+  }
+
+  function getStoredProjects() {
+    return JSON.parse(localStorage.getItem("projects"));
   }
 
   function clearLocalStorage() {
@@ -45,8 +51,6 @@ const Data = (function () {
     let amount = 0;
     todos.forEach((todoData) => {
       if (!todoData.dueDate) return;
-      // const todoDate = format(parseISO(todoData.dueDate), "MM/dd/yyyy");
-      // const todaysDate = format(new Date(), "MM/dd/yyyy");
       if (!isSameWeek(new Date(), parseISO(todoData.dueDate), { weekStartsOn: 1 })) return;
 
       amount++;
@@ -54,12 +58,27 @@ const Data = (function () {
     return amount;
   }
 
-  function init() {
-    const localStorage = getFromLocalStorage();
-    if (localStorage) setTodos(localStorage);
+  function addProject(project) {
+    projects.push(project);
   }
 
-  return { init, setTodos, getTodos, addTodo, saveToLocalStorage, getFromLocalStorage, clearLocalStorage, getAmountOfTasksToday, getAmountOfTasksThisWeek };
+  function getProjects() {
+    return projects;
+  }
+
+  function setProjects(projectsArr) {
+    projects = projectsArr;
+  }
+
+  function init() {
+    const storedTodos = getStoredTodos();
+    if (storedTodos) setTodos(storedTodos);
+
+    const storedProjects = getStoredProjects();
+    if (storedProjects) setProjects(storedProjects);
+  }
+
+  return { init, setTodos, getTodos, addTodo, saveToLocalStorage, clearLocalStorage, getAmountOfTasksToday, getAmountOfTasksThisWeek, addProject, getProjects };
 })();
 
 export default Data;

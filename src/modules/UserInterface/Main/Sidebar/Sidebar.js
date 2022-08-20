@@ -84,6 +84,7 @@ const Sidebar = (function () {
 
     newProjectButton.appendChild(plusIcon);
     newProjectButton.appendChild(text);
+    newProjectButton.addEventListener("click", handleNewProjectClicks);
 
     return newProjectButton;
   }
@@ -102,6 +103,22 @@ const Sidebar = (function () {
     weekBtn.classList.toggle("clicked");
     weekBtn.classList.contains("clicked") ? TodoList.showThisWeek() : TodoList.showAll();
     todayBtn.classList.remove("clicked");
+  }
+
+  function handleNewProjectClicks() {
+    const name = window.prompt("Enter Project Name");
+    Data.addProject(name);
+    Data.saveToLocalStorage();
+    console.log(Data.getProjects());
+
+    CreateProjectBtn(name);
+  }
+
+  function CreateProjectBtn(name) {
+    const projectBtn = document.createElement("div");
+    projectBtn.textContent = name;
+
+    Sidebar.appendChild(projectBtn);
   }
 
   function updateTaskAmounts() {
