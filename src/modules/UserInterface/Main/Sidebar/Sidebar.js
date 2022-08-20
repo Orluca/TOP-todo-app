@@ -120,6 +120,7 @@ const Sidebar = (function () {
   function CreateProjectBtn(name) {
     const projectBtn = document.createElement("div");
     projectBtn.textContent = name;
+    projectBtn.classList.add("project-btn");
 
     Sidebar.appendChild(projectBtn);
   }
@@ -157,7 +158,16 @@ const Sidebar = (function () {
 
     projects.forEach((projectName) => {
       const projectBtn = document.createElement("div");
-      projectBtn.textContent = projectName;
+      projectBtn.classList.add("project-btn");
+      projectBtn.classList.add(`${projectName.toLowerCase()}-button`);
+      const projectBtnName = document.createElement("div");
+      projectBtnName.textContent = projectName;
+      const projectBtnCount = document.createElement("div");
+      projectBtnCount.textContent = 0;
+      projectBtnCount.classList.add(`${projectName.toLowerCase()}-counter`);
+
+      projectBtn.appendChild(projectBtnName);
+      projectBtn.appendChild(projectBtnCount);
       Sidebar.appendChild(projectBtn);
     });
   }

@@ -34,6 +34,19 @@
   justify-content: flex-start;
 }
 
+.project-btn {
+  display: flex;
+  justify-content: space-between;
+  background-color: aliceblue;
+  padding: 0.5rem;
+  border-radius: 10px;
+}
+
+.project-btn:hover {
+  background-color: rgb(215, 235, 255);
+  cursor: pointer;
+}
+
 /* UTILITY */
 .clicked {
   background-color: yellowgreen;
