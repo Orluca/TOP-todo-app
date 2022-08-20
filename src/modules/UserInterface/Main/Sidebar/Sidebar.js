@@ -194,8 +194,12 @@ const Sidebar = (function () {
   }
 
   function handleProjectButtonClicks(e) {
-    const projectName = e.target.closest(".project-btn").dataset.project;
-    TodoList.showProject(projectName);
+    const projectButton = e.target.closest(".project-btn");
+    const projectName = projectButton.dataset.project;
+
+    projectButton.classList.toggle("clicked");
+    projectButton.classList.contains("clicked") ? TodoList.showProject(projectName) : TodoList.showAll();
+    // todayBtn.classList.remove("clicked");
   }
 
   function init() {
