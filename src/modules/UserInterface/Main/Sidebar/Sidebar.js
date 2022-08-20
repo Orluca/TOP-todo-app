@@ -199,7 +199,10 @@ const Sidebar = (function () {
 
     projectButton.classList.toggle("clicked");
     projectButton.classList.contains("clicked") ? TodoList.showProject(projectName) : TodoList.showAll();
-    // todayBtn.classList.remove("clicked");
+    document.querySelectorAll(".project-btn").forEach((btn) => {
+      if (btn === projectButton) return;
+      btn.classList.remove("clicked");
+    });
   }
 
   function init() {
