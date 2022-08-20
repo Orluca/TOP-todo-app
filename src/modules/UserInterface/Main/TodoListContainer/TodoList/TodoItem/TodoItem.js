@@ -1,6 +1,6 @@
 import TodoItemStyle from "./TodoItem.css";
 
-const TodoItem = function ({ title: titleVal, description: descriptionVal, dueDate: dueDateVal, priority: priorityVal }) {
+const TodoItem = function ({ title: titleVal, description: descriptionVal, dueDate: dueDateVal, priority: priorityVal, project: projectName }) {
   function title(titleVal) {
     const title = document.createElement("div");
     title.innerHTML = `
@@ -37,6 +37,15 @@ const TodoItem = function ({ title: titleVal, description: descriptionVal, dueDa
     return priority;
   }
 
+  function project(projectName) {
+    const project = document.createElement("div");
+    project.innerHTML = `
+      <h3>Project: </h3>
+      <div class="project-value">${projectName}</div>
+    `;
+    return project;
+  }
+
   const TodoItem = document.createElement("div");
   TodoItem.classList.add("todo-item");
 
@@ -44,6 +53,7 @@ const TodoItem = function ({ title: titleVal, description: descriptionVal, dueDa
   TodoItem.appendChild(description(descriptionVal));
   TodoItem.appendChild(dueDate(dueDateVal));
   TodoItem.appendChild(priority(priorityVal));
+  TodoItem.appendChild(project(projectName));
 
   return TodoItem;
 };
