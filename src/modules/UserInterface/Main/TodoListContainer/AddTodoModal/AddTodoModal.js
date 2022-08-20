@@ -38,6 +38,7 @@ const ModalWindow = (function () {
     modalWindow.appendChild(inputDescription());
     modalWindow.appendChild(inputDate());
     modalWindow.appendChild(inputPriority());
+    modalWindow.appendChild(inputProject());
     modalWindow.appendChild(confirmBtn());
 
     return modalWindow;
@@ -100,6 +101,19 @@ const ModalWindow = (function () {
     `;
 
     return inputPriority;
+  }
+
+  function inputProject() {
+    const inputProject = document.createElement("select");
+    inputProject.setAttribute("id", "project-input");
+
+    inputProject.innerHTML = `
+      <option>Project 1</option>
+      <option>Work</option>
+      <option>Sports</option>
+    `;
+
+    return inputProject;
   }
 
   // --------------------- CONFIRM BUTTON ---------------------
