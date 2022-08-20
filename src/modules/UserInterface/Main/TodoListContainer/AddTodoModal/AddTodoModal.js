@@ -131,6 +131,12 @@ const ModalWindow = (function () {
     });
   }
 
+  function addProjectInput(projectName) {
+    const option = document.createElement("option");
+    option.textContent = projectName;
+    inputProjectEl.appendChild(option);
+  }
+
   // --------------------- CONFIRM BUTTON ---------------------
 
   function confirmBtn() {
@@ -157,8 +163,9 @@ const ModalWindow = (function () {
     return { title, description, dueDate, priority };
   }
 
-  return { get, updateProjectInputs };
+  return { get, updateProjectInputs, addProjectInput };
 })();
 
 AddTodoModal.init();
 export default AddTodoModal;
+export { ModalWindow };

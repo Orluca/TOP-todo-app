@@ -4,6 +4,8 @@ import iconWeek from "./assets/icon-week.svg";
 import iconPlus from "./assets/icon-plus.svg";
 import TodoList from "../TodoListContainer/TodoList/TodoList.js";
 import Data from "../../../Data/Data.js";
+import AddTodoModal from "../TodoListContainer/AddTodoModal/AddTodoModal";
+import { ModalWindow } from "../TodoListContainer/AddTodoModal/AddTodoModal";
 
 const Sidebar = (function () {
   let Sidebar;
@@ -109,7 +111,8 @@ const Sidebar = (function () {
     const name = window.prompt("Enter Project Name");
     Data.addProject(name);
     Data.saveToLocalStorage();
-    console.log(Data.getProjects());
+
+    ModalWindow.addProjectInput(name);
 
     CreateProjectBtn(name);
   }
