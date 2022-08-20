@@ -78,6 +78,18 @@ const TodoList = (function () {
     });
   }
 
+  function showProject(projectName) {
+    TodosContainer.innerHTML = "";
+    const data = Data.getTodos();
+    data.forEach((todoData) => {
+      console.log(projectName);
+      console.log(todoData.project);
+      if (todoData.project !== projectName.toLowerCase()) return;
+      const todoItem = TodoItem(todoData);
+      TodosContainer.appendChild(todoItem);
+    });
+  }
+
   function init() {
     create();
     addComponents();
@@ -85,7 +97,7 @@ const TodoList = (function () {
     showAll();
   }
 
-  return { init, get, showAll, showToday, showThisWeek };
+  return { init, get, showAll, showToday, showThisWeek, showProject };
 })();
 
 TodoList.init();

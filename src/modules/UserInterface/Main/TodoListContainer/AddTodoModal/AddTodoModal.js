@@ -156,11 +156,11 @@ const ModalWindow = (function () {
   }
 
   function getData() {
-    const title = document.querySelector("#title-input").value;
+    const title = document.querySelector("#title-input").value.toLowerCase();
     const description = document.querySelector("#description-input").value;
     const dueDate = document.querySelector("#date-input").value;
     const priority = document.querySelector("#priority-input").value;
-    const project = document.querySelector("#project-input").value;
+    const project = document.querySelector("#project-input").value.toLowerCase();
 
     return { title, description, dueDate, priority, project };
   }

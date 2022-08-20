@@ -177,17 +177,25 @@ const Sidebar = (function () {
     projects.forEach((projectName) => {
       const projectBtn = document.createElement("div");
       projectBtn.classList.add("project-btn");
-      projectBtn.classList.add(`${projectName.toLowerCase()}-button`);
+      projectBtn.classList.add(`${projectName}-button`);
+      projectBtn.dataset.project = projectName;
       const projectBtnName = document.createElement("div");
       projectBtnName.textContent = projectName;
       const projectBtnCount = document.createElement("div");
       projectBtnCount.textContent = Data.getProjectCount(projectName);
-      projectBtnCount.classList.add(`${projectName.toLowerCase()}-counter`);
+      projectBtnCount.classList.add(`${projectName}-counter`);
 
       projectBtn.appendChild(projectBtnName);
       projectBtn.appendChild(projectBtnCount);
+      projectBtn.addEventListener("click", handleProjectButtonClicks);
+
       projectButtons.appendChild(projectBtn);
     });
+  }
+
+  function handleProjectButtonClicks(e) {
+    const projectName = e.target.closest(".project-btn").dataset.project;
+    TodoList.showProject(projectName);
   }
 
   function init() {

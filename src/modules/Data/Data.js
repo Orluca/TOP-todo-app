@@ -61,7 +61,7 @@ const Data = (function () {
   function getProjectCount(projectName) {
     let amount = 0;
     todos.forEach((todoData) => {
-      if (todoData.project !== projectName) return;
+      if (todoData.project !== projectName.toLowerCase()) return;
 
       amount++;
     });
