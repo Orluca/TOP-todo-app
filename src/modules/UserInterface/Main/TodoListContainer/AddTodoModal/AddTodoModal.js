@@ -23,12 +23,15 @@ const AddTodoModal = (function () {
   function init() {
     create();
     addComponents();
+    ModalWindow.updateProjectInputs();
   }
 
   return { init, get };
 })();
 
 const ModalWindow = (function () {
+  let inputProjectEl;
+
   function get() {
     const modalWindow = document.createElement("div");
     modalWindow.classList.add("add-todo-modal-window");
@@ -104,16 +107,28 @@ const ModalWindow = (function () {
   }
 
   function inputProject() {
-    const inputProject = document.createElement("select");
-    inputProject.setAttribute("id", "project-input");
+    inputProjectEl = document.createElement("select");
+    inputProjectEl.setAttribute("id", "project-input");
 
-    inputProject.innerHTML = `
+    inputProjectEl.innerHTML = `
       <option>Project 1</option>
       <option>Work</option>
       <option>Sports</option>
     `;
 
-    return inputProject;
+    return inputProjectEl;
+  }
+
+  function updateProjectInputs() {
+    inputProjectEl.innerHTML = "";
+    const projects = Data.getProjects();
+    if (!projects) return;
+
+    projects.forEach((projectName) => {
+      const option = document.createElement("option");
+      option.textContent = projectName;
+      inputProjectEl.appendChild(option);
+    });
   }
 
   // --------------------- CONFIRM BUTTON ---------------------
@@ -142,7 +157,7 @@ const ModalWindow = (function () {
     return { title, description, dueDate, priority };
   }
 
-  return { get };
+  return { get, updateProjectInputs };
 })();
 
 AddTodoModal.init();
