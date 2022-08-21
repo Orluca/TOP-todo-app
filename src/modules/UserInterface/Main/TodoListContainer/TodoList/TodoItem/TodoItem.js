@@ -5,6 +5,14 @@ import iconPriority from "../.././../../../assets/icon-priority.svg";
 import AddTodoModal from "../../AddTodoModal/AddTodoModal";
 
 const TodoItem = function ({ title: titleVal, description: descriptionVal, dueDate: dueDateVal, priority: priorityVal, project: projectName, id: uuid }) {
+  function checkbox() {
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.classList.add("input-status");
+
+    return checkbox;
+  }
+
   function title(titleVal) {
     const title = document.createElement("div");
     title.innerHTML = `
@@ -95,6 +103,7 @@ const TodoItem = function ({ title: titleVal, description: descriptionVal, dueDa
   TodoItem.classList.add("todo-item");
   TodoItem.dataset.id = uuid;
 
+  TodoItem.appendChild(checkbox());
   TodoItem.appendChild(title(titleVal));
   TodoItem.appendChild(description(descriptionVal));
   TodoItem.appendChild(dueDate(dueDateVal));
