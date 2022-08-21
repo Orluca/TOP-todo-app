@@ -1,10 +1,9 @@
 import SidebarStyle from "./Sidebar.css";
-import iconToday from "./assets/icon-today.svg";
-import iconWeek from "./assets/icon-week.svg";
-import iconPlus from "./assets/icon-plus.svg";
+import iconToday from "../../../assets/icon-today.svg";
+import iconWeek from "../../../assets/icon-week.svg";
+import iconPlus from "../../../assets/icon-plus.svg";
 import TodoList from "../TodoListContainer/TodoList/TodoList.js";
 import Data from "../../../Data/Data.js";
-import AddTodoModal from "../TodoListContainer/AddTodoModal/AddTodoModal";
 import { ModalWindow } from "../TodoListContainer/AddTodoModal/AddTodoModal";
 
 const Sidebar = (function () {

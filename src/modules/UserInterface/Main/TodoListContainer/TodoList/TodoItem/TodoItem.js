@@ -1,6 +1,7 @@
 import differenceInCalendarWeeksWithOptions from "date-fns/esm/fp/differenceInCalendarWeeksWithOptions/index.js";
 import Data from "../../../../../Data/Data";
 import TodoItemStyle from "./TodoItem.css";
+import iconPriority from "../.././../../../assets/icon-priority.svg";
 
 const TodoItem = function ({ title: titleVal, description: descriptionVal, dueDate: dueDateVal, priority: priorityVal, project: projectName, id: uuid }) {
   function title(titleVal) {
@@ -63,6 +64,17 @@ const TodoItem = function ({ title: titleVal, description: descriptionVal, dueDa
     e.target.closest(".todo-item").remove();
   }
 
+  function priorityBtn(priorityVal) {
+    const priorityBtn = document.createElement("button");
+    const priorityIcon = document.createElement("img");
+    priorityIcon.src = iconPriority;
+    priorityIcon.classList.add("priority-icon");
+    priorityIcon.classList.add(`priority-color-${priorityVal}`);
+    priorityBtn.appendChild(priorityIcon);
+
+    return priorityBtn;
+  }
+
   const TodoItem = document.createElement("div");
   TodoItem.classList.add("todo-item");
   TodoItem.dataset.id = uuid;
@@ -73,6 +85,7 @@ const TodoItem = function ({ title: titleVal, description: descriptionVal, dueDa
   TodoItem.appendChild(priority(priorityVal));
   TodoItem.appendChild(project(projectName));
   TodoItem.appendChild(deleteBtn());
+  TodoItem.appendChild(priorityBtn(priorityVal));
 
   return TodoItem;
 };
