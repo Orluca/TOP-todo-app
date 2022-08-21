@@ -1,4 +1,5 @@
 import differenceInCalendarWeeksWithOptions from "date-fns/esm/fp/differenceInCalendarWeeksWithOptions/index.js";
+import Data from "../../../../../Data/Data";
 import TodoItemStyle from "./TodoItem.css";
 
 const TodoItem = function ({ title: titleVal, description: descriptionVal, dueDate: dueDateVal, priority: priorityVal, project: projectName, id: uuid }) {
@@ -51,7 +52,15 @@ const TodoItem = function ({ title: titleVal, description: descriptionVal, dueDa
     const deleteBtn = document.createElement("button");
     deleteBtn.textContent = "Del";
 
+    deleteBtn.addEventListener("click", handleDeleteBtn);
+
     return deleteBtn;
+  }
+
+  function handleDeleteBtn(e) {
+    const idOfClickedItem = e.target.closest(".todo-item").dataset.id;
+    Data.deleteTodo(idOfClickedItem);
+    e.target.closest(".todo-item").remove();
   }
 
   const TodoItem = document.createElement("div");

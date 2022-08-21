@@ -82,6 +82,11 @@ const Data = (function () {
     projects = projectsArr;
   }
 
+  function deleteTodo(id) {
+    todos = todos.filter((todo) => todo.id !== id);
+    saveToLocalStorage();
+  }
+
   function init() {
     const storedTodos = getStoredTodos();
     if (storedTodos) setTodos(storedTodos);
@@ -90,7 +95,7 @@ const Data = (function () {
     if (storedProjects) setProjects(storedProjects);
   }
 
-  return { init, setTodos, getTodos, addTodo, saveToLocalStorage, clearLocalStorage, getAmountOfTasksToday, getAmountOfTasksThisWeek, addProject, getProjects, getProjectCount };
+  return { init, setTodos, getTodos, addTodo, saveToLocalStorage, clearLocalStorage, getAmountOfTasksToday, getAmountOfTasksThisWeek, addProject, getProjects, getProjectCount, deleteTodo };
 })();
 
 export default Data;
