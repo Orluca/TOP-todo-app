@@ -75,6 +75,19 @@ const TodoItem = function ({ title: titleVal, description: descriptionVal, dueDa
     return priorityBtn;
   }
 
+  function editBtn() {
+    const editBtn = document.createElement("button");
+    editBtn.textContent = "Edit";
+
+    editBtn.addEventListener("click", handleEditBtn);
+    return editBtn;
+  }
+
+  function handleEditBtn(e) {
+    const id = e.target.closest(".todo-item").dataset.id;
+    console.log(Data.getTodoItem(id));
+  }
+
   const TodoItem = document.createElement("div");
   TodoItem.classList.add("todo-item");
   TodoItem.dataset.id = uuid;
@@ -86,6 +99,7 @@ const TodoItem = function ({ title: titleVal, description: descriptionVal, dueDa
   TodoItem.appendChild(project(projectName));
   TodoItem.appendChild(deleteBtn());
   TodoItem.appendChild(priorityBtn(priorityVal));
+  TodoItem.appendChild(editBtn());
 
   return TodoItem;
 };
