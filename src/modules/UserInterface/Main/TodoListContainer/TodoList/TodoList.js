@@ -2,6 +2,7 @@ import TodoListStyle from "./TodoList.css";
 import Data from "../../../../Data/Data.js";
 import TodoItem from "./TodoItem/TodoItem.js";
 import { format, parseISO, isSameWeek } from "date-fns";
+import AddTodoModal from "../AddTodoModal/AddTodoModal";
 
 const TodoList = (function () {
   let TodoList;
@@ -25,8 +26,13 @@ const TodoList = (function () {
     const ButtonAddTodo = document.createElement("button");
     ButtonAddTodo.classList.add("add-todo-btn");
     ButtonAddTodo.textContent = "Add Todo";
+    ButtonAddTodo.addEventListener("click", handleAddTodoBtn);
 
     return ButtonAddTodo;
+  }
+
+  function handleAddTodoBtn() {
+    AddTodoModal.show();
   }
 
   function create() {

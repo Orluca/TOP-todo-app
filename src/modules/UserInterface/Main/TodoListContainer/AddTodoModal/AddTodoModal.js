@@ -20,20 +20,29 @@ const AddTodoModal = (function () {
     return AddTodoModal;
   }
 
+  function hide() {
+    AddTodoModal.classList.add("hidden");
+  }
+
+  function show() {
+    AddTodoModal.classList.remove("hidden");
+  }
+
   function init() {
     create();
     addComponents();
     ModalWindow.updateProjectInputs();
   }
 
-  return { init, get };
+  return { init, get, hide, show };
 })();
 
 const ModalWindow = (function () {
   let inputProjectEl;
+  let modalWindow;
 
   function get() {
-    const modalWindow = document.createElement("div");
+    modalWindow = document.createElement("div");
     modalWindow.classList.add("add-todo-modal-window");
 
     modalWindow.appendChild(header());
@@ -42,6 +51,7 @@ const ModalWindow = (function () {
     modalWindow.appendChild(inputDate());
     modalWindow.appendChild(inputPriority());
     modalWindow.appendChild(inputProject());
+    modalWindow.appendChild(cancelBtn());
     modalWindow.appendChild(confirmBtn());
 
     return modalWindow;
@@ -135,6 +145,19 @@ const ModalWindow = (function () {
     const option = document.createElement("option");
     option.textContent = projectName;
     inputProjectEl.appendChild(option);
+  }
+
+  // --------------------- CANCEL BUTTON ---------------------
+  function cancelBtn() {
+    const cancelBtn = document.createElement("button");
+    cancelBtn.textContent = "Cancel";
+    cancelBtn.addEventListener("click", handleCancelBtn);
+
+    return cancelBtn;
+  }
+
+  function handleCancelBtn() {
+    AddTodoModal.hide();
   }
 
   // --------------------- CONFIRM BUTTON ---------------------
