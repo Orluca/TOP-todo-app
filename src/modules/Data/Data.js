@@ -1,4 +1,5 @@
 import { format, parseISO, isSameWeek } from "date-fns";
+import { v4 as uuidv4 } from "uuid";
 
 const Data = (function () {
   let todos = [];
@@ -13,6 +14,7 @@ const Data = (function () {
   }
 
   function addTodo(data) {
+    data.id = uuidv4();
     todos.push(data);
     saveToLocalStorage(); // Automatic save after a new todo is added, good idea?!
   }

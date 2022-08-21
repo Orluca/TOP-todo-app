@@ -1,6 +1,7 @@
+import differenceInCalendarWeeksWithOptions from "date-fns/esm/fp/differenceInCalendarWeeksWithOptions/index.js";
 import TodoItemStyle from "./TodoItem.css";
 
-const TodoItem = function ({ title: titleVal, description: descriptionVal, dueDate: dueDateVal, priority: priorityVal, project: projectName }) {
+const TodoItem = function ({ title: titleVal, description: descriptionVal, dueDate: dueDateVal, priority: priorityVal, project: projectName, id: uuid }) {
   function title(titleVal) {
     const title = document.createElement("div");
     title.innerHTML = `
@@ -46,14 +47,23 @@ const TodoItem = function ({ title: titleVal, description: descriptionVal, dueDa
     return project;
   }
 
+  function deleteBtn() {
+    const deleteBtn = document.createElement("button");
+    deleteBtn.textContent = "Del";
+
+    return deleteBtn;
+  }
+
   const TodoItem = document.createElement("div");
   TodoItem.classList.add("todo-item");
+  TodoItem.dataset.id = uuid;
 
   TodoItem.appendChild(title(titleVal));
   TodoItem.appendChild(description(descriptionVal));
   TodoItem.appendChild(dueDate(dueDateVal));
   TodoItem.appendChild(priority(priorityVal));
   TodoItem.appendChild(project(projectName));
+  TodoItem.appendChild(deleteBtn());
 
   return TodoItem;
 };
