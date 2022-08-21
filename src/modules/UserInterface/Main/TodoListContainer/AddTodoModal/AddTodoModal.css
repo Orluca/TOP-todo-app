@@ -8,7 +8,8 @@
   position: relative;
 }
 
-.add-todo-modal-window {
+.add-todo-modal-window,
+.edit-todo-modal-window {
   background-color: aliceblue;
   height: 300px;
   width: 500px;

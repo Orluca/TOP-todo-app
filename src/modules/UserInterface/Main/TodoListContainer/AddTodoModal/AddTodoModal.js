@@ -16,6 +16,12 @@ const AddTodoModal = (function () {
     AddTodoModal.appendChild(ModalWindow.get());
   }
 
+  function showEditWindow(todoObj) {
+    show();
+    AddTodoModal.innerHTML = "";
+    AddTodoModal.appendChild(ModalWindow.editWindow(todoObj));
+  }
+
   function get() {
     return AddTodoModal;
   }
@@ -34,22 +40,52 @@ const AddTodoModal = (function () {
     ModalWindow.updateProjectInputs();
   }
 
-  return { init, get, hide, show };
+  return { init, get, hide, show, showEditWindow };
 })();
 
 const ModalWindow = (function () {
   let inputProjectEl;
   let modalWindow;
 
+  // FÜR REWRITE: zwei funktionen, eine baut "new todo" mdoal, die andere baut "edit todo" window?!
+  function editWindow({ title, description, priority, dueDate, project }) {
+    editWindow = document.createElement("div");
+    editWindow.classList.add("edit-todo-modal-window");
+
+    editWindow.appendChild(header("Edit Todo"));
+    editWindow.appendChild(inputTitle(title));
+    editWindow.appendChild(inputDescription(description));
+    editWindow.appendChild(inputDate(dueDate));
+
+    const priorityEl = inputPriority();
+    priorityEl.querySelectorAll("option").forEach((option) => {
+      if (option.value === priority) option.setAttribute("selected", true);
+    });
+    editWindow.appendChild(priorityEl);
+
+    inputProjectEl = inputProject();
+    updateProjectInputs();
+    inputProjectEl.querySelectorAll("option").forEach((option) => {
+      if (option.value === project) option.setAttribute("selected", true);
+    });
+
+    editWindow.appendChild(inputProjectEl);
+    editWindow.appendChild(cancelBtn());
+    editWindow.appendChild(confirmBtn());
+
+    return editWindow;
+  }
+
   function get() {
     modalWindow = document.createElement("div");
     modalWindow.classList.add("add-todo-modal-window");
 
-    modalWindow.appendChild(header());
+    modalWindow.appendChild(header("New Todo"));
     modalWindow.appendChild(inputTitle());
     modalWindow.appendChild(inputDescription());
     modalWindow.appendChild(inputDate());
     modalWindow.appendChild(inputPriority());
+
     modalWindow.appendChild(inputProject());
     modalWindow.appendChild(cancelBtn());
     modalWindow.appendChild(confirmBtn());
@@ -57,12 +93,12 @@ const ModalWindow = (function () {
     return modalWindow;
   }
 
-  function header() {
+  function header(text) {
     const headerContainer = document.createElement("div");
     const header = document.createElement("h2");
     const hr = document.createElement("hr");
 
-    header.textContent = "New Todo";
+    header.textContent = text;
 
     headerContainer.appendChild(header);
     headerContainer.appendChild(hr);
@@ -70,34 +106,34 @@ const ModalWindow = (function () {
     return headerContainer;
   }
 
-  function inputTitle() {
+  function inputTitle(titleVal) {
     const inputTitle = document.createElement("div");
 
     inputTitle.innerHTML = `
       <label for="title-input">Title:</label>
-      <input type="text" id="title-input"/>
+      <input type="text" id="title-input" value="${titleVal ? titleVal : ""}"/>
     `;
 
     return inputTitle;
   }
 
-  function inputDescription() {
+  function inputDescription(descriptionVal) {
     const inputDescription = document.createElement("div");
 
     inputDescription.innerHTML = `
       <label for="description-input">Description:</label>
-      <textarea id="description-input"></textarea>
+      <textarea id="description-input">${descriptionVal ? descriptionVal : ""}</textarea>
     `;
 
     return inputDescription;
   }
 
-  function inputDate() {
+  function inputDate(dueDateVal) {
     const inputDate = document.createElement("div");
 
     inputDate.innerHTML = `
       <label for="date-input">Date <em>(optional)</em>:</label>
-      <input type="datetime-local" id="date-input"/>
+      <input type="datetime-local" id="date-input" value="${dueDateVal ? dueDateVal : ""}"/>
     `;
 
     return inputDate;
@@ -120,23 +156,19 @@ const ModalWindow = (function () {
     inputProjectEl = document.createElement("select");
     inputProjectEl.setAttribute("id", "project-input");
 
-    inputProjectEl.innerHTML = `
-      <option>Project 1</option>
-      <option>Work</option>
-      <option>Sports</option>
-    `;
-
     return inputProjectEl;
   }
 
   function updateProjectInputs() {
     inputProjectEl.innerHTML = "";
+    Data.init();
     const projects = Data.getProjects();
     if (!projects) return;
 
     projects.forEach((projectName) => {
       const option = document.createElement("option");
       option.textContent = projectName;
+      option.value = projectName.toLowerCase();
       inputProjectEl.appendChild(option);
     });
   }
@@ -188,7 +220,7 @@ const ModalWindow = (function () {
     return { title, description, dueDate, priority, project };
   }
 
-  return { get, updateProjectInputs, addProjectInput };
+  return { get, updateProjectInputs, addProjectInput, editWindow };
 })();
 
 AddTodoModal.init();

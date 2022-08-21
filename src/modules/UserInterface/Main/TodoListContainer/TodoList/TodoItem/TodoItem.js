@@ -2,6 +2,7 @@ import differenceInCalendarWeeksWithOptions from "date-fns/esm/fp/differenceInCa
 import Data from "../../../../../Data/Data";
 import TodoItemStyle from "./TodoItem.css";
 import iconPriority from "../.././../../../assets/icon-priority.svg";
+import AddTodoModal from "../../AddTodoModal/AddTodoModal";
 
 const TodoItem = function ({ title: titleVal, description: descriptionVal, dueDate: dueDateVal, priority: priorityVal, project: projectName, id: uuid }) {
   function title(titleVal) {
@@ -85,7 +86,9 @@ const TodoItem = function ({ title: titleVal, description: descriptionVal, dueDa
 
   function handleEditBtn(e) {
     const id = e.target.closest(".todo-item").dataset.id;
-    console.log(Data.getTodoItem(id));
+    const todoObject = Data.getTodoItem(id);
+
+    AddTodoModal.showEditWindow(todoObject);
   }
 
   const TodoItem = document.createElement("div");
