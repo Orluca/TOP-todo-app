@@ -91,6 +91,13 @@ const Data = (function () {
     return todos.find((todo) => todo.id === id);
   }
 
+  function editTodo(data) {
+    todos.forEach((todo, i) => {
+      if (todo.id === data.id) todos[i] = data;
+    });
+    saveToLocalStorage();
+  }
+
   function init() {
     const storedTodos = getStoredTodos();
     if (storedTodos) setTodos(storedTodos);
@@ -99,7 +106,7 @@ const Data = (function () {
     if (storedProjects) setProjects(storedProjects);
   }
 
-  return { init, setTodos, getTodos, addTodo, saveToLocalStorage, clearLocalStorage, getAmountOfTasksToday, getAmountOfTasksThisWeek, addProject, getProjects, getProjectCount, deleteTodo, getTodoItem };
+  return { init, setTodos, getTodos, addTodo, saveToLocalStorage, clearLocalStorage, getAmountOfTasksToday, getAmountOfTasksThisWeek, addProject, getProjects, getProjectCount, deleteTodo, getTodoItem, editTodo };
 })();
 
 export default Data;

@@ -48,9 +48,10 @@ const ModalWindow = (function () {
   let modalWindow;
 
   // FÜR REWRITE: zwei funktionen, eine baut "new todo" mdoal, die andere baut "edit todo" window?!
-  function editWindow({ title, description, priority, dueDate, project }) {
+  function editWindow({ title, description, priority, dueDate, project, id }) {
     editWindow = document.createElement("div");
     editWindow.classList.add("edit-todo-modal-window");
+    editWindow.dataset.id = id;
 
     editWindow.appendChild(header("Edit Todo"));
     editWindow.appendChild(inputTitle(title));
@@ -71,7 +72,7 @@ const ModalWindow = (function () {
 
     editWindow.appendChild(inputProjectEl);
     editWindow.appendChild(cancelBtn());
-    editWindow.appendChild(confirmBtn());
+    editWindow.appendChild(saveBtn());
 
     return editWindow;
   }
@@ -209,6 +210,24 @@ const ModalWindow = (function () {
     Sidebar.updateTaskAmounts();
     Sidebar.updateProjectButtons();
   }
+
+  // --------------------- CONFIRM BUTTON ---------------------
+  function saveBtn() {
+    const saveBtn = document.createElement("button");
+    saveBtn.textContent = "Save";
+    saveBtn.addEventListener("click", handleSaveBtn);
+
+    return saveBtn;
+  }
+
+  function handleSaveBtn(e) {
+    const id = e.target.closest(".edit-todo-modal-window").dataset.id;
+    const data = getData();
+    data.id = id;
+    Data.editTodo(data);
+  }
+
+  // ---------------------  ---------------------
 
   function getData() {
     const title = document.querySelector("#title-input").value.toLowerCase();
