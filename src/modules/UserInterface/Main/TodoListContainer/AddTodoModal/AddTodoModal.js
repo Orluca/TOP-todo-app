@@ -225,6 +225,7 @@ const ModalWindow = (function () {
     const data = getData();
     data.id = id;
     Data.editTodo(data);
+    TodoList.updateTodoItem(data);
   }
 
   // ---------------------  ---------------------

@@ -59,6 +59,16 @@ const TodoList = (function () {
     });
   }
 
+  function updateTodoItem(data) {
+    const todoItems = document.querySelectorAll(".todo-item");
+    todoItems.forEach((item) => {
+      if (item.dataset.id === data.id) {
+        console.log(item);
+        item.replaceWith(TodoItem(data));
+      }
+    });
+  }
+
   function showToday() {
     TodosContainer.innerHTML = "";
     const data = Data.getTodos();
@@ -103,7 +113,7 @@ const TodoList = (function () {
     showAll();
   }
 
-  return { init, get, showAll, showToday, showThisWeek, showProject };
+  return { init, get, showAll, showToday, showThisWeek, showProject, updateTodoItem };
 })();
 
 TodoList.init();
