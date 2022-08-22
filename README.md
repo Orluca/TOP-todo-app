@@ -8,5 +8,10 @@
 
 ### to implement
 
-- a way to delete projects
+- EDIT button for projects:
+  - delete projects
+  - rename projects
+  - reorder projects
 - Todo-item: don't show fields that don't have any value (e.g. no date is given)
+- deleting a todo not yet updating the counters on the sidebar
+- deleting a todo or projects needs a confirmation popup

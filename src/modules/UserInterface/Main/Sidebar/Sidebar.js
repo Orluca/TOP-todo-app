@@ -67,10 +67,19 @@ const Sidebar = (function () {
   }
 
   function ProjectsHeader() {
+    const projectsHeaderContainer = document.createElement("div");
+    projectsHeaderContainer.classList.add("projects-header-container");
     const projectsHeader = document.createElement("h3");
     projectsHeader.textContent = "Projects";
+    const projectsEditBtn = document.createElement("button");
+    projectsEditBtn.textContent = ":::";
+    projectsEditBtn.classList.add("edit-projects-btn");
+    projectsEditBtn.addEventListener("click", handleEditProjects);
 
-    return projectsHeader;
+    projectsHeaderContainer.appendChild(projectsHeader);
+    projectsHeaderContainer.appendChild(projectsEditBtn);
+
+    return projectsHeaderContainer;
   }
 
   function ProjectButtons() {
@@ -78,6 +87,45 @@ const Sidebar = (function () {
     projectButtons.classList.add("project-buttons");
 
     return projectButtons;
+  }
+
+  function handleEditProjects() {
+    projectButtons.innerHTML = "";
+    projectButtons.appendChild(editProjectsButtons());
+  }
+
+  function editProjectsButtons() {
+    const editProjectsContainer = document.createElement("div");
+    const projects = Data.getProjects();
+
+    projects.forEach((project) => {
+      const container = document.createElement("div");
+      const projectName = document.createElement("div");
+      projectName.textContent = project;
+      const renameBtn = document.createElement("button");
+      renameBtn.textContent = "rename";
+      const deleteBtn = document.createElement("button");
+      deleteBtn.textContent = "delete";
+      const reorderBtn = document.createElement("button");
+      reorderBtn.textContent = "reorder";
+
+      container.appendChild(projectName);
+      container.appendChild(renameBtn);
+      container.appendChild(deleteBtn);
+      container.appendChild(reorderBtn);
+
+      editProjectsContainer.appendChild(container);
+    });
+
+    const cancelBtn = document.createElement("button");
+    cancelBtn.textContent = "Cancel";
+    const confirmBtn = document.createElement("button");
+    confirmBtn.textContent = "Confirm";
+
+    editProjectsContainer.appendChild(cancelBtn);
+    editProjectsContainer.appendChild(confirmBtn);
+
+    return editProjectsContainer;
   }
 
   function NewProjectButton() {
