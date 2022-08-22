@@ -98,6 +98,13 @@ const Data = (function () {
     saveToLocalStorage();
   }
 
+  function changeStatus(id, status) {
+    todos.forEach((todo, i) => {
+      if (todo.id === id) todos[i].isFinished = status;
+    });
+    saveToLocalStorage();
+  }
+
   function init() {
     const storedTodos = getStoredTodos();
     if (storedTodos) setTodos(storedTodos);
@@ -106,7 +113,7 @@ const Data = (function () {
     if (storedProjects) setProjects(storedProjects);
   }
 
-  return { init, setTodos, getTodos, addTodo, saveToLocalStorage, clearLocalStorage, getAmountOfTasksToday, getAmountOfTasksThisWeek, addProject, getProjects, getProjectCount, deleteTodo, getTodoItem, editTodo };
+  return { init, setTodos, getTodos, addTodo, saveToLocalStorage, clearLocalStorage, getAmountOfTasksToday, getAmountOfTasksThisWeek, addProject, getProjects, getProjectCount, deleteTodo, getTodoItem, editTodo, changeStatus };
 })();
 
 export default Data;

@@ -10,7 +10,16 @@ const TodoItem = function ({ title: titleVal, description: descriptionVal, dueDa
     checkbox.type = "checkbox";
     checkbox.classList.add("input-status");
 
+    checkbox.addEventListener("change", handleCheckbox);
+
     return checkbox;
+  }
+
+  function handleCheckbox(e) {
+    const id = e.target.closest(".todo-item").dataset.id;
+    const status = e.target.checked;
+    Data.changeStatus(id, status);
+    console.log(Data.getTodoItem(id));
   }
 
   function title(titleVal) {
