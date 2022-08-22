@@ -100,10 +100,16 @@ const Sidebar = (function () {
 
     projects.forEach((project) => {
       const container = document.createElement("div");
-      const projectName = document.createElement("div");
-      projectName.textContent = project;
+      container.classList.add("edit-project-container");
+      const projectName = document.createElement("input");
+      projectName.value = project;
+      projectName.classList.add("project-name-input");
+      projectName.disabled = true;
+      projectName.addEventListener("focusout", handleProjectNameInputFocusLoss);
+      projectName.addEventListener("keypress", handleProjectNameInputEnterKey);
       const renameBtn = document.createElement("button");
       renameBtn.textContent = "rename";
+      renameBtn.addEventListener("click", handleRenameProject);
       const deleteBtn = document.createElement("button");
       deleteBtn.textContent = "delete";
       const reorderBtn = document.createElement("button");
@@ -126,6 +132,31 @@ const Sidebar = (function () {
     editProjectsContainer.appendChild(confirmBtn);
 
     return editProjectsContainer;
+  }
+
+  function handleProjectNameInputFocusLoss(e) {
+    lockProjectNameInput(e.target);
+  }
+
+  function handleProjectNameInputEnterKey(e) {
+    if (e.key !== "Enter") return;
+    lockProjectNameInput(e.target);
+  }
+
+  function handleRenameProject(e) {
+    const nameEl = e.target.closest(".edit-project-container").querySelector(".project-name-input");
+    unlockProjectNameInput(nameEl);
+  }
+
+  function unlockProjectNameInput(el) {
+    el.disabled = false;
+    el.focus();
+    el.select();
+  }
+
+  function lockProjectNameInput(el) {
+    el.disabled = true;
+    el.blur();
   }
 
   function NewProjectButton() {

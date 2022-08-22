@@ -105,6 +105,12 @@ const Data = (function () {
     saveToLocalStorage();
   }
 
+  function updateProjectName(name) {
+    // projects = projects.map(projectName => {
+    //   if()
+    // })
+  }
+
   function init() {
     const storedTodos = getStoredTodos();
     if (storedTodos) setTodos(storedTodos);
@@ -113,7 +119,7 @@ const Data = (function () {
     if (storedProjects) setProjects(storedProjects);
   }
 
-  return { init, setTodos, getTodos, addTodo, saveToLocalStorage, clearLocalStorage, getAmountOfTasksToday, getAmountOfTasksThisWeek, addProject, getProjects, getProjectCount, deleteTodo, getTodoItem, editTodo, changeStatus };
+  return { init, setTodos, getTodos, addTodo, saveToLocalStorage, clearLocalStorage, getAmountOfTasksToday, getAmountOfTasksThisWeek, addProject, getProjects, getProjectCount, deleteTodo, getTodoItem, editTodo, changeStatus, updateProjectName };
 })();
 
 export default Data;
