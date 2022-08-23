@@ -5,8 +5,8 @@ import Content from "./Content/Content.js";
 const Main = (function () {
   let Main;
 
-  function create() {
-    Main = document.createElement("div");
+  function init() {
+    Main = document.createElement("main");
     Main.classList.add("main");
     // Main.appendChild(Sidebar.get());
     // Main.appendChild(Content.get());
@@ -16,7 +16,7 @@ const Main = (function () {
     return Main;
   }
 
-  create();
+  init();
 
   return { get };
 })();

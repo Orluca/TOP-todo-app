@@ -6,19 +6,19 @@ import Header from "./Header/Header.js";
 const Interface = (function () {
   let Interface;
 
-  function create() {
+  function init() {
     Interface = document.createElement("div");
     Interface.classList.add("user-interface");
-    // Interface.appendChild(Header.get());
+    Interface.appendChild(Header.get());
     Interface.appendChild(Main.get());
-    // Interface.appendChild(Footer.get());
+    Interface.appendChild(Footer.get());
   }
 
   function get() {
     return Interface;
   }
 
-  create();
+  init();
 
   return { get };
 })();
