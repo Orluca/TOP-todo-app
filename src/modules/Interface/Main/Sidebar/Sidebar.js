@@ -173,3 +173,4 @@ const Sidebar = (function () {
 })();
 
 export default Sidebar;
+export { ProjectsList };

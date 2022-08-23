@@ -9,7 +9,7 @@ const Main = (function () {
     Main = document.createElement("main");
     Main.classList.add("main");
     Main.appendChild(Sidebar.get());
-    // Main.appendChild(Content.get());
+    Main.appendChild(Content.get());
   }
 
   function get() {

@@ -3,7 +3,7 @@ import Interface from "./modules/Interface/Interface.js";
 
 const App = (function () {
   function initInterface() {
-    const content = document.querySelector(".content");
+    const content = document.querySelector(".app");
     content.appendChild(Interface.get());
   }
 
