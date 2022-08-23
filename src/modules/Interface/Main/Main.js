@@ -8,7 +8,7 @@ const Main = (function () {
   function init() {
     Main = document.createElement("main");
     Main.classList.add("main");
-    // Main.appendChild(Sidebar.get());
+    Main.appendChild(Sidebar.get());
     // Main.appendChild(Content.get());
   }
 
