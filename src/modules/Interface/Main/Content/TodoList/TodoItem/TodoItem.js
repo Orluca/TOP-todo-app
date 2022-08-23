@@ -37,7 +37,9 @@ const TodoButtons = function (priorityVal) {
   function priorityButton(priorityVal) {
     const priorityButton = document.createElement("button");
     priorityButton.classList.add("todo-item-priority-btn");
+    if (priorityVal === "low") priorityButton.textContent = "🟢";
     if (priorityVal === "medium") priorityButton.textContent = "🟡";
+    if (priorityVal === "high") priorityButton.textContent = "🔴";
 
     return priorityButton;
   }
@@ -77,19 +79,13 @@ const TodoExpandable = function (descriptionVal, dueDateVal) {
 };
 
 const TodoItem = function ({ title: titleVal, description: descriptionVal, dueDate: dueDateVal, priority: priorityVal, project: projectName, id: uuid, isFinished }) {
-  let TodoItem;
-
-  function init() {
-    TodoItem = document.createElement("div");
-    TodoItem.classList.add("todo-item");
-    TodoItem.dataset.id = uuid;
-    TodoItem.appendChild(TodoTitle(titleVal));
-    TodoItem.appendChild(TodoCheckbox(isFinished));
-    TodoItem.appendChild(TodoButtons(priorityVal));
-    TodoItem.appendChild(TodoExpandable(descriptionVal, dueDateVal));
-  }
-
-  init();
+  const TodoItem = document.createElement("div");
+  TodoItem.classList.add("todo-item");
+  TodoItem.dataset.id = uuid;
+  TodoItem.appendChild(TodoCheckbox(isFinished));
+  TodoItem.appendChild(TodoTitle(titleVal));
+  TodoItem.appendChild(TodoButtons(priorityVal));
+  TodoItem.appendChild(TodoExpandable(descriptionVal, dueDateVal));
 
   return TodoItem;
 };
