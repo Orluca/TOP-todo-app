@@ -1,8 +1,6 @@
 import todoListStyle from "./TodoList.css";
 import TodoItem from "./TodoItem/TodoItem.js";
 
-let todoItems = []; // IN DATA SPEICHERN
-
 const TodoListHeader = (function () {
   let TodoListHeader;
 
@@ -35,7 +33,6 @@ const TodoList = (function () {
 
   function addTodo(todoData) {
     const todoItem = TodoItem(todoData);
-    todoItems.push(todoItem);
     TodoList.appendChild(todoItem);
   }
 

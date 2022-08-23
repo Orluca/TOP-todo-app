@@ -8,7 +8,7 @@ const Content = (function () {
   function init() {
     Content = document.createElement("div");
     Content.classList.add("content");
-    // Content.appendChild(TodoModal.get());
+    Content.appendChild(TodoModal.get());
     Content.appendChild(TodoList.get());
   }
 
