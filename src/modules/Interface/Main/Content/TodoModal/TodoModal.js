@@ -151,6 +151,31 @@ const ModalWindow = (function () {
     });
   }
 
+  // ---------------------- BUTTONS ----------------------
+  function CancelButton() {
+    const cancelButton = document.createElement("button");
+    cancelButton.textContent = "Cancel";
+    cancelButton.classList.add("cancel-btn");
+
+    return cancelButton;
+  }
+
+  function ConfirmButton() {
+    const confirmButton = document.createElement("button");
+    confirmButton.textContent = "Confirm";
+    confirmButton.classList.add("confirm-btn");
+
+    return confirmButton;
+  }
+
+  function SaveButton() {
+    const saveButton = document.createElement("button");
+    saveButton.textContent = "Save";
+    saveButton.classList.add("save-btn");
+
+    return saveButton;
+  }
+
   // ---------------------- WINDOW LAYOUTS ----------------------
   function newTodo() {
     modalWindow.innerHTML = "";
@@ -160,6 +185,8 @@ const ModalWindow = (function () {
     modalWindow.appendChild(Date());
     modalWindow.appendChild(Priority());
     modalWindow.appendChild(Projects());
+    modalWindow.appendChild(CancelButton());
+    modalWindow.appendChild(ConfirmButton());
     return modalWindow;
   }
 
@@ -171,6 +198,8 @@ const ModalWindow = (function () {
     modalWindow.appendChild(Date(dateVal));
     modalWindow.appendChild(Priority(priorityVal));
     modalWindow.appendChild(Projects(projectsVal));
+    modalWindow.appendChild(CancelButton());
+    modalWindow.appendChild(SaveButton());
     return modalWindow;
   }
 
