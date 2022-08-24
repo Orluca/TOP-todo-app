@@ -1,6 +1,7 @@
 import todoListStyle from "./TodoList.css";
 import TodoItem from "./TodoItem/TodoItem.js";
 import Data from "../../../../Data/Data.js";
+import ModalBackground from "../TodoModal/TodoModal.js";
 
 const TodoListHeader = (function () {
   let TodoListHeader;
@@ -54,6 +55,11 @@ const AddTodoButton = (function () {
     AddTodoButton = document.createElement("button");
     AddTodoButton.classList.add("add-todo-btn");
     AddTodoButton.textContent = "+";
+    AddTodoButton.addEventListener("click", handleAddTodoButton);
+  }
+
+  function handleAddTodoButton() {
+    ModalBackground.showNewTodoWindow();
   }
 
   function get() {

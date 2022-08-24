@@ -265,13 +265,19 @@ const ModalBackground = (function () {
     ModalBackground.classList.add("hidden");
   }
 
-  function show() {
+  function showNewTodoWindow() {
     ModalBackground.classList.remove("hidden");
+    ModalWindow.newTodo();
+  }
+
+  function showEditTodoWindow() {
+    ModalBackground.classList.remove("hidden");
+    ModalWindow.editTodo();
   }
 
   init();
 
-  return { get, hide, show };
+  return { get, hide, showNewTodoWindow, showEditTodoWindow };
 })();
 
 export default ModalBackground;
