@@ -1,4 +1,5 @@
 import todoModalStyle from "./TodoModal.css";
+import Data from "../../../../Data/Data.js";
 
 const ModalWindow = (function () {
   let modalWindow;
@@ -175,9 +176,9 @@ const ModalWindow = (function () {
   }
 
   function handleConfirmButton() {
-    const data = getDataFromInputs();
-    if (!data) return; // Cancel if the user didn't fill out all necessary inputs
-    console.log(data);
+    const todoData = getDataFromInputs();
+    if (!todoData) return; // Cancel if the user didn't fill out all necessary inputs
+    Data.addTodo(todoData);
   }
 
   function getDataFromInputs() {
