@@ -16,10 +16,10 @@ const ModalWindow = (function () {
     return header;
   }
 
-  function labelMaker(targetID, name) {
+  function labelMaker(targetID, name, isOptional) {
     const label = document.createElement("label");
     label.htmlFor = targetID;
-    label.textContent = name;
+    label.innerHTML = `${name}${isOptional ? " <em>(optional)</em>" : ""}`;
 
     return label;
   }
@@ -43,7 +43,7 @@ const ModalWindow = (function () {
     }
 
     const title = containerMaker("modal-window-title");
-    title.appendChild(labelMaker("title-input", "Title"));
+    title.appendChild(labelMaker("title-input", "Title", false));
     title.appendChild(TitleInput());
 
     return title;
@@ -60,7 +60,7 @@ const ModalWindow = (function () {
     }
 
     const description = containerMaker("modal-window-description");
-    description.appendChild(labelMaker("description-input", "Description"));
+    description.appendChild(labelMaker("description-input", "Description", true));
     description.appendChild(DescriptionInput());
 
     return description;
@@ -78,7 +78,7 @@ const ModalWindow = (function () {
     }
 
     const date = containerMaker("modal-window-date");
-    date.appendChild(labelMaker("date-input", "Date"));
+    date.appendChild(labelMaker("date-input", "Date", true));
     date.appendChild(DateInput());
 
     return date;
@@ -106,7 +106,7 @@ const ModalWindow = (function () {
     }
 
     const priority = containerMaker("modal-window-priority");
-    priority.appendChild(labelMaker("priority-input", "Priority"));
+    priority.appendChild(labelMaker("priority-input", "Priority", false));
     priority.appendChild(PriorityInput());
 
     return priority;
@@ -137,7 +137,7 @@ const ModalWindow = (function () {
     }
 
     const projects = containerMaker("modal-window-projects");
-    projects.appendChild(labelMaker("projects-input", "Projects"));
+    projects.appendChild(labelMaker("projects-input", "Projects", false));
     projects.appendChild(ProjectsInput());
 
     return projects;
