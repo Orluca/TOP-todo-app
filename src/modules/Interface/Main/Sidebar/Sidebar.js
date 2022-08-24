@@ -113,8 +113,11 @@ const ProjectButton = function (name) {
 };
 
 const ProjectsAdd = (function () {
-  let ProjectsAdd;
+  let addProjectContainer;
+  let addProjectButton;
+  let addProjectPopup;
 
+  // ADD PROJECT BUTTON
   function Icon() {
     const plusIcon = document.createElement("img");
     plusIcon.classList.add("sidebar-icon");
@@ -130,15 +133,104 @@ const ProjectsAdd = (function () {
     return textLabel;
   }
 
+  function handleAddProject() {
+    console.log("LKSJKLDJF");
+  }
+
+  function AddProjectButton() {
+    addProjectButton = document.createElement("div");
+    addProjectButton.classList.add("add-project-btn");
+    addProjectButton.appendChild(Icon());
+    addProjectButton.appendChild(TextLabel());
+    addProjectButton.addEventListener("click", handleAddProject);
+
+    return addProjectButton;
+  }
+
+  // ADD PROJECT POPUP
+  function ProjectNameInput() {
+    const input = document.createElement("input");
+    input.type = "text";
+
+    return input;
+  }
+
+  function CancelButton() {
+    const cancelButton = document.createElement("button");
+    cancelButton.textContent = "Cancel";
+
+    return cancelButton;
+  }
+
+  function ConfirmButton() {
+    const confirmButton = document.createElement("button");
+    confirmButton.textContent = "Confirm";
+
+    return confirmButton;
+  }
+
+  function AddProjectPopup() {
+    addProjectPopup = document.createElement("div");
+    addProjectPopup.classList.add("add-project-popup");
+    addProjectPopup.classList.add("hidden");
+    addProjectPopup.appendChild(ProjectNameInput());
+    addProjectPopup.appendChild(CancelButton());
+    addProjectPopup.appendChild(ConfirmButton());
+
+    return addProjectPopup;
+  }
+
+  // ADD PROJECT CONTAINER
   function init() {
-    ProjectsAdd = document.createElement("div");
-    ProjectsAdd.classList.add("projects-add");
-    ProjectsAdd.appendChild(Icon());
-    ProjectsAdd.appendChild(TextLabel());
+    addProjectContainer = document.createElement("div");
+    addProjectContainer.classList.add("projects-add");
+    addProjectContainer.appendChild(AddProjectButton());
+    addProjectContainer.appendChild(AddProjectPopup());
   }
 
   function get() {
-    return ProjectsAdd;
+    return addProjectContainer;
+  }
+
+  init();
+
+  return { get };
+})();
+
+const NewProjectPopup = (function () {
+  let newProjectPopup;
+
+  function ProjectNameInput() {
+    const input = document.createElement("input");
+    input.type = "text";
+
+    return input;
+  }
+
+  function CancelButton() {
+    const cancelButton = document.createElement("button");
+    cancelButton.textContent = "Cancel";
+
+    return cancelButton;
+  }
+
+  function ConfirmButton() {
+    const confirmButton = document.createElement("button");
+    confirmButton.textContent = "Confirm";
+
+    return confirmButton;
+  }
+
+  function get() {
+    return newProjectPopup;
+  }
+
+  function init() {
+    newProjectPopup = document.createElement("div");
+    newProjectPopup.classList.add("new-project-popup");
+    newProjectPopup.appendChild(ProjectNameInput());
+    newProjectPopup.appendChild(CancelButton());
+    newProjectPopup.appendChild(ConfirmButton());
   }
 
   init();
@@ -154,7 +246,6 @@ const Projects = (function () {
     Projects.classList.add("projects");
     Projects.appendChild(ProjectsHeader.get());
     Projects.appendChild(ProjectsList.get());
-    ProjectsList.addProject("Programming");
     Projects.appendChild(ProjectsAdd.get());
   }
 
