@@ -2,6 +2,10 @@ import todoModalStyle from "./TodoModal.css";
 
 const ModalWindow = (function () {
   let modalWindow;
+  let titleInput;
+  let descriptionInput;
+  let dateInput;
+  let priorityInput;
   let projectsInput;
 
   function Header(text) {
@@ -30,7 +34,7 @@ const ModalWindow = (function () {
   // ---------------------- TITLE INPUT ----------------------
   function Title(titleVal) {
     function TitleInput() {
-      const titleInput = document.createElement("input");
+      titleInput = document.createElement("input");
       titleInput.type = "text";
       titleInput.value = titleVal ? titleVal : "";
       titleInput.setAttribute("id", "title-input");
@@ -48,7 +52,7 @@ const ModalWindow = (function () {
   // ---------------------- DESCRIPTION INPUT ----------------------
   function Description(descriptionVal) {
     function DescriptionInput() {
-      const descriptionInput = document.createElement("textarea");
+      descriptionInput = document.createElement("textarea");
       descriptionInput.textContent = descriptionVal ? descriptionVal : "";
       descriptionInput.setAttribute("id", "description-input");
 
@@ -65,7 +69,7 @@ const ModalWindow = (function () {
   // ---------------------- DATE INPUT ----------------------
   function Date(dateVal) {
     function DateInput() {
-      const dateInput = document.createElement("input");
+      dateInput = document.createElement("input");
       dateInput.type = "datetime-local";
       dateInput.value = dateVal ? dateVal : "";
       dateInput.setAttribute("id", "date-input");
@@ -83,7 +87,7 @@ const ModalWindow = (function () {
   // ---------------------- PRIORITY INPUT ----------------------
   function Priority(priorityVal) {
     function PriorityInput() {
-      const priorityInput = document.createElement("select");
+      priorityInput = document.createElement("select");
       priorityInput.setAttribute("id", "priority-input");
 
       priorityInput.innerHTML = `
@@ -151,7 +155,7 @@ const ModalWindow = (function () {
     });
   }
 
-  // ---------------------- BUTTONS ----------------------
+  // ---------------------- CANCEL BUTTON ----------------------
   function CancelButton() {
     const cancelButton = document.createElement("button");
     cancelButton.textContent = "Cancel";
@@ -160,14 +164,37 @@ const ModalWindow = (function () {
     return cancelButton;
   }
 
+  // ---------------------- CONFIRM BUTTON ----------------------
   function ConfirmButton() {
     const confirmButton = document.createElement("button");
     confirmButton.textContent = "Confirm";
     confirmButton.classList.add("confirm-btn");
+    confirmButton.addEventListener("click", handleConfirmButton);
 
     return confirmButton;
   }
 
+  function handleConfirmButton() {
+    const data = getDataFromInputs();
+    if (!data) return; // Cancel if the user didn't fill out all necessary inputs
+    console.log(data);
+  }
+
+  function getDataFromInputs() {
+    const title = titleInput.value;
+    const description = descriptionInput.value;
+    const dueDate = dateInput.value;
+    const priority = priorityInput.value;
+    const project = projectsInput.value;
+
+    if (!title) {
+      window.alert("Please enter a Title");
+      return;
+    }
+    return { title, description, dueDate, priority, project };
+  }
+
+  // ---------------------- SAVE BUTTON ----------------------
   function SaveButton() {
     const saveButton = document.createElement("button");
     saveButton.textContent = "Save";

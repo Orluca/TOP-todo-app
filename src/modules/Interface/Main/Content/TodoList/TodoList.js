@@ -37,7 +37,7 @@ const TodoList = (function () {
   }
 
   init();
-  addTodo({ title: "Learn React", description: "Do udemy course", dueDate: "20-05-2023", priority: "low", project: "Programming", id: "205091kgmö3oi5", isFinished: true });
+  //   addTodo({ title: "Learn React", description: "Do udemy course", dueDate: "20-05-2023", priority: "low", project: "Programming", id: "205091kgmö3oi5", isFinished: true });
 
   return { get };
 })();
