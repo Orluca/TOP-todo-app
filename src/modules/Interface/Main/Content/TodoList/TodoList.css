@@ -1,0 +1,4 @@
+.todo-list-container {
+  background-color: var(--color-todo);
+  grid-area: 1 / 1 / 2 / 2;
+}

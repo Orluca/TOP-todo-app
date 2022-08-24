@@ -1,5 +1,4 @@
 .main {
-  background-color: var(--color-sidebar);
   display: flex;
   flex-direction: row;
   max-height: 100%;

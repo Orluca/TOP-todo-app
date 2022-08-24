@@ -1,0 +1,8 @@
+.content {
+  flex-grow: 4;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  max-height: 100%;
+  overflow: auto;
+}

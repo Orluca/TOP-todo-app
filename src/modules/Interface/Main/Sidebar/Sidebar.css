@@ -1,0 +1,4 @@
+.sidebar {
+  background-color: var(--color-sidebar);
+  flex-grow: 1;
+}
