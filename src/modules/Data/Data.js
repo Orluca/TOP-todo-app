@@ -12,6 +12,10 @@ const Data = (function () {
     console.log(todos);
   }
 
+  function getTodos() {
+    return todos;
+  }
+
   function saveToLocalStorage() {
     localStorage.setItem("todos", JSON.stringify(todos));
     localStorage.setItem("projects", JSON.stringify(projects));
@@ -25,7 +29,7 @@ const Data = (function () {
     if (storedProjects) projects = storedProjects;
   }
 
-  return { addTodo, restoreFromLocalStorage };
+  return { addTodo, restoreFromLocalStorage, getTodos };
 })();
 
 export default Data;

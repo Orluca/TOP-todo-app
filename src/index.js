@@ -1,19 +1,16 @@
 import Data from "./modules/Data/Data.js";
 import Interface from "./modules/Interface/Interface.js";
+import { TodoList } from "./modules/Interface/Main/Content/TodoList/TodoList.js";
 
 const App = (function () {
-  function initInterface() {
+  function start() {
+    // init data
+    Data.restoreFromLocalStorage();
+
+    // init interface
     const content = document.querySelector(".app");
     content.appendChild(Interface.get());
-  }
-
-  function initData() {
-    Data.restoreFromLocalStorage();
-  }
-
-  function start() {
-    initData();
-    initInterface();
+    TodoList.restore();
   }
 
   start();

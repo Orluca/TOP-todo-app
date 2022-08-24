@@ -1,5 +1,6 @@
 import todoListStyle from "./TodoList.css";
 import TodoItem from "./TodoItem/TodoItem.js";
+import Data from "../../../../Data/Data.js";
 
 const TodoListHeader = (function () {
   let TodoListHeader;
@@ -36,10 +37,14 @@ const TodoList = (function () {
     TodoList.appendChild(todoItem);
   }
 
-  init();
-  //   addTodo({ title: "Learn React", description: "Do udemy course", dueDate: "20-05-2023", priority: "low", project: "Programming", id: "205091kgmö3oi5", isFinished: true });
+  function restore() {
+    const todos = Data.getTodos();
+    todos.forEach((todo) => addTodo(todo));
+  }
 
-  return { get };
+  init();
+
+  return { get, addTodo, restore };
 })();
 
 const AddTodoButton = (function () {
@@ -81,3 +86,4 @@ const TodoListContainer = (function () {
 })();
 
 export default TodoListContainer;
+export { TodoList };

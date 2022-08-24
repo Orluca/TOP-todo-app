@@ -1,5 +1,6 @@
 import todoModalStyle from "./TodoModal.css";
 import Data from "../../../../Data/Data.js";
+import { TodoList } from "../TodoList/TodoList.js";
 
 const ModalWindow = (function () {
   let modalWindow;
@@ -179,6 +180,7 @@ const ModalWindow = (function () {
     const todoData = getDataFromInputs();
     if (!todoData) return; // Cancel if the user didn't fill out all necessary inputs
     Data.addTodo(todoData);
+    TodoList.addTodo(todoData);
   }
 
   function getDataFromInputs() {
