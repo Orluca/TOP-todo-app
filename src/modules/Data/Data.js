@@ -9,7 +9,6 @@ const Data = (function () {
     todo.id = uuidv4();
     todos.push(todo);
     saveToLocalStorage();
-    console.log(todos);
   }
 
   function getTodos() {
@@ -29,7 +28,15 @@ const Data = (function () {
     if (storedProjects) projects = storedProjects;
   }
 
-  return { addTodo, restoreFromLocalStorage, getTodos };
+  function changeTodoStatus(id, status) {
+    todos.forEach((todo, i) => {
+      if (todo.id === id) todos[i].isFinished = status;
+    });
+    saveToLocalStorage();
+    console.log(todos);
+  }
+
+  return { addTodo, restoreFromLocalStorage, getTodos, changeTodoStatus };
 })();
 
 export default Data;

@@ -1,10 +1,19 @@
 import todoItemStyle from "./TodoItem.css";
+import Data from "../../../../../Data/Data.js";
+
+function handleCheckboxClicks(e) {
+  const id = e.target.closest(".todo-item").dataset.id;
+  const isFinished = e.target.checked;
+
+  Data.changeTodoStatus(id, isFinished);
+}
 
 const TodoCheckbox = function (isFinished) {
   const TodoCheckbox = document.createElement("input");
   TodoCheckbox.classList.add("todo-item-checkbox");
   TodoCheckbox.type = "checkbox";
   TodoCheckbox.checked = isFinished;
+  TodoCheckbox.addEventListener("change", handleCheckboxClicks);
 
   return TodoCheckbox;
 };
