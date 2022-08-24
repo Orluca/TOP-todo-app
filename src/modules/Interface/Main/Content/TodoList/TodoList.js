@@ -49,9 +49,18 @@ const TodoList = (function () {
     todos.forEach((todo) => addTodo(todo));
   }
 
+  function updateTodo(id) {
+    TodoList.querySelectorAll(".todo-item").forEach((todo) => {
+      if (todo.dataset.id === id) {
+        const updatedData = Data.getTodoItem(id);
+        todo.replaceWith(TodoItem(updatedData));
+      }
+    });
+  }
+
   init();
 
-  return { get, addTodo, deleteTodo, restore };
+  return { get, addTodo, deleteTodo, restore, updateTodo };
 })();
 
 const AddTodoButton = (function () {

@@ -207,8 +207,16 @@ const ModalWindow = (function () {
     const saveButton = document.createElement("button");
     saveButton.textContent = "Save";
     saveButton.classList.add("save-btn");
+    saveButton.addEventListener("click", handleSaveButton);
 
     return saveButton;
+  }
+
+  function handleSaveButton(e) {
+    const updatedData = getDataFromInputs();
+    const id = e.target.closest(".modal-window").dataset.id;
+    Data.updateTodo(updatedData, id);
+    TodoList.updateTodo(id);
   }
 
   // ---------------------- WINDOW LAYOUTS ----------------------
@@ -225,8 +233,9 @@ const ModalWindow = (function () {
     return modalWindow;
   }
 
-  function editTodo({ title: titleVal, description: descriptionVal, dueDate: dateVal, priority: priorityVal, project: projectsVal }) {
+  function editTodo({ title: titleVal, description: descriptionVal, dueDate: dateVal, priority: priorityVal, project: projectsVal, id }) {
     modalWindow.innerHTML = "";
+    modalWindow.dataset.id = id;
     modalWindow.appendChild(Header("Edit Todo"));
     modalWindow.appendChild(Title(titleVal));
     modalWindow.appendChild(Description(descriptionVal));

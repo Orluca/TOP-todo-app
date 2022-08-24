@@ -19,6 +19,19 @@ const Data = (function () {
     return todos.find((todo) => todo.id === id);
   }
 
+  function updateTodo(updatedData, id) {
+    todos.forEach((todo, i) => {
+      if (todo.id === id) {
+        todo.title = updatedData.title;
+        todo.description = updatedData.description;
+        todo.dueDate = updatedData.dueDate;
+        todo.priority = updatedData.priority;
+        todo.project = updatedData.project;
+      }
+    });
+    saveToLocalStorage();
+  }
+
   function saveToLocalStorage() {
     localStorage.setItem("todos", JSON.stringify(todos));
     localStorage.setItem("projects", JSON.stringify(projects));
@@ -33,8 +46,8 @@ const Data = (function () {
   }
 
   function changeTodoStatus(id, status) {
-    todos.forEach((todo, i) => {
-      if (todo.id === id) todos[i].isFinished = status;
+    todos.forEach((todo) => {
+      if (todo.id === id) todo.isFinished = status;
     });
     saveToLocalStorage();
   }
@@ -44,7 +57,7 @@ const Data = (function () {
     saveToLocalStorage();
   }
 
-  return { addTodo, restoreFromLocalStorage, getTodos, changeTodoStatus, deleteTodo, getTodoItem };
+  return { addTodo, restoreFromLocalStorage, getTodos, changeTodoStatus, deleteTodo, getTodoItem, updateTodo };
 })();
 
 export default Data;

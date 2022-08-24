@@ -6,6 +6,12 @@
 
 - FLATICON: freepik, DinosoftLabs
 
+### next steps
+
+- save data from edited todos
+- implement projects functionality
+- implement time filter functionality
+
 ### to implement
 
 - EDIT button for projects:

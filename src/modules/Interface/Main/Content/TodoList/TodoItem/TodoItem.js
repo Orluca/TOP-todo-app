@@ -40,7 +40,6 @@ const TodoButtons = function (priorityVal) {
   function handleEditButton(e) {
     const id = e.target.closest(".todo-item").dataset.id;
     const todoData = Data.getTodoItem(id);
-    console.log(todoData);
     ModalBackground.showEditTodoWindow(todoData);
   }
 
