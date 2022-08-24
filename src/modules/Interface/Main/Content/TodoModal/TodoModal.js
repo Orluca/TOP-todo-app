@@ -162,8 +162,13 @@ const ModalWindow = (function () {
     const cancelButton = document.createElement("button");
     cancelButton.textContent = "Cancel";
     cancelButton.classList.add("cancel-btn");
+    cancelButton.addEventListener("click", handleCancelButton);
 
     return cancelButton;
+  }
+
+  function handleCancelButton() {
+    ModalBackground.hide();
   }
 
   // ---------------------- CONFIRM BUTTON ----------------------
@@ -250,16 +255,23 @@ const ModalBackground = (function () {
     ModalBackground = document.createElement("div");
     ModalBackground.classList.add("todo-modal-background");
     ModalBackground.appendChild(ModalWindow.newTodo());
-    // ModalBackground.appendChild(ModalWindow.editTodo({ title: "Learn React", description: "Use Udemy course", dueDate: "2018-06-12T19:30", priority: "low", project: "cooking" }));
   }
 
   function get() {
     return ModalBackground;
   }
 
+  function hide() {
+    ModalBackground.classList.add("hidden");
+  }
+
+  function show() {
+    ModalBackground.classList.remove("hidden");
+  }
+
   init();
 
-  return { get };
+  return { get, hide, show };
 })();
 
 export default ModalBackground;
