@@ -270,9 +270,9 @@ const ModalBackground = (function () {
     ModalWindow.newTodo();
   }
 
-  function showEditTodoWindow() {
+  function showEditTodoWindow(todoData) {
     ModalBackground.classList.remove("hidden");
-    ModalWindow.editTodo();
+    ModalWindow.editTodo(todoData);
   }
 
   init();

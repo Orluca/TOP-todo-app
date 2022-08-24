@@ -15,6 +15,10 @@ const Data = (function () {
     return todos;
   }
 
+  function getTodoItem(id) {
+    return todos.find((todo) => todo.id === id);
+  }
+
   function saveToLocalStorage() {
     localStorage.setItem("todos", JSON.stringify(todos));
     localStorage.setItem("projects", JSON.stringify(projects));
@@ -40,7 +44,7 @@ const Data = (function () {
     saveToLocalStorage();
   }
 
-  return { addTodo, restoreFromLocalStorage, getTodos, changeTodoStatus, deleteTodo };
+  return { addTodo, restoreFromLocalStorage, getTodos, changeTodoStatus, deleteTodo, getTodoItem };
 })();
 
 export default Data;

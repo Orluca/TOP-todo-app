@@ -1,5 +1,6 @@
 import todoItemStyle from "./TodoItem.css";
 import Data from "../../../../../Data/Data.js";
+import ModalBackground from "../../TodoModal/TodoModal.js";
 import { TodoList } from "../TodoList.js";
 
 function handleCheckboxClicks(e) {
@@ -31,8 +32,16 @@ const TodoButtons = function (priorityVal) {
     const editButton = document.createElement("button");
     editButton.classList.add("todo-item-edit-btn");
     editButton.textContent = "Edit";
+    editButton.addEventListener("click", handleEditButton);
 
     return editButton;
+  }
+
+  function handleEditButton(e) {
+    const id = e.target.closest(".todo-item").dataset.id;
+    const todoData = Data.getTodoItem(id);
+    console.log(todoData);
+    ModalBackground.showEditTodoWindow(todoData);
   }
 
   function deleteButton() {
