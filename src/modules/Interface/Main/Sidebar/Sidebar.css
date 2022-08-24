@@ -2,3 +2,12 @@
   background-color: var(--color-sidebar);
   flex-grow: 1;
 }
+
+.sidebar-icon {
+  width: 30px;
+}
+
+.projects-add {
+  background-color: blueviolet;
+  display: flex;
+}

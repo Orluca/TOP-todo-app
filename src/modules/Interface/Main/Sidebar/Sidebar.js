@@ -115,10 +115,26 @@ const ProjectButton = function (name) {
 const ProjectsAdd = (function () {
   let ProjectsAdd;
 
+  function Icon() {
+    const plusIcon = document.createElement("img");
+    plusIcon.classList.add("sidebar-icon");
+    plusIcon.src = iconPlus;
+
+    return plusIcon;
+  }
+
+  function TextLabel() {
+    const textLabel = document.createElement("div");
+    textLabel.textContent = "Add New Project";
+
+    return textLabel;
+  }
+
   function init() {
     ProjectsAdd = document.createElement("div");
     ProjectsAdd.classList.add("projects-add");
-    ProjectsAdd.textContent = "Add new project";
+    ProjectsAdd.appendChild(Icon());
+    ProjectsAdd.appendChild(TextLabel());
   }
 
   function get() {
