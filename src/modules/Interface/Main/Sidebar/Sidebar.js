@@ -4,7 +4,7 @@ import iconWeek from "../../../assets/icon-week.svg";
 import iconPlus from "../../../assets/icon-plus.svg";
 // import TodoList from "../TodoListContainer/TodoList/TodoList.js";
 // import Data from "../../../Data/Data.js";
-// import { ModalWindow } from "../TodoListContainer/AddTodoModal/AddTodoModal";
+import { ModalWindow } from "../Content/TodoModal/TodoModal";
 
 // -------------------- DUE DATE FILTERS --------------------
 const TodayButton = (function () {

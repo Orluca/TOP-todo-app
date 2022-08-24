@@ -2,11 +2,10 @@ import todoModalStyle from "./TodoModal.css";
 
 const ModalWindow = (function () {
   let modalWindow;
-  let header;
-  let title;
+  let projectsInput;
 
   function Header(text) {
-    header = document.createElement("h2");
+    const header = document.createElement("h2");
     header.classList.add("modal-window-header");
     header.textContent = text;
 
@@ -112,12 +111,12 @@ const ModalWindow = (function () {
   // ---------------------- PRIORITY INPUT ----------------------
   function Projects(projectsVal) {
     function ProjectsInput() {
-      const projectsInput = document.createElement("select");
+      projectsInput = document.createElement("select");
       projectsInput.setAttribute("id", "projects-input");
 
-      //   const projects = Data.getProjects();
-      const projects = ["programming", "sports", "cooking"];
-      projects.forEach((project) => {
+      //   const projectsData = Data.getProjects();
+      const projectsData = ["programming", "sports", "cooking"]; // PLACEHOLDER
+      projectsData.forEach((project) => {
         const option = document.createElement("option");
         option.value = project;
         option.textContent = project.slice(0, 1).toUpperCase() + project.slice(1);
@@ -138,6 +137,18 @@ const ModalWindow = (function () {
     projects.appendChild(ProjectsInput());
 
     return projects;
+  }
+
+  function updateProjects() {
+    projectsInput.innerHTML = "";
+    //   const projectsData = Data.getProjects();
+    const projectsData = ["programming", "sports", "cooking", "work"]; // PLACEHOLDER
+    projectsData.forEach((project) => {
+      const option = document.createElement("option");
+      option.value = project;
+      option.textContent = project.slice(0, 1).toUpperCase() + project.slice(1);
+      projectsInput.appendChild(option);
+    });
   }
 
   // ---------------------- WINDOW LAYOUTS ----------------------
@@ -170,7 +181,7 @@ const ModalWindow = (function () {
 
   init();
 
-  return { newTodo, editTodo };
+  return { newTodo, editTodo, updateProjects };
 })();
 
 const ModalBackground = (function () {
@@ -193,3 +204,4 @@ const ModalBackground = (function () {
 })();
 
 export default ModalBackground;
+export { ModalWindow };
