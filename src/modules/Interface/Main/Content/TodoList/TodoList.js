@@ -38,6 +38,12 @@ const TodoList = (function () {
     TodoList.appendChild(todoItem);
   }
 
+  function deleteTodo(id) {
+    TodoList.querySelectorAll(".todo-item").forEach((todo) => {
+      if (todo.dataset.id === id) todo.remove();
+    });
+  }
+
   function restore() {
     const todos = Data.getTodos();
     todos.forEach((todo) => addTodo(todo));
@@ -45,7 +51,7 @@ const TodoList = (function () {
 
   init();
 
-  return { get, addTodo, restore };
+  return { get, addTodo, deleteTodo, restore };
 })();
 
 const AddTodoButton = (function () {

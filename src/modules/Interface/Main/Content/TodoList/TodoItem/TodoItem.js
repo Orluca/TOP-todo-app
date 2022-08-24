@@ -1,10 +1,10 @@
 import todoItemStyle from "./TodoItem.css";
 import Data from "../../../../../Data/Data.js";
+import { TodoList } from "../TodoList.js";
 
 function handleCheckboxClicks(e) {
   const id = e.target.closest(".todo-item").dataset.id;
   const isFinished = e.target.checked;
-
   Data.changeTodoStatus(id, isFinished);
 }
 
@@ -39,8 +39,15 @@ const TodoButtons = function (priorityVal) {
     const deleteButton = document.createElement("button");
     deleteButton.classList.add("todo-item-delete-btn");
     deleteButton.textContent = "Delete";
+    deleteButton.addEventListener("click", handleDeleteButton);
 
     return deleteButton;
+  }
+
+  function handleDeleteButton(e) {
+    const id = e.target.closest(".todo-item").dataset.id;
+    Data.deleteTodo(id);
+    TodoList.deleteTodo(id);
   }
 
   function priorityButton(priorityVal) {

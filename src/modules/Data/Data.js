@@ -33,10 +33,14 @@ const Data = (function () {
       if (todo.id === id) todos[i].isFinished = status;
     });
     saveToLocalStorage();
-    console.log(todos);
   }
 
-  return { addTodo, restoreFromLocalStorage, getTodos, changeTodoStatus };
+  function deleteTodo(id) {
+    todos = todos.filter((todo) => todo.id !== id);
+    saveToLocalStorage();
+  }
+
+  return { addTodo, restoreFromLocalStorage, getTodos, changeTodoStatus, deleteTodo };
 })();
 
 export default Data;
