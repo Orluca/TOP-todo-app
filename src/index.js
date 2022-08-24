@@ -8,7 +8,7 @@ const App = (function () {
   }
 
   function initData() {
-    // Data.init();
+    Data.restoreFromLocalStorage();
   }
 
   function start() {
