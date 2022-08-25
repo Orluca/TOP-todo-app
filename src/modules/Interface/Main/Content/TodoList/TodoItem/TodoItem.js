@@ -10,22 +10,31 @@ function handleCheckboxClicks(e) {
   Data.changeTodoStatus(id, isFinished);
 }
 
-const TodoCheckbox = function (isFinished) {
-  const TodoCheckbox = document.createElement("input");
-  TodoCheckbox.classList.add("todo-item-checkbox");
-  TodoCheckbox.type = "checkbox";
-  TodoCheckbox.checked = isFinished;
-  TodoCheckbox.addEventListener("change", handleCheckboxClicks);
+const TodoLeft = function (titleVal, isFinished) {
+  const TodoCheckbox = function () {
+    const TodoCheckbox = document.createElement("input");
+    TodoCheckbox.classList.add("todo-item-checkbox");
+    TodoCheckbox.type = "checkbox";
+    TodoCheckbox.checked = isFinished;
+    TodoCheckbox.addEventListener("change", handleCheckboxClicks);
 
-  return TodoCheckbox;
-};
+    return TodoCheckbox;
+  };
 
-const TodoTitle = function (titleVal) {
-  const TodoTitle = document.createElement("div");
-  TodoTitle.classList.add("todo-item-title");
-  TodoTitle.textContent = titleVal;
+  const TodoTitle = function () {
+    const TodoTitle = document.createElement("div");
+    TodoTitle.classList.add("todo-item-title");
+    TodoTitle.textContent = titleVal;
 
-  return TodoTitle;
+    return TodoTitle;
+  };
+
+  const todoLeft = document.createElement("div");
+  todoLeft.classList.add("todo-item-left");
+  todoLeft.appendChild(TodoCheckbox());
+  todoLeft.appendChild(TodoTitle());
+
+  return todoLeft;
 };
 
 const TodoButtons = function (priorityVal) {
@@ -119,8 +128,7 @@ const TodoItem = function ({ title: titleVal, description: descriptionVal, dueDa
   const TodoItem = document.createElement("div");
   TodoItem.classList.add("todo-item");
   TodoItem.dataset.id = uuid;
-  TodoItem.appendChild(TodoCheckbox(isFinished));
-  TodoItem.appendChild(TodoTitle(titleVal));
+  TodoItem.appendChild(TodoLeft(titleVal, isFinished));
   TodoItem.appendChild(TodoButtons(priorityVal));
   TodoItem.appendChild(TodoExpandable(descriptionVal, dueDateVal, projectName));
 
