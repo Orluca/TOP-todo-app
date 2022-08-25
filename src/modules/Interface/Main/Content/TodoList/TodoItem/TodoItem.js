@@ -3,6 +3,7 @@ import Data from "../../../../../Data/Data.js";
 import ModalBackground from "../../TodoModal/TodoModal.js";
 import { TodoList } from "../TodoList.js";
 import { ProjectsList, TodayButton, WeekButton } from "../../../Sidebar/Sidebar.js";
+import { format, parseISO } from "date-fns";
 
 const TodoTop = function (titleVal, isFinished, priorityVal) {
   const TodoCheckbox = function () {
@@ -130,7 +131,12 @@ const TodoBottom = function (descriptionVal, dueDateVal, projectName) {
 
     function DateValue() {
       const value = document.createElement("div");
-      value.textContent = dueDateVal;
+      // if (dueDateVal) {
+
+      // }
+      value.textContent = dueDateVal ? format(parseISO(dueDateVal), "MMMM do yyy, HH:mm") : "";
+      // console.log(dueDateVal);
+      // console.log(parseISO(dueDateVal));
 
       return value;
     }
