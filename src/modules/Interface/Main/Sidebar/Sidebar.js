@@ -150,8 +150,6 @@ const ProjectButton = function (projectName) {
   }
 
   function handleRenameButton(e) {
-    // const oldName = e.target.closest(".project-button").dataset.projectName;
-    // const newName =
     projectNameLabel.disabled = false;
     projectNameLabel.focus();
     projectNameLabel.select();
@@ -162,8 +160,17 @@ const ProjectButton = function (projectName) {
     deleteButton.classList.add("delete-project-btn");
     deleteButton.classList.add("hidden");
     deleteButton.textContent = "🗑";
+    deleteButton.addEventListener("click", handleDeleteButton);
 
     return deleteButton;
+  }
+
+  function handleDeleteButton(e) {
+    const projectName = e.target.closest(".project-button").dataset.projectName;
+    Data.deleteProject(projectName);
+    e.target.closest(".project-button").remove();
+    ModalWindow.updateProjects();
+    TodoList.updateProjectNames(projectName, "");
   }
 
   function ProjectNameLabel(nameVal) {

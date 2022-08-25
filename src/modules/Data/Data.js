@@ -76,7 +76,17 @@ const Data = (function () {
     saveToLocalStorage();
   }
 
-  return { addTodo, restoreFromLocalStorage, getTodos, changeTodoStatus, deleteTodo, getTodoItem, updateTodo, addProject, getProjects, changeProjectName };
+  function deleteProject(projectName) {
+    todos.forEach((todo) => {
+      if (todo.project === projectName) todo.project = "";
+    });
+    projects.forEach((project, i) => {
+      if (project === projectName) projects.splice(i, 1);
+    });
+    saveToLocalStorage();
+  }
+
+  return { addTodo, restoreFromLocalStorage, getTodos, changeTodoStatus, deleteTodo, getTodoItem, updateTodo, addProject, getProjects, changeProjectName, deleteProject };
 })();
 
 export default Data;
