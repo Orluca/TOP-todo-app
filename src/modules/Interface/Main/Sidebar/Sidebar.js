@@ -195,6 +195,7 @@ const ProjectsAdd = (function () {
     ProjectsList.addProject(projectName);
     clearProjectNameInput();
     toggleVisibilities();
+    ModalWindow.updateProjects();
   }
 
   function clearProjectNameInput() {

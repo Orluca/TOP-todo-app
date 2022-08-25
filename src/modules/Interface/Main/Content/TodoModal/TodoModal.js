@@ -120,8 +120,7 @@ const ModalWindow = (function () {
       projectsInput = document.createElement("select");
       projectsInput.setAttribute("id", "projects-input");
 
-      //   const projectsData = Data.getProjects();
-      const projectsData = ["programming", "sports", "cooking"]; // PLACEHOLDER
+      const projectsData = Data.getProjects();
       projectsData.forEach((project) => {
         const option = document.createElement("option");
         option.value = project;
@@ -147,8 +146,7 @@ const ModalWindow = (function () {
 
   function updateProjects() {
     projectsInput.innerHTML = "";
-    //   const projectsData = Data.getProjects();
-    const projectsData = ["programming", "sports", "cooking", "work"]; // PLACEHOLDER
+    const projectsData = Data.getProjects();
     projectsData.forEach((project) => {
       const option = document.createElement("option");
       option.value = project;
