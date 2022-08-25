@@ -1,7 +1,7 @@
 import todoModalStyle from "./TodoModal.css";
 import Data from "../../../../Data/Data.js";
 import { TodoList } from "../TodoList/TodoList.js";
-import { ProjectsList } from "../../Sidebar/Sidebar.js";
+import { ProjectsList, TodayButton } from "../../Sidebar/Sidebar.js";
 
 const ModalWindow = (function () {
   let modalWindow;
@@ -186,6 +186,7 @@ const ModalWindow = (function () {
     Data.addTodo(todoData);
     TodoList.addTodo(todoData);
     ProjectsList.updateCounts();
+    TodayButton.updateCount();
   }
 
   function getDataFromInputs() {
@@ -218,6 +219,7 @@ const ModalWindow = (function () {
     Data.updateTodo(updatedData, id);
     TodoList.updateTodo(id);
     ProjectsList.updateCounts();
+    TodayButton.updateCount();
   }
 
   // ---------------------- WINDOW LAYOUTS ----------------------

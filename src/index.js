@@ -1,7 +1,7 @@
 import Data from "./modules/Data/Data.js";
 import Interface from "./modules/Interface/Interface.js";
 import { TodoList } from "./modules/Interface/Main/Content/TodoList/TodoList.js";
-import { ProjectsList, TodayButton } from "./modules/Interface/Main/Sidebar/Sidebar.js";
+import { ProjectsList, TodayButton, WeekButton } from "./modules/Interface/Main/Sidebar/Sidebar.js";
 import { ModalWindow } from "./modules/Interface/Main/Content/TodoModal/TodoModal.js";
 
 const App = (function () {

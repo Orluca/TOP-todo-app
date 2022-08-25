@@ -2,7 +2,7 @@ import todoItemStyle from "./TodoItem.css";
 import Data from "../../../../../Data/Data.js";
 import ModalBackground from "../../TodoModal/TodoModal.js";
 import { TodoList } from "../TodoList.js";
-import { ProjectsList } from "../../../Sidebar/Sidebar.js";
+import { ProjectsList, TodayButton } from "../../../Sidebar/Sidebar.js";
 
 function handleCheckboxClicks(e) {
   const id = e.target.closest(".todo-item").dataset.id;
@@ -58,6 +58,7 @@ const TodoButtons = function (priorityVal) {
     Data.deleteTodo(id);
     TodoList.deleteTodo(id);
     ProjectsList.updateCounts();
+    TodayButton.updateCount();
   }
 
   function priorityButton(priorityVal) {
