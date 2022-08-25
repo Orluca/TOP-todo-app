@@ -7,6 +7,16 @@
   width: 30px;
 }
 
+.date-filter-btn {
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+}
+
+.date-filter-btn-left {
+  display: flex;
+}
+
 .add-project-btn {
   background-color: blueviolet;
   display: flex;

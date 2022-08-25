@@ -8,18 +8,46 @@ import { TodoList } from "../Content/TodoList/TodoList.js";
 
 // -------------------- DUE DATE FILTERS --------------------
 const TodayButton = (function () {
-  let TodayButton;
+  function LeftSide() {
+    function Icon() {
+      const icon = document.createElement("img");
+      icon.classList.add("sidebar-icon");
+      icon.src = iconToday;
 
-  function init() {
-    TodayButton = document.createElement("div");
-    TodayButton.classList.add("today-btn");
+      return icon;
+    }
+
+    function Label() {
+      const label = document.createElement("div");
+      label.textContent = "Today";
+
+      return label;
+    }
+    const leftSide = document.createElement("div");
+    leftSide.classList.add("date-filter-btn-left");
+    leftSide.appendChild(Icon());
+    leftSide.appendChild(Label());
+
+    return leftSide;
+  }
+
+  function Counter() {
+    const counter = document.createElement("div");
+    counter.classList.add("today-count");
+    counter.textContent = "6";
+
+    return counter;
   }
 
   function get() {
     return TodayButton;
   }
 
-  init();
+  const TodayButton = document.createElement("div");
+  TodayButton.classList.add("today-btn");
+  TodayButton.classList.add("date-filter-btn");
+  TodayButton.appendChild(LeftSide());
+  TodayButton.appendChild(Counter());
 
   return { get };
 })();
