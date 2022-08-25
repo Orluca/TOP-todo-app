@@ -76,6 +76,14 @@ const TodoList = (function () {
     });
   }
 
+  function showWeek() {
+    clear();
+    const thisWeeksTodos = Data.getWeeksTodos();
+    thisWeeksTodos.forEach((todo) => {
+      addTodo(todo);
+    });
+  }
+
   function showAll() {
     clear();
     const todos = Data.getTodos();
@@ -86,7 +94,7 @@ const TodoList = (function () {
 
   init();
 
-  return { get, addTodo, deleteTodo, restore, updateTodo, updateProjectNames, showToday, showAll };
+  return { get, addTodo, deleteTodo, restore, updateTodo, updateProjectNames, showToday, showWeek, showAll };
 })();
 
 const AddTodoButton = (function () {

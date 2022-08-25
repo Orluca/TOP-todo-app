@@ -100,7 +100,10 @@ const WeekButton = (function () {
     return WeekButton;
   }
 
-  function handleWeekClicks() {}
+  function handleWeekClicks() {
+    WeekButton.classList.toggle("clicked");
+    WeekButton.classList.contains("clicked") ? TodoList.showWeek() : TodoList.showAll();
+  }
 
   function updateCount() {
     counter.textContent = Data.getWeekCount();
