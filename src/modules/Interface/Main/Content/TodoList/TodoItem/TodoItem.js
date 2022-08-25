@@ -97,7 +97,7 @@ const TodoTop = function (titleVal, isFinished, priorityVal) {
   return TodoTop;
 };
 
-const TodoBottom = function (descriptionVal, dueDateVal, projectName) {
+const TodoBottom = function (descriptionVal, dueDateVal, projectName, priorityVal) {
   function TodoDescription() {
     function DescriptionLabel() {
       const label = document.createElement("div");
@@ -169,12 +169,36 @@ const TodoBottom = function (descriptionVal, dueDateVal, projectName) {
     return TodoProject;
   }
 
+  function TodoPriority() {
+    function PriorityLabel() {
+      const label = document.createElement("div");
+      label.textContent = "Priority:";
+
+      return label;
+    }
+
+    function PriorityValue() {
+      const value = document.createElement("div");
+      value.textContent = priorityVal;
+
+      return value;
+    }
+
+    const TodoPriority = document.createElement("div");
+    TodoPriority.classList.add("todo-item-project");
+    TodoPriority.appendChild(PriorityLabel());
+    TodoPriority.appendChild(PriorityValue());
+
+    return TodoPriority;
+  }
+
   const TodoBottom = document.createElement("div");
   TodoBottom.classList.add("todo-item-bottom");
   TodoBottom.classList.add("hidden");
   TodoBottom.appendChild(TodoDescription());
   TodoBottom.appendChild(TodoDueDate());
   TodoBottom.appendChild(TodoProject());
+  TodoBottom.appendChild(TodoPriority());
 
   return TodoBottom;
 };
@@ -189,7 +213,7 @@ const TodoItem = function ({ title: titleVal, description: descriptionVal, dueDa
   TodoItem.classList.add("todo-item");
   TodoItem.dataset.id = uuid;
   TodoItem.appendChild(TodoTop(titleVal, isFinished, priorityVal));
-  TodoItem.appendChild(TodoBottom(descriptionVal, dueDateVal, projectName));
+  TodoItem.appendChild(TodoBottom(descriptionVal, dueDateVal, projectName, priorityVal));
   hideEmpties();
 
   return TodoItem;
