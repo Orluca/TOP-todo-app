@@ -185,6 +185,11 @@ const ProjectButton = function (projectName) {
     const oldName = e.target.closest(".project-button").dataset.projectName;
     const newName = e.target.value.toLowerCase();
 
+    if (!newName) {
+      window.alert("Please enter a name");
+      return;
+    }
+
     Data.changeProjectName(oldName, newName);
     TodoList.updateProjectNames(oldName, newName);
     ModalWindow.updateProjects();
