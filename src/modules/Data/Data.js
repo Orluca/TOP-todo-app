@@ -107,7 +107,19 @@ const Data = (function () {
     return count;
   }
 
-  return { addTodo, restoreFromLocalStorage, getTodos, changeTodoStatus, deleteTodo, getTodoItem, updateTodo, addProject, getProjects, changeProjectName, deleteProject, getProjectOccurrencesAmount, getTodayCount };
+  function getWeekCount() {
+    let count = 0;
+    const currentDate = new Date();
+
+    todos.forEach((todo) => {
+      const todoDate = parseISO(todo.dueDate);
+      if (isSameWeek(currentDate, todoDate)) count++;
+    });
+
+    return count;
+  }
+
+  return { addTodo, restoreFromLocalStorage, getTodos, changeTodoStatus, deleteTodo, getTodoItem, updateTodo, addProject, getProjects, changeProjectName, deleteProject, getProjectOccurrencesAmount, getTodayCount, getWeekCount };
 })();
 
 export default Data;

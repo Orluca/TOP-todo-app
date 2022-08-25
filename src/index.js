@@ -15,6 +15,7 @@ const App = (function () {
     TodoList.restore();
     ProjectsList.restore();
     TodayButton.updateCount();
+    WeekButton.updateCount();
     ModalWindow.updateProjects();
   }
 

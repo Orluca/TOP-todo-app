@@ -61,20 +61,56 @@ const TodayButton = (function () {
 })();
 
 const WeekButton = (function () {
-  let WeekButton;
+  let counter;
 
-  function init() {
-    WeekButton = document.createElement("div");
-    WeekButton.classList.add("week-btn");
+  function LeftSide() {
+    function Icon() {
+      const icon = document.createElement("img");
+      icon.classList.add("sidebar-icon");
+      icon.src = iconWeek;
+
+      return icon;
+    }
+
+    function Label() {
+      const label = document.createElement("div");
+      label.textContent = "This Week";
+
+      return label;
+    }
+    const leftSide = document.createElement("div");
+    leftSide.classList.add("date-filter-btn-left");
+    leftSide.appendChild(Icon());
+    leftSide.appendChild(Label());
+
+    return leftSide;
+  }
+
+  function Counter() {
+    counter = document.createElement("div");
+    counter.classList.add("week-count");
+
+    return counter;
   }
 
   function get() {
     return WeekButton;
   }
 
-  init();
+  function handleWeekClicks() {}
 
-  return { get };
+  function updateCount() {
+    counter.textContent = Data.getWeekCount();
+  }
+
+  const WeekButton = document.createElement("div");
+  WeekButton.classList.add("today-btn");
+  WeekButton.classList.add("date-filter-btn");
+  WeekButton.appendChild(LeftSide());
+  WeekButton.appendChild(Counter());
+  WeekButton.addEventListener("click", handleWeekClicks);
+
+  return { get, updateCount };
 })();
 
 // -------------------- PROJECTS SECTION --------------------
