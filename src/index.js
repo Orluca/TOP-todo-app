@@ -2,6 +2,7 @@ import Data from "./modules/Data/Data.js";
 import Interface from "./modules/Interface/Interface.js";
 import { TodoList } from "./modules/Interface/Main/Content/TodoList/TodoList.js";
 import { ProjectsList } from "./modules/Interface/Main/Sidebar/Sidebar.js";
+import { ModalWindow } from "./modules/Interface/Main/Content/TodoModal/TodoModal.js";
 
 const App = (function () {
   function start() {
@@ -13,6 +14,7 @@ const App = (function () {
     content.appendChild(Interface.get());
     TodoList.restore();
     ProjectsList.restore();
+    ModalWindow.updateProjects();
   }
 
   start();
