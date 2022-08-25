@@ -44,8 +44,9 @@ const TodayButton = (function () {
     return TodayButton;
   }
 
-  function handleTodayClicks() {
-    TodoList.showToday();
+  function handleTodayClicks(e) {
+    TodayButton.classList.toggle("clicked");
+    TodayButton.classList.contains("clicked") ? TodoList.showToday() : TodoList.showAll();
   }
 
   function updateCount() {

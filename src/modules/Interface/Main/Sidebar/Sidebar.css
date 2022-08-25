@@ -21,3 +21,7 @@
   background-color: blueviolet;
   display: flex;
 }
+
+.clicked {
+  background-color: gold;
+}
