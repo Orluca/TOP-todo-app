@@ -4,14 +4,14 @@ import ModalBackground from "../../TodoModal/TodoModal.js";
 import { TodoList } from "../TodoList.js";
 import { ProjectsList, TodayButton, WeekButton } from "../../../Sidebar/Sidebar.js";
 
-function handleCheckboxClicks(e) {
-  const id = e.target.closest(".todo-item").dataset.id;
-  const isFinished = e.target.checked;
-  Data.changeTodoStatus(id, isFinished);
-}
-
-const TodoLeft = function (titleVal, isFinished) {
+const TodoTop = function (titleVal, isFinished, priorityVal) {
   const TodoCheckbox = function () {
+    function handleCheckboxClicks(e) {
+      const id = e.target.closest(".todo-item").dataset.id;
+      const isFinished = e.target.checked;
+      Data.changeTodoStatus(id, isFinished);
+    }
+
     const TodoCheckbox = document.createElement("input");
     TodoCheckbox.classList.add("todo-item-checkbox");
     TodoCheckbox.type = "checkbox";
@@ -29,68 +29,69 @@ const TodoLeft = function (titleVal, isFinished) {
     return TodoTitle;
   };
 
-  const todoLeft = document.createElement("div");
-  todoLeft.classList.add("todo-item-left");
-  todoLeft.appendChild(TodoCheckbox());
-  todoLeft.appendChild(TodoTitle());
+  const TodoButtons = function () {
+    function editButton() {
+      const editButton = document.createElement("button");
+      editButton.classList.add("todo-item-edit-btn");
+      editButton.textContent = "Edit";
+      editButton.addEventListener("click", handleEditButton);
 
-  return todoLeft;
+      return editButton;
+    }
+
+    function handleEditButton(e) {
+      const id = e.target.closest(".todo-item").dataset.id;
+      const todoData = Data.getTodoItem(id);
+      ModalBackground.showEditTodoWindow(todoData);
+    }
+
+    function deleteButton() {
+      const deleteButton = document.createElement("button");
+      deleteButton.classList.add("todo-item-delete-btn");
+      deleteButton.textContent = "Delete";
+      deleteButton.addEventListener("click", handleDeleteButton);
+
+      return deleteButton;
+    }
+
+    function handleDeleteButton(e) {
+      const id = e.target.closest(".todo-item").dataset.id;
+      Data.deleteTodo(id);
+      TodoList.deleteTodo(id);
+      ProjectsList.updateCounts();
+      TodayButton.updateCount();
+      WeekButton.updateCount();
+    }
+
+    function priorityButton() {
+      const priorityButton = document.createElement("button");
+      priorityButton.classList.add("todo-item-priority-btn");
+      if (priorityVal === "low") priorityButton.textContent = "🟢";
+      if (priorityVal === "medium") priorityButton.textContent = "🟡";
+      if (priorityVal === "high") priorityButton.textContent = "🔴";
+
+      return priorityButton;
+    }
+
+    const TodoButtons = document.createElement("div");
+    TodoButtons.classList.add("todo-item-buttons");
+    TodoButtons.appendChild(editButton());
+    TodoButtons.appendChild(deleteButton());
+    TodoButtons.appendChild(priorityButton());
+
+    return TodoButtons;
+  };
+
+  const TodoTop = document.createElement("div");
+  TodoTop.classList.add("todo-item-top");
+  TodoTop.appendChild(TodoCheckbox());
+  TodoTop.appendChild(TodoTitle());
+  TodoTop.appendChild(TodoButtons());
+
+  return TodoTop;
 };
 
-const TodoRight = function (priorityVal) {
-  function editButton() {
-    const editButton = document.createElement("button");
-    editButton.classList.add("todo-item-edit-btn");
-    editButton.textContent = "Edit";
-    editButton.addEventListener("click", handleEditButton);
-
-    return editButton;
-  }
-
-  function handleEditButton(e) {
-    const id = e.target.closest(".todo-item").dataset.id;
-    const todoData = Data.getTodoItem(id);
-    ModalBackground.showEditTodoWindow(todoData);
-  }
-
-  function deleteButton() {
-    const deleteButton = document.createElement("button");
-    deleteButton.classList.add("todo-item-delete-btn");
-    deleteButton.textContent = "Delete";
-    deleteButton.addEventListener("click", handleDeleteButton);
-
-    return deleteButton;
-  }
-
-  function handleDeleteButton(e) {
-    const id = e.target.closest(".todo-item").dataset.id;
-    Data.deleteTodo(id);
-    TodoList.deleteTodo(id);
-    ProjectsList.updateCounts();
-    TodayButton.updateCount();
-    WeekButton.updateCount();
-  }
-
-  function priorityButton(priorityVal) {
-    const priorityButton = document.createElement("button");
-    priorityButton.classList.add("todo-item-priority-btn");
-    if (priorityVal === "low") priorityButton.textContent = "🟢";
-    if (priorityVal === "medium") priorityButton.textContent = "🟡";
-    if (priorityVal === "high") priorityButton.textContent = "🔴";
-
-    return priorityButton;
-  }
-
-  const TodoRight = document.createElement("div");
-  TodoRight.classList.add("todo-item-right");
-  TodoRight.appendChild(editButton());
-  TodoRight.appendChild(deleteButton());
-  TodoRight.appendChild(priorityButton(priorityVal));
-
-  return TodoRight;
-};
-
-const TodoExpandable = function (descriptionVal, dueDateVal, projectName) {
+const TodoBottom = function (descriptionVal, dueDateVal, projectName) {
   function TodoDescription() {
     const TodoDescription = document.createElement("div");
     TodoDescription.classList.add("todo-item-description");
@@ -115,22 +116,28 @@ const TodoExpandable = function (descriptionVal, dueDateVal, projectName) {
     return TodoProject;
   }
 
-  const TodoExpandable = document.createElement("div");
-  TodoExpandable.classList.add("todo-item-expandable");
-  TodoExpandable.appendChild(TodoDescription());
-  TodoExpandable.appendChild(TodoDueDate());
-  TodoExpandable.appendChild(TodoProject());
+  const TodoBottom = document.createElement("div");
+  TodoBottom.classList.add("todo-item-bottom");
+  TodoBottom.classList.add("hidden");
+  TodoBottom.appendChild(TodoDescription());
+  TodoBottom.appendChild(TodoDueDate());
+  TodoBottom.appendChild(TodoProject());
 
-  return TodoExpandable;
+  return TodoBottom;
 };
 
 const TodoItem = function ({ title: titleVal, description: descriptionVal, dueDate: dueDateVal, priority: priorityVal, project: projectName, id: uuid, isFinished }) {
+  function handleTodoItemClicks(e) {
+    // if (e.target.)
+    console.log("LKJL");
+  }
+
   const TodoItem = document.createElement("div");
   TodoItem.classList.add("todo-item");
   TodoItem.dataset.id = uuid;
-  TodoItem.appendChild(TodoLeft(titleVal, isFinished));
-  TodoItem.appendChild(TodoRight(priorityVal));
-  TodoItem.appendChild(TodoExpandable(descriptionVal, dueDateVal, projectName));
+  TodoItem.appendChild(TodoTop(titleVal, isFinished, priorityVal));
+  TodoItem.appendChild(TodoBottom(descriptionVal, dueDateVal, projectName));
+  TodoItem.addEventListener("click", handleTodoItemClicks);
 
   return TodoItem;
 };

@@ -1,22 +1,21 @@
 .todo-item {
   background-color: #fff;
-  display: grid;
+  /* display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto auto;
+  grid-template-rows: auto auto; */
 }
 
-.todo-item-left {
-  grid-area: 1 / 1 / 2 / 2;
+/* TOP SECTION */
+.todo-item-top {
   display: flex;
-  justify-content: flex-start;
 }
 
-.todo-item-right {
-  grid-area: 1 / 2 / 2 / 3;
-  display: flex;
-  justify-content: flex-end;
+.todo-item-checkbox {
 }
 
-.todo-item-expandable {
-  grid-area: 2 / 1 / 3 / 3;
+.todo-item-title {
+  flex-grow: 1;
+}
+
+.todo-item-buttons {
 }
