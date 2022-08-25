@@ -48,6 +48,7 @@ const TodayButton = (function () {
     TodayButton.classList.toggle("clicked");
     TodayButton.classList.contains("clicked") ? TodoList.showToday() : TodoList.showAll();
     WeekButton.clear();
+    ProjectsList.clearAll();
   }
 
   function updateCount() {
@@ -109,6 +110,7 @@ const WeekButton = (function () {
     WeekButton.classList.toggle("clicked");
     WeekButton.classList.contains("clicked") ? TodoList.showWeek() : TodoList.showAll();
     TodayButton.clear();
+    ProjectsList.clearAll();
   }
 
   function updateCount() {
@@ -219,9 +221,13 @@ const ProjectsList = (function () {
     });
   }
 
+  function clearAll(exception) {
+    ProjectsList.querySelectorAll(".project-button").forEach((button) => button.classList.remove("clicked"));
+  }
+
   init();
 
-  return { get, addProject, restore, updateCounts, clear };
+  return { get, addProject, restore, updateCounts, clear, clearAll };
 })();
 
 const ProjectButton = function (projectName) {
@@ -323,6 +329,8 @@ const ProjectButton = function (projectName) {
     ProjectButton.classList.toggle("clicked");
     ProjectButton.classList.contains("clicked") ? TodoList.showProject(projectName) : TodoList.showAll();
     ProjectsList.clear(ProjectButton);
+    TodayButton.clear();
+    WeekButton.clear();
   }
 
   function init() {
