@@ -47,10 +47,15 @@ const TodayButton = (function () {
   function handleTodayClicks(e) {
     TodayButton.classList.toggle("clicked");
     TodayButton.classList.contains("clicked") ? TodoList.showToday() : TodoList.showAll();
+    WeekButton.clear();
   }
 
   function updateCount() {
     counter.textContent = Data.getTodayCount();
+  }
+
+  function clear() {
+    TodayButton.classList.remove("clicked");
   }
 
   const TodayButton = document.createElement("div");
@@ -60,7 +65,7 @@ const TodayButton = (function () {
   TodayButton.appendChild(Counter());
   TodayButton.addEventListener("click", handleTodayClicks);
 
-  return { get, updateCount };
+  return { get, updateCount, clear };
 })();
 
 const WeekButton = (function () {
@@ -103,10 +108,15 @@ const WeekButton = (function () {
   function handleWeekClicks() {
     WeekButton.classList.toggle("clicked");
     WeekButton.classList.contains("clicked") ? TodoList.showWeek() : TodoList.showAll();
+    TodayButton.clear();
   }
 
   function updateCount() {
     counter.textContent = Data.getWeekCount();
+  }
+
+  function clear() {
+    WeekButton.classList.remove("clicked");
   }
 
   const WeekButton = document.createElement("div");
@@ -116,7 +126,7 @@ const WeekButton = (function () {
   WeekButton.appendChild(Counter());
   WeekButton.addEventListener("click", handleWeekClicks);
 
-  return { get, updateCount };
+  return { get, updateCount, clear };
 })();
 
 // -------------------- PROJECTS SECTION --------------------
