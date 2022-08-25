@@ -58,11 +58,15 @@ const Data = (function () {
   }
 
   function addProject(projectName) {
-    projects.push(projectName.toLowerCase());
+    projects.push(projectName);
     saveToLocalStorage();
   }
 
-  return { addTodo, restoreFromLocalStorage, getTodos, changeTodoStatus, deleteTodo, getTodoItem, updateTodo, addProject };
+  function getProjects() {
+    return projects;
+  }
+
+  return { addTodo, restoreFromLocalStorage, getTodos, changeTodoStatus, deleteTodo, getTodoItem, updateTodo, addProject, getProjects };
 })();
 
 export default Data;

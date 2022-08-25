@@ -93,18 +93,24 @@ const ProjectsList = (function () {
     ProjectsList.appendChild(ProjectButton(name));
   }
 
+  function restore() {
+    const projects = Data.getProjects();
+    projects.forEach((project) => addProject(project));
+  }
+
   init();
 
-  return { get, addProject };
+  return { get, addProject, restore };
 })();
 
 const ProjectButton = function (name) {
   let ProjectButton;
+  const projectName = name.slice(0, 1).toUpperCase() + name.slice(1);
 
   function init() {
     ProjectButton = document.createElement("div");
     ProjectButton.classList.add("project-button");
-    ProjectButton.textContent = name;
+    ProjectButton.textContent = projectName;
   }
 
   init();
@@ -116,6 +122,7 @@ const ProjectsAdd = (function () {
   let addProjectContainer;
   let addProjectButton;
   let addProjectPopup;
+  let projectNameInput;
 
   // FUNCTIONALITY
   function toggleVisibilities() {
@@ -155,11 +162,11 @@ const ProjectsAdd = (function () {
 
   // ADD PROJECT POPUP
   function ProjectNameInput() {
-    const input = document.createElement("input");
-    input.classList.add("project-name-input");
-    input.type = "text";
+    projectNameInput = document.createElement("input");
+    projectNameInput.classList.add("project-name-input");
+    projectNameInput.type = "text";
 
-    return input;
+    return projectNameInput;
   }
 
   function CancelButton() {
@@ -183,8 +190,15 @@ const ProjectsAdd = (function () {
   }
 
   function handleConfirmButton(e) {
-    const projectName = e.target.closest(".add-project-popup").querySelector(".project-name-input").value;
+    const projectName = e.target.closest(".add-project-popup").querySelector(".project-name-input").value.toLowerCase();
     Data.addProject(projectName);
+    ProjectsList.addProject(projectName);
+    clearProjectNameInput();
+    toggleVisibilities();
+  }
+
+  function clearProjectNameInput() {
+    projectNameInput.value = "";
   }
 
   function AddProjectPopup() {
