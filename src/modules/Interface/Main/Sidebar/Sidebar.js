@@ -120,14 +120,14 @@ const ProjectsList = (function () {
   return { get, addProject, restore };
 })();
 
-const ProjectButton = function (name) {
+const ProjectButton = function (projectName) {
   let ProjectButton;
   let projectNameLabel;
   let reorderHandle;
   let renameButton;
   let deleteButton;
 
-  const projectName = name.slice(0, 1).toUpperCase() + name.slice(1);
+  const projectNameCapitalized = projectName.slice(0, 1).toUpperCase() + projectName.slice(1);
 
   function ReorderHandle() {
     reorderHandle = document.createElement("button");
@@ -143,8 +143,17 @@ const ProjectButton = function (name) {
     renameButton.classList.add("rename-project-btn");
     renameButton.classList.add("hidden");
     renameButton.textContent = "🖍";
+    renameButton.addEventListener("click", handleRenameButton);
 
     return renameButton;
+  }
+
+  function handleRenameButton(e) {
+    // const oldName = e.target.closest(".project-button").dataset.projectName;
+    // const newName =
+    projectNameLabel.disabled = false;
+    projectNameLabel.focus();
+    projectNameLabel.select();
   }
 
   function DeleteButton() {
@@ -168,7 +177,8 @@ const ProjectButton = function (name) {
   function init() {
     ProjectButton = document.createElement("div");
     ProjectButton.classList.add("project-button");
-    ProjectButton.appendChild(ProjectNameLabel(projectName));
+    ProjectButton.dataset.projectName = projectName;
+    ProjectButton.appendChild(ProjectNameLabel(projectNameCapitalized));
     ProjectButton.appendChild(RenameButton());
     ProjectButton.appendChild(DeleteButton());
     ProjectButton.appendChild(ReorderHandle());
