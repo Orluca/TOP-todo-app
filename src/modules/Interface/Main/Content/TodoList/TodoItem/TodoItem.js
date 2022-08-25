@@ -37,7 +37,7 @@ const TodoLeft = function (titleVal, isFinished) {
   return todoLeft;
 };
 
-const TodoButtons = function (priorityVal) {
+const TodoRight = function (priorityVal) {
   function editButton() {
     const editButton = document.createElement("button");
     editButton.classList.add("todo-item-edit-btn");
@@ -81,13 +81,13 @@ const TodoButtons = function (priorityVal) {
     return priorityButton;
   }
 
-  const TodoButtons = document.createElement("div");
-  TodoButtons.classList.add("todo-item-buttons");
-  TodoButtons.appendChild(editButton());
-  TodoButtons.appendChild(deleteButton());
-  TodoButtons.appendChild(priorityButton(priorityVal));
+  const TodoRight = document.createElement("div");
+  TodoRight.classList.add("todo-item-right");
+  TodoRight.appendChild(editButton());
+  TodoRight.appendChild(deleteButton());
+  TodoRight.appendChild(priorityButton(priorityVal));
 
-  return TodoButtons;
+  return TodoRight;
 };
 
 const TodoExpandable = function (descriptionVal, dueDateVal, projectName) {
@@ -129,7 +129,7 @@ const TodoItem = function ({ title: titleVal, description: descriptionVal, dueDa
   TodoItem.classList.add("todo-item");
   TodoItem.dataset.id = uuid;
   TodoItem.appendChild(TodoLeft(titleVal, isFinished));
-  TodoItem.appendChild(TodoButtons(priorityVal));
+  TodoItem.appendChild(TodoRight(priorityVal));
   TodoItem.appendChild(TodoExpandable(descriptionVal, dueDateVal, projectName));
 
   return TodoItem;
