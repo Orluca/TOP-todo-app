@@ -98,25 +98,70 @@ const TodoTop = function (titleVal, isFinished, priorityVal) {
 
 const TodoBottom = function (descriptionVal, dueDateVal, projectName) {
   function TodoDescription() {
+    function DescriptionLabel() {
+      const label = document.createElement("div");
+      label.textContent = "Description:";
+
+      return label;
+    }
+
+    function DescriptionValue() {
+      const value = document.createElement("div");
+      value.textContent = descriptionVal;
+
+      return value;
+    }
+
     const TodoDescription = document.createElement("div");
     TodoDescription.classList.add("todo-item-description");
-    TodoDescription.textContent = descriptionVal;
+    TodoDescription.appendChild(DescriptionLabel());
+    TodoDescription.appendChild(DescriptionValue());
 
     return TodoDescription;
   }
 
   function TodoDueDate() {
+    function DateLabel() {
+      const label = document.createElement("div");
+      label.textContent = "Date:";
+
+      return label;
+    }
+
+    function DateValue() {
+      const value = document.createElement("div");
+      value.textContent = dueDateVal;
+
+      return value;
+    }
+
     const TodoDueDate = document.createElement("div");
     TodoDueDate.classList.add("todo-item-due-date");
-    TodoDueDate.textContent = dueDateVal;
+    TodoDueDate.appendChild(DateLabel());
+    TodoDueDate.appendChild(DateValue());
 
     return TodoDueDate;
   }
 
   function TodoProject() {
+    function ProjectLabel() {
+      const label = document.createElement("div");
+      label.textContent = "Project:";
+
+      return label;
+    }
+
+    function ProjectValue() {
+      const value = document.createElement("div");
+      value.textContent = projectName;
+
+      return value;
+    }
+
     const TodoProject = document.createElement("div");
     TodoProject.classList.add("todo-item-project");
-    TodoProject.textContent = projectName;
+    TodoProject.appendChild(ProjectLabel());
+    TodoProject.appendChild(ProjectValue());
 
     return TodoProject;
   }

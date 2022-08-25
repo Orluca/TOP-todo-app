@@ -18,3 +18,14 @@
 
 .todo-item-buttons {
 }
+
+/* BOTTOM SECTION */
+.todo-item-description {
+  display: flex;
+}
+.todo-item-due-date {
+  display: flex;
+}
+.todo-item-project {
+  display: flex;
+}
