@@ -22,9 +22,14 @@ const TodoTop = function (titleVal, isFinished, priorityVal) {
   };
 
   const TodoTitle = function () {
+    function handleTitleClicks(e) {
+      e.target.closest(".todo-item").querySelector(".todo-item-bottom").classList.toggle("hidden");
+    }
+
     const TodoTitle = document.createElement("div");
     TodoTitle.classList.add("todo-item-title");
     TodoTitle.textContent = titleVal;
+    TodoTitle.addEventListener("click", handleTitleClicks);
 
     return TodoTitle;
   };
@@ -127,17 +132,11 @@ const TodoBottom = function (descriptionVal, dueDateVal, projectName) {
 };
 
 const TodoItem = function ({ title: titleVal, description: descriptionVal, dueDate: dueDateVal, priority: priorityVal, project: projectName, id: uuid, isFinished }) {
-  function handleTodoItemClicks(e) {
-    // if (e.target.)
-    console.log("LKJL");
-  }
-
   const TodoItem = document.createElement("div");
   TodoItem.classList.add("todo-item");
   TodoItem.dataset.id = uuid;
   TodoItem.appendChild(TodoTop(titleVal, isFinished, priorityVal));
   TodoItem.appendChild(TodoBottom(descriptionVal, dueDateVal, projectName));
-  TodoItem.addEventListener("click", handleTodoItemClicks);
 
   return TodoItem;
 };
