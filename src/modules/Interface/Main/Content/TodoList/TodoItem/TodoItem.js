@@ -156,6 +156,7 @@ const TodoBottom = function (descriptionVal, dueDateVal, projectName, priorityVa
 
     function ProjectValue() {
       const value = document.createElement("div");
+      value.classList.add("todo-item-project-value");
       value.textContent = projectName;
 
       return value;
@@ -207,6 +208,7 @@ const TodoItem = function ({ title: titleVal, description: descriptionVal, dueDa
   function hideEmpties() {
     if (!TodoItem.querySelector(".todo-item-date-value").textContent) TodoItem.querySelector(".todo-item-due-date").classList.add("hidden");
     if (!TodoItem.querySelector(".todo-item-description-value").textContent) TodoItem.querySelector(".todo-item-description").classList.add("hidden");
+    if (!TodoItem.querySelector(".todo-item-project-value").textContent) TodoItem.querySelector(".todo-item-project").classList.add("hidden");
   }
 
   const TodoItem = document.createElement("div");
