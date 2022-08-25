@@ -3,8 +3,8 @@ import iconToday from "../../../assets/icon-today.svg";
 import iconWeek from "../../../assets/icon-week.svg";
 import iconPlus from "../../../assets/icon-plus.svg";
 // import TodoList from "../TodoListContainer/TodoList/TodoList.js";
-// import Data from "../../../Data/Data.js";
-import { ModalWindow } from "../Content/TodoModal/TodoModal";
+import Data from "../../../Data/Data.js";
+import { ModalWindow } from "../Content/TodoModal/TodoModal.js";
 
 // -------------------- DUE DATE FILTERS --------------------
 const TodayButton = (function () {
@@ -184,8 +184,7 @@ const ProjectsAdd = (function () {
 
   function handleConfirmButton(e) {
     const projectName = e.target.closest(".add-project-popup").querySelector(".project-name-input").value;
-    console.log(projectName);
-    // toggleVisibilities();
+    Data.addProject(projectName);
   }
 
   function AddProjectPopup() {

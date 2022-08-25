@@ -57,7 +57,12 @@ const Data = (function () {
     saveToLocalStorage();
   }
 
-  return { addTodo, restoreFromLocalStorage, getTodos, changeTodoStatus, deleteTodo, getTodoItem, updateTodo };
+  function addProject(projectName) {
+    projects.push(projectName.toLowerCase());
+    saveToLocalStorage();
+  }
+
+  return { addTodo, restoreFromLocalStorage, getTodos, changeTodoStatus, deleteTodo, getTodoItem, updateTodo, addProject };
 })();
 
 export default Data;
