@@ -119,7 +119,18 @@ const Data = (function () {
     return count;
   }
 
-  return { addTodo, restoreFromLocalStorage, getTodos, changeTodoStatus, deleteTodo, getTodoItem, updateTodo, addProject, getProjects, changeProjectName, deleteProject, getProjectOccurrencesAmount, getTodayCount, getWeekCount };
+  function getTodaysTodos() {
+    const currentDate = new Date();
+
+    const todaysTasks = todos.filter((todo) => {
+      const todoDate = parseISO(todo.dueDate);
+      if (isSameDay(currentDate, todoDate)) return true;
+    });
+
+    return todaysTasks;
+  }
+
+  return { addTodo, restoreFromLocalStorage, getTodos, changeTodoStatus, deleteTodo, getTodoItem, updateTodo, addProject, getProjects, changeProjectName, deleteProject, getProjectOccurrencesAmount, getTodayCount, getWeekCount, getTodaysTodos };
 })();
 
 export default Data;

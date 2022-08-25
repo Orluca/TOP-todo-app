@@ -44,7 +44,9 @@ const TodayButton = (function () {
     return TodayButton;
   }
 
-  function handleTodayClicks() {}
+  function handleTodayClicks() {
+    TodoList.showToday();
+  }
 
   function updateCount() {
     counter.textContent = Data.getTodayCount();

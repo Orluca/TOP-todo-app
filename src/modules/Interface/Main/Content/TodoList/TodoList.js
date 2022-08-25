@@ -64,9 +64,21 @@ const TodoList = (function () {
     });
   }
 
+  function clear() {
+    TodoList.innerHTML = "";
+  }
+
+  function showToday() {
+    clear();
+    const todaysTodos = Data.getTodaysTodos();
+    todaysTodos.forEach((todo) => {
+      addTodo(todo);
+    });
+  }
+
   init();
 
-  return { get, addTodo, deleteTodo, restore, updateTodo, updateProjectNames };
+  return { get, addTodo, deleteTodo, restore, updateTodo, updateProjectNames, showToday };
 })();
 
 const AddTodoButton = (function () {
