@@ -213,9 +213,15 @@ const ProjectsList = (function () {
     });
   }
 
+  function clear(exception) {
+    ProjectsList.querySelectorAll(".project-button").forEach((button) => {
+      if (button !== exception) button.classList.remove("clicked");
+    });
+  }
+
   init();
 
-  return { get, addProject, restore, updateCounts };
+  return { get, addProject, restore, updateCounts, clear };
 })();
 
 const ProjectButton = function (projectName) {
@@ -314,9 +320,9 @@ const ProjectButton = function (projectName) {
   function handleProjectButton() {
     const projectName = ProjectButton.dataset.projectName;
 
-    // TodayButton.clear();
     ProjectButton.classList.toggle("clicked");
     ProjectButton.classList.contains("clicked") ? TodoList.showProject(projectName) : TodoList.showAll();
+    ProjectsList.clear(ProjectButton);
   }
 
   function init() {
