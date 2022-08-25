@@ -156,6 +156,7 @@ const ProjectsAdd = (function () {
   // ADD PROJECT POPUP
   function ProjectNameInput() {
     const input = document.createElement("input");
+    input.classList.add("project-name-input");
     input.type = "text";
 
     return input;
@@ -176,8 +177,15 @@ const ProjectsAdd = (function () {
   function ConfirmButton() {
     const confirmButton = document.createElement("button");
     confirmButton.textContent = "Confirm";
+    confirmButton.addEventListener("click", handleConfirmButton);
 
     return confirmButton;
+  }
+
+  function handleConfirmButton(e) {
+    const projectName = e.target.closest(".add-project-popup").querySelector(".project-name-input").value;
+    console.log(projectName);
+    // toggleVisibilities();
   }
 
   function AddProjectPopup() {
