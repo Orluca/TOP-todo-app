@@ -8,6 +8,8 @@ import { TodoList } from "../Content/TodoList/TodoList.js";
 
 // -------------------- DUE DATE FILTERS --------------------
 const TodayButton = (function () {
+  let counter;
+
   function LeftSide() {
     function Icon() {
       const icon = document.createElement("img");
@@ -32,9 +34,8 @@ const TodayButton = (function () {
   }
 
   function Counter() {
-    const counter = document.createElement("div");
+    counter = document.createElement("div");
     counter.classList.add("today-count");
-    counter.textContent = "6";
 
     return counter;
   }
@@ -43,13 +44,20 @@ const TodayButton = (function () {
     return TodayButton;
   }
 
+  function handleTodayClicks() {}
+
+  function updateCount() {
+    counter.textContent = Data.getTodayCount();
+  }
+
   const TodayButton = document.createElement("div");
   TodayButton.classList.add("today-btn");
   TodayButton.classList.add("date-filter-btn");
   TodayButton.appendChild(LeftSide());
   TodayButton.appendChild(Counter());
+  TodayButton.addEventListener("click", handleTodayClicks);
 
-  return { get };
+  return { get, updateCount };
 })();
 
 const WeekButton = (function () {
@@ -427,4 +435,4 @@ const Sidebar = (function () {
 })();
 
 export default Sidebar;
-export { ProjectsList };
+export { ProjectsList, TodayButton, WeekButton };

@@ -1,4 +1,5 @@
 import { v4 as uuidv4 } from "uuid";
+import { isSameDay, isSameWeek, parse, parseISO } from "date-fns";
 
 const Data = (function () {
   let todos = [];
@@ -94,7 +95,19 @@ const Data = (function () {
     return count;
   }
 
-  return { addTodo, restoreFromLocalStorage, getTodos, changeTodoStatus, deleteTodo, getTodoItem, updateTodo, addProject, getProjects, changeProjectName, deleteProject, getProjectOccurrencesAmount };
+  function getTodayCount() {
+    let count = 0;
+    const currentDate = new Date();
+
+    todos.forEach((todo) => {
+      const todoDate = parseISO(todo.dueDate);
+      if (isSameDay(currentDate, todoDate)) count++;
+    });
+
+    return count;
+  }
+
+  return { addTodo, restoreFromLocalStorage, getTodos, changeTodoStatus, deleteTodo, getTodoItem, updateTodo, addProject, getProjects, changeProjectName, deleteProject, getProjectOccurrencesAmount, getTodayCount };
 })();
 
 export default Data;
