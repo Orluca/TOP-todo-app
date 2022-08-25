@@ -465,9 +465,13 @@ const Sidebar = (function () {
     return Sidebar;
   }
 
+  function toggle() {
+    Sidebar.classList.toggle("hidden");
+  }
+
   init();
 
-  return { get };
+  return { get, toggle };
 })();
 
 export default Sidebar;

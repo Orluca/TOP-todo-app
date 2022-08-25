@@ -1,5 +1,5 @@
 import HeaderStyle from "./Header.css";
-// import Sidebar from "../Main/Sidebar/Sidebar.js";
+import Sidebar from "../Main/Sidebar/Sidebar.js";
 
 const Header = (function () {
   let Header;
@@ -7,7 +7,7 @@ const Header = (function () {
   function SidebarToggle() {
     const SidebarToggle = document.createElement("button");
     SidebarToggle.textContent = "Sidebar";
-    // SidebarToggle.addEventListener("click", Sidebar.toggle);
+    SidebarToggle.addEventListener("click", Sidebar.toggle);
 
     return SidebarToggle;
   }
