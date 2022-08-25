@@ -86,7 +86,7 @@ const Data = (function () {
     saveToLocalStorage();
   }
 
-  function getProjectOccurencesAmount(projectName) {
+  function getProjectOccurrencesAmount(projectName) {
     let count = 0;
     todos.forEach((todo) => {
       if (todo.project === projectName) count++;
@@ -94,7 +94,7 @@ const Data = (function () {
     return count;
   }
 
-  return { addTodo, restoreFromLocalStorage, getTodos, changeTodoStatus, deleteTodo, getTodoItem, updateTodo, addProject, getProjects, changeProjectName, deleteProject, getProjectOccurencesAmount };
+  return { addTodo, restoreFromLocalStorage, getTodos, changeTodoStatus, deleteTodo, getTodoItem, updateTodo, addProject, getProjects, changeProjectName, deleteProject, getProjectOccurrencesAmount };
 })();
 
 export default Data;

@@ -118,9 +118,16 @@ const ProjectsList = (function () {
     projects.forEach((project) => addProject(project));
   }
 
+  function updateCounts() {
+    ProjectsList.querySelectorAll(".counter").forEach((counter) => {
+      const projectName = counter.closest(".project-button").dataset.projectName;
+      counter.textContent = Data.getProjectOccurrencesAmount(projectName);
+    });
+  }
+
   init();
 
-  return { get, addProject, restore };
+  return { get, addProject, restore, updateCounts };
 })();
 
 const ProjectButton = function (projectName) {
@@ -211,7 +218,7 @@ const ProjectButton = function (projectName) {
   function Counter() {
     counter = document.createElement("div");
     counter.classList.add("counter");
-    counter.textContent = Data.getProjectOccurencesAmount(projectName);
+    counter.textContent = Data.getProjectOccurrencesAmount(projectName);
 
     return counter;
   }
