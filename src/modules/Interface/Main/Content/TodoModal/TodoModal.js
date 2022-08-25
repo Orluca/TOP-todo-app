@@ -268,6 +268,7 @@ const ModalBackground = (function () {
   function init() {
     ModalBackground = document.createElement("div");
     ModalBackground.classList.add("todo-modal-background");
+    ModalBackground.classList.add("hidden");
     ModalBackground.appendChild(ModalWindow.newTodo());
   }
 
