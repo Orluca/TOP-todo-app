@@ -92,9 +92,17 @@ const TodoList = (function () {
     });
   }
 
+  function showProject(projectName) {
+    clear();
+    const projectTodos = Data.getProjectsTodos(projectName);
+    projectTodos.forEach((todo) => {
+      addTodo(todo);
+    });
+  }
+
   init();
 
-  return { get, addTodo, deleteTodo, restore, updateTodo, updateProjectNames, showToday, showWeek, showAll };
+  return { get, addTodo, deleteTodo, restore, updateTodo, updateProjectNames, showToday, showWeek, showAll, showProject };
 })();
 
 const AddTodoButton = (function () {

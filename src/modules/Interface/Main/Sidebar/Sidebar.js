@@ -311,6 +311,14 @@ const ProjectButton = function (projectName) {
     return counter;
   }
 
+  function handleProjectButton() {
+    const projectName = ProjectButton.dataset.projectName;
+
+    // TodayButton.clear();
+    ProjectButton.classList.toggle("clicked");
+    ProjectButton.classList.contains("clicked") ? TodoList.showProject(projectName) : TodoList.showAll();
+  }
+
   function init() {
     ProjectButton = document.createElement("div");
     ProjectButton.classList.add("project-button");
@@ -320,6 +328,7 @@ const ProjectButton = function (projectName) {
     ProjectButton.appendChild(DeleteButton());
     ProjectButton.appendChild(ReorderHandle());
     ProjectButton.appendChild(Counter());
+    ProjectButton.addEventListener("click", handleProjectButton);
   }
 
   init();
