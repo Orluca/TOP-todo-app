@@ -108,6 +108,7 @@ const TodoBottom = function (descriptionVal, dueDateVal, projectName) {
 
     function DescriptionValue() {
       const value = document.createElement("div");
+      value.classList.add("todo-item-description-value");
       value.textContent = descriptionVal;
 
       return value;
@@ -131,12 +132,8 @@ const TodoBottom = function (descriptionVal, dueDateVal, projectName) {
 
     function DateValue() {
       const value = document.createElement("div");
-      // if (dueDateVal) {
-
-      // }
+      value.classList.add("todo-item-date-value");
       value.textContent = dueDateVal ? format(parseISO(dueDateVal), "MMMM do yyy, HH:mm") : "";
-      // console.log(dueDateVal);
-      // console.log(parseISO(dueDateVal));
 
       return value;
     }
@@ -183,11 +180,17 @@ const TodoBottom = function (descriptionVal, dueDateVal, projectName) {
 };
 
 const TodoItem = function ({ title: titleVal, description: descriptionVal, dueDate: dueDateVal, priority: priorityVal, project: projectName, id: uuid, isFinished }) {
+  function hideEmpties() {
+    if (!TodoItem.querySelector(".todo-item-date-value").textContent) TodoItem.querySelector(".todo-item-due-date").classList.add("hidden");
+    if (!TodoItem.querySelector(".todo-item-description-value").textContent) TodoItem.querySelector(".todo-item-description").classList.add("hidden");
+  }
+
   const TodoItem = document.createElement("div");
   TodoItem.classList.add("todo-item");
   TodoItem.dataset.id = uuid;
   TodoItem.appendChild(TodoTop(titleVal, isFinished, priorityVal));
   TodoItem.appendChild(TodoBottom(descriptionVal, dueDateVal, projectName));
+  hideEmpties();
 
   return TodoItem;
 };
