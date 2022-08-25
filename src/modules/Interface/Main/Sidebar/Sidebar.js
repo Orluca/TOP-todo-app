@@ -62,9 +62,20 @@ const ProjectsHeader = (function () {
   }
 
   function handleEditProjects() {
+    toggleEditButtonsVisibilites();
+    ProjectsAdd.hideAddProjectPopup();
+  }
+
+  function toggleEditButtonsVisibilites() {
     document.querySelectorAll(".reorder-project-handle").forEach((handle) => handle.classList.toggle("hidden"));
     document.querySelectorAll(".rename-project-btn").forEach((button) => button.classList.toggle("hidden"));
     document.querySelectorAll(".delete-project-btn").forEach((button) => button.classList.toggle("hidden"));
+  }
+
+  function hideEditButtonsVisibilites() {
+    document.querySelectorAll(".reorder-project-handle").forEach((handle) => handle.classList.add("hidden"));
+    document.querySelectorAll(".rename-project-btn").forEach((button) => button.classList.add("hidden"));
+    document.querySelectorAll(".delete-project-btn").forEach((button) => button.classList.add("hidden"));
   }
 
   function init() {
@@ -80,7 +91,7 @@ const ProjectsHeader = (function () {
 
   init();
 
-  return { get };
+  return { get, hideEditButtonsVisibilites };
 })();
 
 const ProjectsList = (function () {
@@ -175,9 +186,14 @@ const ProjectsAdd = (function () {
   let projectNameInput;
 
   // FUNCTIONALITY
-  function toggleVisibilities() {
+  function toggleAddProjectPopupVisibility() {
     addProjectButton.classList.toggle("hidden");
     addProjectPopup.classList.toggle("hidden");
+  }
+
+  function hideAddProjectPopup() {
+    addProjectButton.classList.remove("hidden");
+    addProjectPopup.classList.add("hidden");
   }
 
   // ADD PROJECT BUTTON
@@ -197,7 +213,8 @@ const ProjectsAdd = (function () {
   }
 
   function handleAddProject() {
-    toggleVisibilities();
+    toggleAddProjectPopupVisibility();
+    ProjectsHeader.hideEditButtonsVisibilites();
   }
 
   function AddProjectButton() {
@@ -228,7 +245,7 @@ const ProjectsAdd = (function () {
   }
 
   function handleCancelButton() {
-    toggleVisibilities();
+    toggleAddProjectPopupVisibility();
   }
 
   function ConfirmButton() {
@@ -244,7 +261,7 @@ const ProjectsAdd = (function () {
     Data.addProject(projectName);
     ProjectsList.addProject(projectName);
     clearProjectNameInput();
-    toggleVisibilities();
+    toggleAddProjectPopupVisibility();
     ModalWindow.updateProjects();
   }
 
@@ -277,7 +294,7 @@ const ProjectsAdd = (function () {
 
   init();
 
-  return { get };
+  return { get, hideAddProjectPopup };
 })();
 
 const Projects = (function () {
