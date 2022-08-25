@@ -2,7 +2,6 @@ import sidebarStyle from "./Sidebar.css";
 import iconToday from "../../../assets/icon-today.svg";
 import iconWeek from "../../../assets/icon-week.svg";
 import iconPlus from "../../../assets/icon-plus.svg";
-// import TodoList from "../TodoListContainer/TodoList/TodoList.js";
 import Data from "../../../Data/Data.js";
 import { ModalWindow } from "../Content/TodoModal/TodoModal.js";
 
@@ -57,8 +56,15 @@ const ProjectsHeader = (function () {
     const EditButton = document.createElement("button");
     EditButton.classList.add("projects-edit");
     EditButton.textContent = "Edit";
+    EditButton.addEventListener("click", handleEditProjects);
 
     return EditButton;
+  }
+
+  function handleEditProjects() {
+    document.querySelectorAll(".reorder-project-handle").forEach((handle) => handle.classList.toggle("hidden"));
+    document.querySelectorAll(".rename-project-btn").forEach((button) => button.classList.toggle("hidden"));
+    document.querySelectorAll(".delete-project-btn").forEach((button) => button.classList.toggle("hidden"));
   }
 
   function init() {
@@ -106,27 +112,34 @@ const ProjectsList = (function () {
 const ProjectButton = function (name) {
   let ProjectButton;
   let projectNameLabel;
+  let reorderHandle;
+  let renameButton;
+  let deleteButton;
+
   const projectName = name.slice(0, 1).toUpperCase() + name.slice(1);
 
   function ReorderHandle() {
-    const reorderHandle = document.createElement("button");
+    reorderHandle = document.createElement("button");
     reorderHandle.classList.add("reorder-project-handle");
+    reorderHandle.classList.add("hidden");
     reorderHandle.textContent = "=";
 
     return reorderHandle;
   }
 
   function RenameButton() {
-    const renameButton = document.createElement("button");
+    renameButton = document.createElement("button");
     renameButton.classList.add("rename-project-btn");
+    renameButton.classList.add("hidden");
     renameButton.textContent = "🖍";
 
     return renameButton;
   }
 
   function DeleteButton() {
-    const deleteButton = document.createElement("button");
+    deleteButton = document.createElement("button");
     deleteButton.classList.add("delete-project-btn");
+    deleteButton.classList.add("hidden");
     deleteButton.textContent = "🗑";
 
     return deleteButton;
@@ -136,6 +149,7 @@ const ProjectButton = function (name) {
     projectNameLabel = document.createElement("input");
     projectNameLabel.classList.add("project-name-input");
     projectNameLabel.value = nameVal;
+    projectNameLabel.disabled = true;
 
     return projectNameLabel;
   }
