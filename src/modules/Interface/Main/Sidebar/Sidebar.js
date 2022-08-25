@@ -71,12 +71,14 @@ const ProjectsHeader = (function () {
     document.querySelectorAll(".reorder-project-handle").forEach((handle) => handle.classList.toggle("hidden"));
     document.querySelectorAll(".rename-project-btn").forEach((button) => button.classList.toggle("hidden"));
     document.querySelectorAll(".delete-project-btn").forEach((button) => button.classList.toggle("hidden"));
+    document.querySelectorAll(".counter").forEach((counter) => counter.classList.toggle("hidden"));
   }
 
   function hideEditButtonsVisibilites() {
     document.querySelectorAll(".reorder-project-handle").forEach((handle) => handle.classList.add("hidden"));
     document.querySelectorAll(".rename-project-btn").forEach((button) => button.classList.add("hidden"));
     document.querySelectorAll(".delete-project-btn").forEach((button) => button.classList.add("hidden"));
+    document.querySelectorAll(".counter").forEach((counter) => counter.classList.remove("hidden"));
   }
 
   function init() {
@@ -127,6 +129,7 @@ const ProjectButton = function (projectName) {
   let reorderHandle;
   let renameButton;
   let deleteButton;
+  let counter;
 
   const projectNameCapitalized = projectName.slice(0, 1).toUpperCase() + projectName.slice(1);
 
@@ -205,6 +208,14 @@ const ProjectButton = function (projectName) {
     projectNameLabel.disabled = true;
   }
 
+  function Counter() {
+    counter = document.createElement("div");
+    counter.classList.add("counter");
+    counter.textContent = "4";
+
+    return counter;
+  }
+
   function init() {
     ProjectButton = document.createElement("div");
     ProjectButton.classList.add("project-button");
@@ -213,6 +224,7 @@ const ProjectButton = function (projectName) {
     ProjectButton.appendChild(RenameButton());
     ProjectButton.appendChild(DeleteButton());
     ProjectButton.appendChild(ReorderHandle());
+    ProjectButton.appendChild(Counter());
   }
 
   init();
