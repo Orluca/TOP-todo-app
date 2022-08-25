@@ -77,7 +77,7 @@ const TodoButtons = function (priorityVal) {
   return TodoButtons;
 };
 
-const TodoExpandable = function (descriptionVal, dueDateVal) {
+const TodoExpandable = function (descriptionVal, dueDateVal, projectName) {
   function TodoDescription() {
     const TodoDescription = document.createElement("div");
     TodoDescription.classList.add("todo-item-description");
@@ -94,10 +94,19 @@ const TodoExpandable = function (descriptionVal, dueDateVal) {
     return TodoDueDate;
   }
 
+  function TodoProject() {
+    const TodoProject = document.createElement("div");
+    TodoProject.classList.add("todo-item-project");
+    TodoProject.textContent = projectName;
+
+    return TodoProject;
+  }
+
   const TodoExpandable = document.createElement("div");
   TodoExpandable.classList.add("todo-item-expandable");
   TodoExpandable.appendChild(TodoDescription());
   TodoExpandable.appendChild(TodoDueDate());
+  TodoExpandable.appendChild(TodoProject());
 
   return TodoExpandable;
 };
@@ -109,7 +118,7 @@ const TodoItem = function ({ title: titleVal, description: descriptionVal, dueDa
   TodoItem.appendChild(TodoCheckbox(isFinished));
   TodoItem.appendChild(TodoTitle(titleVal));
   TodoItem.appendChild(TodoButtons(priorityVal));
-  TodoItem.appendChild(TodoExpandable(descriptionVal, dueDateVal));
+  TodoItem.appendChild(TodoExpandable(descriptionVal, dueDateVal, projectName));
 
   return TodoItem;
 };

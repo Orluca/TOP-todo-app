@@ -4,6 +4,7 @@ import iconWeek from "../../../assets/icon-week.svg";
 import iconPlus from "../../../assets/icon-plus.svg";
 import Data from "../../../Data/Data.js";
 import { ModalWindow } from "../Content/TodoModal/TodoModal.js";
+import { TodoList } from "../Content/TodoList/TodoList.js";
 
 // -------------------- DUE DATE FILTERS --------------------
 const TodayButton = (function () {
@@ -170,8 +171,26 @@ const ProjectButton = function (projectName) {
     projectNameLabel.classList.add("project-name-input");
     projectNameLabel.value = nameVal;
     projectNameLabel.disabled = true;
+    projectNameLabel.addEventListener("keypress", handleProjectNameLabelEnterPresses);
 
     return projectNameLabel;
+  }
+
+  function handleProjectNameLabelEnterPresses(e) {
+    if (e.key !== "Enter") return;
+    updateProjectName(e);
+  }
+
+  function updateProjectName(e) {
+    const oldName = e.target.closest(".project-button").dataset.projectName;
+    const newName = e.target.value.toLowerCase();
+
+    Data.changeProjectName(oldName, newName);
+    TodoList.updateProjectNames(oldName, newName);
+    ModalWindow.updateProjects();
+
+    e.target.closest(".project-button").dataset.projectName = newName;
+    projectNameLabel.disabled = true;
   }
 
   function init() {

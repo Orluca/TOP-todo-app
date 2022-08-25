@@ -66,7 +66,17 @@ const Data = (function () {
     return projects;
   }
 
-  return { addTodo, restoreFromLocalStorage, getTodos, changeTodoStatus, deleteTodo, getTodoItem, updateTodo, addProject, getProjects };
+  function changeProjectName(oldName, newName) {
+    todos.forEach((todo) => {
+      if (todo.project === oldName) todo.project = newName;
+    });
+    projects.forEach((project, i) => {
+      if (project === oldName) projects[i] = newName;
+    });
+    saveToLocalStorage();
+  }
+
+  return { addTodo, restoreFromLocalStorage, getTodos, changeTodoStatus, deleteTodo, getTodoItem, updateTodo, addProject, getProjects, changeProjectName };
 })();
 
 export default Data;

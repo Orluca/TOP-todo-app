@@ -58,9 +58,15 @@ const TodoList = (function () {
     });
   }
 
+  function updateProjectNames(oldName, newName) {
+    TodoList.querySelectorAll(".todo-item-project").forEach((project) => {
+      if (project.textContent === oldName) project.textContent = newName;
+    });
+  }
+
   init();
 
-  return { get, addTodo, deleteTodo, restore, updateTodo };
+  return { get, addTodo, deleteTodo, restore, updateTodo, updateProjectNames };
 })();
 
 const AddTodoButton = (function () {
