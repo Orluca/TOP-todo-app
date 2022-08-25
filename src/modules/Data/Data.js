@@ -86,7 +86,15 @@ const Data = (function () {
     saveToLocalStorage();
   }
 
-  return { addTodo, restoreFromLocalStorage, getTodos, changeTodoStatus, deleteTodo, getTodoItem, updateTodo, addProject, getProjects, changeProjectName, deleteProject };
+  function getProjectOccurencesAmount(projectName) {
+    let count = 0;
+    todos.forEach((todo) => {
+      if (todo.project === projectName) count++;
+    });
+    return count;
+  }
+
+  return { addTodo, restoreFromLocalStorage, getTodos, changeTodoStatus, deleteTodo, getTodoItem, updateTodo, addProject, getProjects, changeProjectName, deleteProject, getProjectOccurencesAmount };
 })();
 
 export default Data;

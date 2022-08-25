@@ -211,7 +211,7 @@ const ProjectButton = function (projectName) {
   function Counter() {
     counter = document.createElement("div");
     counter.classList.add("counter");
-    counter.textContent = "4";
+    counter.textContent = Data.getProjectOccurencesAmount(projectName);
 
     return counter;
   }
