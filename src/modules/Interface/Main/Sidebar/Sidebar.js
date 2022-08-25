@@ -105,12 +105,48 @@ const ProjectsList = (function () {
 
 const ProjectButton = function (name) {
   let ProjectButton;
+  let projectNameLabel;
   const projectName = name.slice(0, 1).toUpperCase() + name.slice(1);
+
+  function ReorderHandle() {
+    const reorderHandle = document.createElement("button");
+    reorderHandle.classList.add("reorder-project-handle");
+    reorderHandle.textContent = "=";
+
+    return reorderHandle;
+  }
+
+  function RenameButton() {
+    const renameButton = document.createElement("button");
+    renameButton.classList.add("rename-project-btn");
+    renameButton.textContent = "🖍";
+
+    return renameButton;
+  }
+
+  function DeleteButton() {
+    const deleteButton = document.createElement("button");
+    deleteButton.classList.add("delete-project-btn");
+    deleteButton.textContent = "🗑";
+
+    return deleteButton;
+  }
+
+  function ProjectNameLabel(nameVal) {
+    projectNameLabel = document.createElement("input");
+    projectNameLabel.classList.add("project-name-input");
+    projectNameLabel.value = nameVal;
+
+    return projectNameLabel;
+  }
 
   function init() {
     ProjectButton = document.createElement("div");
     ProjectButton.classList.add("project-button");
-    ProjectButton.textContent = projectName;
+    ProjectButton.appendChild(ProjectNameLabel(projectName));
+    ProjectButton.appendChild(RenameButton());
+    ProjectButton.appendChild(DeleteButton());
+    ProjectButton.appendChild(ReorderHandle());
   }
 
   init();
