@@ -14,7 +14,7 @@
 
 /* DATE FILTERS */
 .date-filter-btn {
-  background-color: #fff;
+  /* background-color: #fff; */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -24,6 +24,7 @@
 
 .date-filter-btn:hover {
   cursor: pointer;
+  background-color: #ffdeea;
 }
 
 .date-filter-btn-left {
@@ -60,7 +61,7 @@
 
 /* PROJECTS HEADER */
 .projects-header {
-  background-color: white;
+  /* background-color: white; */
   display: flex;
   justify-content: space-between;
   padding: 0.25rem 0.5rem;
@@ -70,6 +71,9 @@
 .edit-projects-btn {
   background-color: transparent;
   border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .edit-projects-btn:hover {
@@ -83,14 +87,17 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #fff;
+  /* background-color: #fff; */
   /* padding: 0.25rem; */
   border-radius: 5px;
   height: 33px;
+  margin-left: 1rem;
 }
 
 .project-button:hover {
   cursor: pointer;
+  /* background-color: #def0ff; */
+  background-color: #ffdeea;
 }
 
 .project-name-input {
@@ -162,12 +169,13 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  column-gap: 0.5rem;
   height: 33px;
 }
 
 .add-project-btn:hover {
-  /* color: white; */
-  filter: invert(96%) sepia(88%) saturate(0%) hue-rotate(64deg) brightness(106%) contrast(101%);
+  color: #88b2ff;
+  filter: invert(69%) sepia(14%) saturate(5067%) hue-rotate(192deg) brightness(103%) contrast(110%);
   cursor: pointer;
 }
 
@@ -185,6 +193,7 @@
   height: 33px;
   border: none;
   flex-grow: 1;
+  padding: 0.5rem;
   /* width: 60%; */
 }
 
@@ -220,6 +229,6 @@
 
 /* UTILITY */
 .clicked {
-  background-color: gold;
+  background-color: #ffdeea;
   font-weight: bold;
 }
