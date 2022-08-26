@@ -33,19 +33,32 @@
 }
 
 .today-count,
-.week-count {
+.week-count,
+.project-count {
   background-color: rgb(212, 212, 212);
   width: 25px;
   height: 25px;
   border-radius: 50%;
-  /* text-align: center; */
   font-size: 0.9rem;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* PROJECT BUTTONS */
+/* PROJECTS SECTION */
+.projects {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.25rem;
+}
+
+.projects-list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.25rem;
+}
+
+/* PROJECTS HEADER */
 .projects-header {
   background-color: white;
   display: flex;
@@ -67,6 +80,25 @@
   /* color: #a7ffff; */
   filter: invert(93%) sepia(39%) saturate(3613%) hue-rotate(163deg) brightness(109%) contrast(107%);
   cursor: pointer;
+}
+
+/* PROJECT BUTTONS */
+.project-button {
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 0.25rem;
+  border-radius: 5px;
+}
+
+.project-button:hover {
+  cursor: pointer;
+}
+
+.project-name-input:disabled {
+  background-color: transparent;
+  color: black;
+  border: none;
 }
 
 /* UTILITY */
