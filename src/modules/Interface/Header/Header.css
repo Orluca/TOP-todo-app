@@ -1,8 +1,5 @@
 .header {
   background-color: var(--color-frame);
-  /* display: flex;
-  justify-content: flex-start;
-  align-items: center; */
   padding: 0.35rem;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -32,4 +29,103 @@
 .header > h1 {
   color: white;
   justify-self: center;
+}
+
+/* --------------- DARK MODE TOGGLE --------------- */
+.dark-mode-toggle {
+  display: flex;
+  width: fit-content;
+}
+.dark-mode-toggle-label {
+  width: 50px;
+  height: 25px;
+  position: relative;
+  display: block;
+  background: #ebebeb;
+  border-radius: 200px;
+  /* box-shadow: inset 0px 5px 15px rgba(0, 0, 0, 0.4), inset 0px -5px 15px rgba(255, 255, 255, 0.4); */
+  cursor: pointer;
+}
+
+.dark-mode-toggle-label:after {
+  content: "";
+  width: 23px;
+  height: 23px;
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  /* background: linear-gradient(180deg, #ffcc89, #d8860b); */
+  background: rgb(29, 29, 29);
+  border-radius: 180px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+#dark-mode-toggle-input {
+  width: 0;
+  height: 0;
+  visibility: hidden;
+}
+
+#dark-mode-toggle-input:checked + .dark-mode-toggle-label {
+  background: #242424;
+}
+#dark-mode-toggle-input:checked + .dark-mode-toggle-label:after {
+  left: 49px;
+  transform: translateX(-100%);
+  /* background: linear-gradient(180deg, #777, #3a3a3a); */
+  background: rgb(155, 155, 155);
+}
+.dark-mode-toggle-label,
+.dark-mode-toggle-label:after {
+  transition: 0.3s;
+}
+
+.dark-mode-toggle-label:active:after {
+  width: 30px;
+}
+
+.dark-mode-toggle-label img {
+  position: absolute;
+  z-index: 100;
+}
+.dark-mode-toggle-label img.sun-icon {
+  fill: #fff;
+  transition: 0.3s;
+}
+.dark-mode-toggle-label img.moon-icon {
+  fill: #7e7e7e;
+  /* fill: #ffec19; */
+  transition: 0.3s;
+}
+
+.sun-icon {
+  top: 2px;
+  left: 2px;
+  width: 20px;
+  filter: invert(89%) sepia(58%) saturate(815%) hue-rotate(336deg) brightness(104%) contrast(103%);
+}
+
+.moon-icon {
+  top: 3px;
+  left: 27px;
+  width: 18px;
+  filter: invert(89%) sepia(58%) saturate(815%) hue-rotate(336deg) brightness(104%) contrast(103%);
+}
+
+#dark-mode-toggle-input:checked + .dark-mode-toggle-label .sun-icon {
+  fill: #7e7e7e;
+  display: none;
+}
+#dark-mode-toggle-input:checked + .dark-mode-toggle-label .moon-icon {
+  fill: #7e7e7e;
+  display: block;
+}
+
+#dark-mode-toggle-input + .dark-mode-toggle-label .sun-icon {
+  fill: #7e7e7e;
+  display: block;
+}
+#dark-mode-toggle-input + .dark-mode-toggle-label .moon-icon {
+  fill: #7e7e7e;
+  display: none;
 }
