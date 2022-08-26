@@ -66,10 +66,6 @@
   padding: 0.25rem 0.5rem;
   border-radius: 5px;
 }
-.add-project-btn {
-  background-color: blueviolet;
-  display: flex;
-}
 
 .edit-projects-btn {
   background-color: transparent;
@@ -133,6 +129,15 @@
   border-radius: 0 5px 5px 0;
 }
 
+.reorder-project-handle:hover {
+  cursor: grab;
+}
+
+.rename-project-btn:hover,
+.delete-project-btn:hover {
+  cursor: pointer;
+}
+
 .edit-project-rename-icon,
 .edit-project-delete-icon,
 .edit-project-reorder-icon {
@@ -147,7 +152,63 @@
 .project-count {
   margin: 0 0.5rem 0 0;
 }
+
+/* ADD PROJECT */
+.add-project-btn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* NEW PROJECT POPUP */
+.add-project-popup {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  column-gap: 0.25rem;
+}
+
+.project-popup-name-input {
+  border-radius: 5px;
+  height: 33px;
+  border: none;
+  flex-grow: 1;
+  /* width: 60%; */
+}
+
+.project-popup-buttons {
+  /* width: 40%; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  column-gap: 0.25rem;
+}
+
+.project-popup-cancel-btn,
+.project-popup-confirm-btn {
+  height: 33px;
+  width: 60px;
+  border: none;
+  border-radius: 5px;
+}
+
+.project-popup-cancel-btn:hover,
+.project-popup-confirm-btn:hover {
+  cursor: pointer;
+}
+
+.project-popup-cancel-btn {
+  background-color: red;
+}
+
+.project-popup-confirm-btn {
+  background-color: greenyellow;
+}
+
 /* UTILITY */
 .clicked {
   background-color: gold;
+  font-weight: bold;
 }
