@@ -2,6 +2,7 @@ import sidebarStyle from "./Sidebar.css";
 import iconToday from "../../../assets/icon-today.svg";
 import iconWeek from "../../../assets/icon-week.svg";
 import iconPlus from "../../../assets/icon-plus.svg";
+import iconPen from "../../../assets/icon-pen.svg";
 import Data from "../../../Data/Data.js";
 import { ModalWindow } from "../Content/TodoModal/TodoModal.js";
 import { TodoList } from "../Content/TodoList/TodoList.js";
@@ -144,10 +145,17 @@ const ProjectsHeader = (function () {
   }
 
   function EditButton() {
+    function PenIcon() {
+      const icon = document.createElement("img");
+      icon.src = iconPen;
+      icon.classList.add("sidebar-icon");
+
+      return icon;
+    }
     const EditButton = document.createElement("button");
-    EditButton.classList.add("projects-edit");
-    EditButton.textContent = "Edit";
+    EditButton.classList.add("edit-projects-btn");
     EditButton.addEventListener("click", handleEditProjects);
+    EditButton.appendChild(PenIcon());
 
     return EditButton;
   }

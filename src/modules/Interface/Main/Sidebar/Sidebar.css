@@ -5,6 +5,7 @@
   display: flex;
   flex-direction: column;
   row-gap: 0.5rem;
+  width: 150px;
 }
 
 .sidebar-icon {
@@ -32,9 +33,27 @@
 }
 
 /* PROJECT BUTTONS */
+.projects-header {
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.25rem;
+  border-radius: 5px;
+}
 .add-project-btn {
   background-color: blueviolet;
   display: flex;
+}
+
+.edit-projects-btn {
+  background-color: transparent;
+  border: none;
+}
+
+.edit-projects-btn:hover {
+  /* color: #a7ffff; */
+  filter: invert(93%) sepia(39%) saturate(3613%) hue-rotate(163deg) brightness(109%) contrast(107%);
+  cursor: pointer;
 }
 
 /* UTILITY */
