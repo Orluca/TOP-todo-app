@@ -28,6 +28,7 @@ const Header = (function () {
     function Headline() {
       const headline = document.createElement("h1");
       headline.textContent = "Todo List";
+      headline.classList.add("headline");
 
       return headline;
     }
