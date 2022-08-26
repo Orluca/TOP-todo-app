@@ -1,16 +1,21 @@
 .header {
   background-color: var(--color-frame);
-  display: flex;
+  /* display: flex;
   justify-content: flex-start;
-  align-items: center;
+  align-items: center; */
   padding: 0.35rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
 }
 
+/* --------------- SIDEBAR TOGGLE --------------- */
 .sidebar-toggle {
   background-color: transparent;
   border: none;
   border-radius: 5px;
   padding: 0.1rem 0.3rem;
+  justify-self: flex-start;
 }
 
 .sidebar-toggle:hover {
@@ -21,4 +26,10 @@
 .sidebar-toggle-icon {
   width: 25px;
   filter: invert(100%) sepia(0%) saturate(9%) hue-rotate(137deg) brightness(102%) contrast(104%);
+}
+
+/* --------------- HEADLINE --------------- */
+.header > h1 {
+  color: white;
+  justify-self: center;
 }

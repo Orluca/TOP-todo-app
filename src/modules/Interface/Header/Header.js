@@ -22,10 +22,18 @@ const Header = (function () {
     return SidebarToggle;
   }
 
+  function Headline() {
+    const headline = document.createElement("h1");
+    headline.textContent = "Todo List";
+
+    return headline;
+  }
+
   function init() {
     Header = document.createElement("header");
     Header.classList.add("header");
     Header.appendChild(SidebarToggle());
+    Header.appendChild(Headline());
   }
 
   function get() {
