@@ -1,11 +1,11 @@
 .sidebar {
   background-color: var(--color-sidebar);
-  flex-grow: 1;
+  /* flex-grow: 1; */
   padding: 1rem;
   display: flex;
   flex-direction: column;
   row-gap: 0.5rem;
-  width: 150px;
+  width: 350px;
 }
 
 .sidebar-icon {

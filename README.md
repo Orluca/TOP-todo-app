@@ -16,6 +16,5 @@
 
 ### bugs
 
-- deleting a project will cause an empty todo list, because beforehand it will select it as a filter when clicking the delete button
 - if a project is highlighted and switching to eidt mode, highlight should be removed
 - when adding a project like "Test Project" or "Test-Project" the second word wont be capitalized anymore
