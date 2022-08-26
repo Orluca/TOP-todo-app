@@ -7,28 +7,37 @@ import iconMoon from "../../assets/icon-moon.svg";
 const Header = (function () {
   let Header;
 
-  function SidebarToggle() {
-    function Icon() {
-      const icon = document.createElement("img");
-      icon.classList.add("sidebar-toggle-icon");
-      icon.src = iconMenu;
+  function HeaderLeft() {
+    function SidebarToggle() {
+      function Icon() {
+        const icon = document.createElement("img");
+        icon.classList.add("sidebar-toggle-icon");
+        icon.src = iconMenu;
 
-      return icon;
+        return icon;
+      }
+
+      const SidebarToggle = document.createElement("button");
+      SidebarToggle.addEventListener("click", Sidebar.toggle);
+      SidebarToggle.classList.add("sidebar-toggle");
+      SidebarToggle.appendChild(Icon());
+
+      return SidebarToggle;
     }
 
-    const SidebarToggle = document.createElement("button");
-    SidebarToggle.addEventListener("click", Sidebar.toggle);
-    SidebarToggle.classList.add("sidebar-toggle");
-    SidebarToggle.appendChild(Icon());
+    function Headline() {
+      const headline = document.createElement("h1");
+      headline.textContent = "Todo List";
 
-    return SidebarToggle;
-  }
+      return headline;
+    }
 
-  function Headline() {
-    const headline = document.createElement("h1");
-    headline.textContent = "Todo List";
+    const headerLeft = document.createElement("div");
+    headerLeft.classList.add("header-left");
+    headerLeft.appendChild(SidebarToggle());
+    headerLeft.appendChild(Headline());
 
-    return headline;
+    return headerLeft;
   }
 
   function DarkModeToggle() {
@@ -77,8 +86,7 @@ const Header = (function () {
   function init() {
     Header = document.createElement("header");
     Header.classList.add("header");
-    Header.appendChild(SidebarToggle());
-    Header.appendChild(Headline());
+    Header.appendChild(HeaderLeft());
     Header.appendChild(DarkModeToggle());
   }
 

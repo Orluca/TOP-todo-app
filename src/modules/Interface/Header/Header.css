@@ -1,9 +1,15 @@
 .header {
   background-color: var(--color-frame);
   padding: 0.35rem;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  justify-content: space-between;
   align-items: center;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  column-gap: 1rem;
 }
 
 /* --------------- SIDEBAR TOGGLE --------------- */
