@@ -103,6 +103,10 @@
   border: none;
 }
 
+.project-name-input:hover {
+  cursor: pointer;
+}
+
 .edit-buttons {
   display: flex;
   align-items: center;
@@ -158,6 +162,13 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  height: 33px;
+}
+
+.add-project-btn:hover {
+  /* color: white; */
+  filter: invert(96%) sepia(88%) saturate(0%) hue-rotate(64deg) brightness(106%) contrast(101%);
+  cursor: pointer;
 }
 
 /* NEW PROJECT POPUP */

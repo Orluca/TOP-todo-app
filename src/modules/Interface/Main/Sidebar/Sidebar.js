@@ -446,6 +446,7 @@ const ProjectsAdd = (function () {
     toggleAddProjectPopupVisibility();
     ProjectsList.hideEditButtonsVisibilites();
     ProjectsList.removeEditMode();
+    projectNameInput.focus();
   }
 
   function AddProjectButton() {
