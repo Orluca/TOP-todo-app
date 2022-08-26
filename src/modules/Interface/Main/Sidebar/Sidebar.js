@@ -44,7 +44,7 @@ const TodayButton = (function () {
     return TodayButton;
   }
 
-  function handleTodayClicks(e) {
+  function handleTodayClicks() {
     TodayButton.classList.toggle("clicked");
     TodayButton.classList.contains("clicked") ? TodoList.showToday() : TodoList.showAll();
     WeekButton.clear();
@@ -153,22 +153,9 @@ const ProjectsHeader = (function () {
   }
 
   function handleEditProjects() {
-    toggleEditButtonsVisibilites();
+    ProjectsList.toggleEditButtonsVisibilites();
+    ProjectsList.toggleEditMode();
     ProjectsAdd.hideAddProjectPopup();
-  }
-
-  function toggleEditButtonsVisibilites() {
-    document.querySelectorAll(".reorder-project-handle").forEach((handle) => handle.classList.toggle("hidden"));
-    document.querySelectorAll(".rename-project-btn").forEach((button) => button.classList.toggle("hidden"));
-    document.querySelectorAll(".delete-project-btn").forEach((button) => button.classList.toggle("hidden"));
-    document.querySelectorAll(".counter").forEach((counter) => counter.classList.toggle("hidden"));
-  }
-
-  function hideEditButtonsVisibilites() {
-    document.querySelectorAll(".reorder-project-handle").forEach((handle) => handle.classList.add("hidden"));
-    document.querySelectorAll(".rename-project-btn").forEach((button) => button.classList.add("hidden"));
-    document.querySelectorAll(".delete-project-btn").forEach((button) => button.classList.add("hidden"));
-    document.querySelectorAll(".counter").forEach((counter) => counter.classList.remove("hidden"));
   }
 
   function init() {
@@ -184,7 +171,7 @@ const ProjectsHeader = (function () {
 
   init();
 
-  return { get, hideEditButtonsVisibilites };
+  return { get };
 })();
 
 const ProjectsList = (function () {
@@ -221,13 +208,37 @@ const ProjectsList = (function () {
     });
   }
 
-  function clearAll(exception) {
+  function clearAll() {
     ProjectsList.querySelectorAll(".project-button").forEach((button) => button.classList.remove("clicked"));
+  }
+
+  function toggleEditMode() {
+    ProjectsList.querySelectorAll(".project-button").forEach((button) => {
+      button.dataset.editMode = button.dataset.editMode === "true" ? "false" : "true";
+    });
+  }
+
+  function removeEditMode() {
+    ProjectsList.querySelectorAll(".project-button").forEach((button) => (button.dataset.editMode = "false"));
+  }
+
+  function toggleEditButtonsVisibilites() {
+    ProjectsList.querySelectorAll(".reorder-project-handle").forEach((handle) => handle.classList.toggle("hidden"));
+    ProjectsList.querySelectorAll(".rename-project-btn").forEach((button) => button.classList.toggle("hidden"));
+    ProjectsList.querySelectorAll(".delete-project-btn").forEach((button) => button.classList.toggle("hidden"));
+    ProjectsList.querySelectorAll(".counter").forEach((counter) => counter.classList.toggle("hidden"));
+  }
+
+  function hideEditButtonsVisibilites() {
+    ProjectsList.querySelectorAll(".reorder-project-handle").forEach((handle) => handle.classList.add("hidden"));
+    ProjectsList.querySelectorAll(".rename-project-btn").forEach((button) => button.classList.add("hidden"));
+    ProjectsList.querySelectorAll(".delete-project-btn").forEach((button) => button.classList.add("hidden"));
+    ProjectsList.querySelectorAll(".counter").forEach((counter) => counter.classList.remove("hidden"));
   }
 
   init();
 
-  return { get, addProject, restore, updateCounts, clear, clearAll };
+  return { get, addProject, restore, updateCounts, clear, clearAll, toggleEditMode, removeEditMode, toggleEditButtonsVisibilites, hideEditButtonsVisibilites };
 })();
 
 const ProjectButton = function (projectName) {
@@ -326,6 +337,8 @@ const ProjectButton = function (projectName) {
   function handleProjectButton() {
     const projectName = ProjectButton.dataset.projectName;
 
+    // if (!isInEditMode()) ProjectButton.classList.toggle("clicked");
+    isInEditMode();
     ProjectButton.classList.toggle("clicked");
     ProjectButton.classList.contains("clicked") ? TodoList.showProject(projectName) : TodoList.showAll();
     ProjectsList.clear(ProjectButton);
@@ -333,10 +346,15 @@ const ProjectButton = function (projectName) {
     WeekButton.clear();
   }
 
+  function isInEditMode() {
+    ProjectButton.dataset.editMode === "true" ? console.log("in edit mode") : console.log("not in edit mode");
+  }
+
   function init() {
     ProjectButton = document.createElement("div");
     ProjectButton.classList.add("project-button");
     ProjectButton.dataset.projectName = projectName;
+    ProjectButton.dataset.editMode = false; // To disable button highlighting and filtering when in edit mode
     ProjectButton.appendChild(ProjectNameLabel(projectNameCapitalized));
     ProjectButton.appendChild(RenameButton());
     ProjectButton.appendChild(DeleteButton());
@@ -385,7 +403,8 @@ const ProjectsAdd = (function () {
 
   function handleAddProject() {
     toggleAddProjectPopupVisibility();
-    ProjectsHeader.hideEditButtonsVisibilites();
+    ProjectsList.hideEditButtonsVisibilites();
+    ProjectsList.removeEditMode();
   }
 
   function AddProjectButton() {
