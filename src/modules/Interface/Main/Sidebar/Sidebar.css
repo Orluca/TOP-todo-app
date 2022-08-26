@@ -18,7 +18,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.25rem;
+  padding: 0.25rem 0.5rem;
   border-radius: 5px;
 }
 
@@ -63,7 +63,7 @@
   background-color: white;
   display: flex;
   justify-content: space-between;
-  padding: 0.25rem;
+  padding: 0.25rem 0.5rem;
   border-radius: 5px;
 }
 .add-project-btn {
@@ -86,8 +86,9 @@
 .project-button {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   background-color: #fff;
-  padding: 0.25rem;
+  /* padding: 0.25rem; */
   border-radius: 5px;
   height: 33px;
 }
@@ -96,18 +97,56 @@
   cursor: pointer;
 }
 
+.project-name-input {
+  margin: 0 0 0 0.5rem;
+}
+
 .project-name-input:disabled {
   background-color: transparent;
   color: #000000;
   border: none;
 }
 
+.edit-buttons {
+  display: flex;
+  align-items: center;
+  /* column-gap: 0.25rem; */
+}
+
+.rename-project-btn,
+.delete-project-btn,
+.reorder-project-handle {
+  background-color: transparent;
+  border: none;
+}
+
+.rename-project-btn {
+  background-color: rgb(161, 255, 137);
+}
+
+.delete-project-btn {
+  background-color: rgb(241, 78, 78);
+}
+
+.reorder-project-handle {
+  background-color: rgb(61, 174, 255);
+  border-radius: 0 5px 5px 0;
+}
+
 .edit-project-rename-icon,
 .edit-project-delete-icon,
 .edit-project-reorder-icon {
-  width: 15px;
+  width: 33px;
+  height: 33px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
 }
 
+.project-count {
+  margin: 0 0.5rem 0 0;
+}
 /* UTILITY */
 .clicked {
   background-color: gold;

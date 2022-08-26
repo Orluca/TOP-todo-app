@@ -140,7 +140,7 @@ const ProjectsHeader = (function () {
 
   function Header() {
     const Header = document.createElement("h2");
-    Header.classList.add("projects-header");
+    Header.classList.add("projects-headline");
     Header.textContent = "Projects";
 
     return Header;
