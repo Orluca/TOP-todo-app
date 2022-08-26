@@ -346,7 +346,6 @@ const ProjectButton = function (projectName) {
   }
 
   function isInEditMode() {
-    // ProjectButton.dataset.editMode === "true" ? console.log("in edit mode") : console.log("not in edit mode");
     return ProjectButton.dataset.editMode === "true" ? true : false;
   }
 
