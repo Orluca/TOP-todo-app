@@ -231,17 +231,19 @@ const ProjectsList = (function () {
   }
 
   function toggleEditButtonsVisibilites() {
-    ProjectsList.querySelectorAll(".reorder-project-handle").forEach((handle) => handle.classList.toggle("hidden"));
-    ProjectsList.querySelectorAll(".rename-project-btn").forEach((button) => button.classList.toggle("hidden"));
-    ProjectsList.querySelectorAll(".delete-project-btn").forEach((button) => button.classList.toggle("hidden"));
-    ProjectsList.querySelectorAll(".counter").forEach((counter) => counter.classList.toggle("hidden"));
+    // ProjectsList.querySelectorAll(".reorder-project-handle").forEach((handle) => handle.classList.toggle("hidden"));
+    // ProjectsList.querySelectorAll(".rename-project-btn").forEach((button) => button.classList.toggle("hidden"));
+    // ProjectsList.querySelectorAll(".delete-project-btn").forEach((button) => button.classList.toggle("hidden"));
+    ProjectsList.querySelectorAll(".edit-buttons").forEach((button) => button.classList.toggle("hidden"));
+    ProjectsList.querySelectorAll(".project-count").forEach((counter) => counter.classList.toggle("hidden"));
   }
 
   function hideEditButtonsVisibilites() {
-    ProjectsList.querySelectorAll(".reorder-project-handle").forEach((handle) => handle.classList.add("hidden"));
-    ProjectsList.querySelectorAll(".rename-project-btn").forEach((button) => button.classList.add("hidden"));
-    ProjectsList.querySelectorAll(".delete-project-btn").forEach((button) => button.classList.add("hidden"));
-    ProjectsList.querySelectorAll(".counter").forEach((counter) => counter.classList.remove("hidden"));
+    // ProjectsList.querySelectorAll(".reorder-project-handle").forEach((handle) => handle.classList.add("hidden"));
+    // ProjectsList.querySelectorAll(".rename-project-btn").forEach((button) => button.classList.add("hidden"));
+    // ProjectsList.querySelectorAll(".delete-project-btn").forEach((button) => button.classList.add("hidden"));
+    ProjectsList.querySelectorAll(".edit-buttons").forEach((button) => button.classList.add("hidden"));
+    ProjectsList.querySelectorAll(".project-count").forEach((counter) => counter.classList.remove("hidden"));
   }
 
   init();
@@ -259,47 +261,55 @@ const ProjectButton = function (projectName) {
 
   const projectNameCapitalized = projectName.slice(0, 1).toUpperCase() + projectName.slice(1);
 
-  function ReorderHandle() {
-    reorderHandle = document.createElement("button");
-    reorderHandle.classList.add("reorder-project-handle");
-    reorderHandle.classList.add("hidden");
-    reorderHandle.textContent = "=";
+  function EditButtons() {
+    function ReorderHandle() {
+      reorderHandle = document.createElement("button");
+      reorderHandle.classList.add("reorder-project-handle");
+      reorderHandle.textContent = "=";
 
-    return reorderHandle;
-  }
+      return reorderHandle;
+    }
 
-  function RenameButton() {
-    renameButton = document.createElement("button");
-    renameButton.classList.add("rename-project-btn");
-    renameButton.classList.add("hidden");
-    renameButton.textContent = "🖍";
-    renameButton.addEventListener("click", handleRenameButton);
+    function RenameButton() {
+      renameButton = document.createElement("button");
+      renameButton.classList.add("rename-project-btn");
+      renameButton.textContent = "🖍";
+      renameButton.addEventListener("click", handleRenameButton);
 
-    return renameButton;
-  }
+      return renameButton;
+    }
 
-  function handleRenameButton(e) {
-    projectNameLabel.disabled = false;
-    projectNameLabel.focus();
-    projectNameLabel.select();
-  }
+    function handleRenameButton(e) {
+      projectNameLabel.disabled = false;
+      projectNameLabel.focus();
+      projectNameLabel.select();
+    }
 
-  function DeleteButton() {
-    deleteButton = document.createElement("button");
-    deleteButton.classList.add("delete-project-btn");
-    deleteButton.classList.add("hidden");
-    deleteButton.textContent = "🗑";
-    deleteButton.addEventListener("click", handleDeleteButton);
+    function DeleteButton() {
+      deleteButton = document.createElement("button");
+      deleteButton.classList.add("delete-project-btn");
+      deleteButton.textContent = "🗑";
+      deleteButton.addEventListener("click", handleDeleteButton);
 
-    return deleteButton;
-  }
+      return deleteButton;
+    }
 
-  function handleDeleteButton(e) {
-    const projectName = e.target.closest(".project-button").dataset.projectName;
-    Data.deleteProject(projectName);
-    e.target.closest(".project-button").remove();
-    ModalWindow.updateProjects();
-    TodoList.updateProjectNames(projectName, "");
+    function handleDeleteButton(e) {
+      const projectName = e.target.closest(".project-button").dataset.projectName;
+      Data.deleteProject(projectName);
+      e.target.closest(".project-button").remove();
+      ModalWindow.updateProjects();
+      TodoList.updateProjectNames(projectName, "");
+    }
+
+    const editButtons = document.createElement("div");
+    editButtons.classList.add("edit-buttons");
+    editButtons.classList.add("hidden");
+    editButtons.appendChild(RenameButton());
+    editButtons.appendChild(DeleteButton());
+    editButtons.appendChild(ReorderHandle());
+
+    return editButtons;
   }
 
   function ProjectNameLabel(nameVal) {
@@ -363,9 +373,10 @@ const ProjectButton = function (projectName) {
     ProjectButton.dataset.projectName = projectName;
     ProjectButton.dataset.editMode = false; // To disable button highlighting and filtering when in edit mode
     ProjectButton.appendChild(ProjectNameLabel(projectNameCapitalized));
-    ProjectButton.appendChild(RenameButton());
-    ProjectButton.appendChild(DeleteButton());
-    ProjectButton.appendChild(ReorderHandle());
+    // ProjectButton.appendChild(RenameButton());
+    // ProjectButton.appendChild(DeleteButton());
+    // ProjectButton.appendChild(ReorderHandle());
+    ProjectButton.appendChild(EditButtons());
     ProjectButton.appendChild(Counter());
     ProjectButton.addEventListener("click", handleProjectButton);
   }
