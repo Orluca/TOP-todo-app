@@ -3,6 +3,8 @@ import iconToday from "../../../assets/icon-today.svg";
 import iconWeek from "../../../assets/icon-week.svg";
 import iconPlus from "../../../assets/icon-plus.svg";
 import iconPen from "../../../assets/icon-pen.svg";
+import iconDelete from "../../../assets/icon-delete.svg";
+import iconReorder from "../../../assets/icon-reorder.svg";
 import Data from "../../../Data/Data.js";
 import { ModalWindow } from "../Content/TodoModal/TodoModal.js";
 import { TodoList } from "../Content/TodoList/TodoList.js";
@@ -263,17 +265,33 @@ const ProjectButton = function (projectName) {
 
   function EditButtons() {
     function ReorderHandle() {
+      function Icon() {
+        const icon = document.createElement("img");
+        icon.classList.add("edit-project-reorder-icon");
+        icon.src = iconReorder;
+
+        return icon;
+      }
+
       reorderHandle = document.createElement("button");
       reorderHandle.classList.add("reorder-project-handle");
-      reorderHandle.textContent = "=";
+      reorderHandle.appendChild(Icon());
 
       return reorderHandle;
     }
 
     function RenameButton() {
+      function Icon() {
+        const icon = document.createElement("img");
+        icon.classList.add("edit-project-rename-icon");
+        icon.src = iconPen;
+
+        return icon;
+      }
+
       renameButton = document.createElement("button");
       renameButton.classList.add("rename-project-btn");
-      renameButton.textContent = "🖍";
+      renameButton.appendChild(Icon());
       renameButton.addEventListener("click", handleRenameButton);
 
       return renameButton;
@@ -286,10 +304,18 @@ const ProjectButton = function (projectName) {
     }
 
     function DeleteButton() {
+      function Icon() {
+        const icon = document.createElement("img");
+        icon.classList.add("edit-project-delete-icon");
+        icon.src = iconDelete;
+
+        return icon;
+      }
+
       deleteButton = document.createElement("button");
       deleteButton.classList.add("delete-project-btn");
-      deleteButton.textContent = "🗑";
       deleteButton.addEventListener("click", handleDeleteButton);
+      deleteButton.appendChild(Icon());
 
       return deleteButton;
     }
@@ -373,9 +399,6 @@ const ProjectButton = function (projectName) {
     ProjectButton.dataset.projectName = projectName;
     ProjectButton.dataset.editMode = false; // To disable button highlighting and filtering when in edit mode
     ProjectButton.appendChild(ProjectNameLabel(projectNameCapitalized));
-    // ProjectButton.appendChild(RenameButton());
-    // ProjectButton.appendChild(DeleteButton());
-    // ProjectButton.appendChild(ReorderHandle());
     ProjectButton.appendChild(EditButtons());
     ProjectButton.appendChild(Counter());
     ProjectButton.addEventListener("click", handleProjectButton);

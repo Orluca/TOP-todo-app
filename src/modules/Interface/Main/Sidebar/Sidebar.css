@@ -89,6 +89,7 @@
   background-color: #fff;
   padding: 0.25rem;
   border-radius: 5px;
+  height: 33px;
 }
 
 .project-button:hover {
@@ -97,8 +98,14 @@
 
 .project-name-input:disabled {
   background-color: transparent;
-  color: black;
+  color: #000000;
   border: none;
+}
+
+.edit-project-rename-icon,
+.edit-project-delete-icon,
+.edit-project-reorder-icon {
+  width: 15px;
 }
 
 /* UTILITY */
