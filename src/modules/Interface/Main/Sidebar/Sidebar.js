@@ -337,8 +337,7 @@ const ProjectButton = function (projectName) {
   function handleProjectButton() {
     const projectName = ProjectButton.dataset.projectName;
 
-    // if (!isInEditMode()) ProjectButton.classList.toggle("clicked");
-    isInEditMode();
+    if (isInEditMode()) return;
     ProjectButton.classList.toggle("clicked");
     ProjectButton.classList.contains("clicked") ? TodoList.showProject(projectName) : TodoList.showAll();
     ProjectsList.clear(ProjectButton);
@@ -347,7 +346,8 @@ const ProjectButton = function (projectName) {
   }
 
   function isInEditMode() {
-    ProjectButton.dataset.editMode === "true" ? console.log("in edit mode") : console.log("not in edit mode");
+    // ProjectButton.dataset.editMode === "true" ? console.log("in edit mode") : console.log("not in edit mode");
+    return ProjectButton.dataset.editMode === "true" ? true : false;
   }
 
   function init() {
