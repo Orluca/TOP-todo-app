@@ -221,6 +221,7 @@ const ProjectsList = (function () {
   }
 
   function updateCounts() {
+    console.log("YO");
     ProjectsList.querySelectorAll(".counter").forEach((counter) => {
       const projectName = counter.closest(".project-button").dataset.projectName;
       counter.textContent = Data.getProjectOccurrencesAmount(projectName);
@@ -618,8 +619,8 @@ const Sidebar = (function () {
 const mediaQuery = "(max-width: 900px)";
 const mediaQueryList = window.matchMedia(mediaQuery);
 
-mediaQueryList.addEventListener("change", (event) => {
-  if (event.matches) {
+function handleSidebarBehaviour(el) {
+  if (el.matches) {
     Sidebar.hide();
     Content.enableGridSetting();
     window.addEventListener("click", closeSidebarOnOutsideClicks);
@@ -628,7 +629,10 @@ mediaQueryList.addEventListener("change", (event) => {
     Content.disableGridSetting();
     window.removeEventListener("click", closeSidebarOnOutsideClicks);
   }
-});
+}
+
+mediaQueryList.addEventListener("change", handleSidebarBehaviour);
+handleSidebarBehaviour(mediaQueryList);
 
 // Close sidebar when under 900px and clicking outside of it
 function closeSidebarOnOutsideClicks(e) {
