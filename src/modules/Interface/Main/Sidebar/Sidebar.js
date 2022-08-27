@@ -626,17 +626,20 @@ mediaQueryList.addEventListener("change", (event) => {
   if (event.matches) {
     Sidebar.hide();
     Content.enableGridSetting();
+    window.addEventListener("click", closeSidebarOnOutsideClicks);
   } else {
     Sidebar.show();
     Content.disableGridSetting();
+    window.removeEventListener("click", closeSidebarOnOutsideClicks);
   }
 });
 
-window.addEventListener("click", function (e) {
+// Close sidebar when under 900px and clicking outside of it
+function closeSidebarOnOutsideClicks(e) {
   const sidebar = e.target.closest(".sidebar");
   const sidebarToggle = e.target.closest(".sidebar-toggle");
   if (!sidebar && !sidebarToggle) Sidebar.hide();
-});
+}
 
 export default Sidebar;
 export { ProjectsList, TodayButton, WeekButton };
