@@ -30,7 +30,9 @@ const TodoTop = function (titleVal, isFinished, priorityVal) {
 
   const TodoTitle = function () {
     function handleTitleClicks(e) {
-      e.target.closest(".todo-item").querySelector(".todo-item-bottom").classList.toggle("hidden");
+      const todoItem = e.target.closest(".todo-item");
+      todoItem.querySelector(".todo-item-bottom").classList.toggle("hidden");
+      todoItem.classList.toggle("expanded");
     }
 
     const TodoTitle = document.createElement("div");
@@ -221,7 +223,7 @@ const TodoBottom = function (descriptionVal, dueDateVal, projectName, priorityVa
     }
 
     const TodoPriority = document.createElement("div");
-    TodoPriority.classList.add("todo-item-project");
+    TodoPriority.classList.add("todo-item-priority");
     TodoPriority.appendChild(PriorityLabel());
     TodoPriority.appendChild(PriorityValue());
 
