@@ -145,7 +145,15 @@ const Data = (function () {
     return todos.filter((todo) => todo.project === projectName);
   }
 
-  return { addTodo, restoreFromLocalStorage, getTodos, changeTodoStatus, deleteTodo, getTodoItem, updateTodo, addProject, getProjects, changeProjectName, deleteProject, getProjectOccurrencesAmount, getTodayCount, getWeekCount, getTodaysTodos, getWeeksTodos, getProjectsTodos };
+  function capitalizeString(string) {
+    return string
+      .toLowerCase()
+      .split(" ")
+      .map((word) => word.charAt(0).toUpperCase() + word.substring(1))
+      .join(" ");
+  }
+
+  return { addTodo, restoreFromLocalStorage, getTodos, changeTodoStatus, deleteTodo, getTodoItem, updateTodo, addProject, getProjects, changeProjectName, deleteProject, getProjectOccurrencesAmount, getTodayCount, getWeekCount, getTodaysTodos, getWeeksTodos, getProjectsTodos, capitalizeString };
 })();
 
 export default Data;

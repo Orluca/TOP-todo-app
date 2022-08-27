@@ -7,7 +7,7 @@ import iconDelete from "../../../assets/icon-delete.svg";
 import iconReorder from "../../../assets/icon-reorder.svg";
 import Data from "../../../Data/Data.js";
 import { ModalWindow } from "../Content/TodoModal/TodoModal.js";
-import { TodoList } from "../Content/TodoList/TodoList.js";
+import { TodoList, TodoListHeader } from "../Content/TodoList/TodoList.js";
 
 // -------------------- DUE DATE FILTERS --------------------
 const TodayButton = (function () {
@@ -49,7 +49,13 @@ const TodayButton = (function () {
 
   function handleTodayClicks() {
     TodayButton.classList.toggle("clicked");
-    TodayButton.classList.contains("clicked") ? TodoList.showToday() : TodoList.showAll();
+    if (TodayButton.classList.contains("clicked")) {
+      TodoList.showToday();
+      TodoListHeader.update("Today");
+    } else {
+      TodoList.showAll();
+      TodoListHeader.update("All Todos");
+    }
     WeekButton.clear();
     ProjectsList.clearAll();
   }
@@ -111,7 +117,13 @@ const WeekButton = (function () {
 
   function handleWeekClicks() {
     WeekButton.classList.toggle("clicked");
-    WeekButton.classList.contains("clicked") ? TodoList.showWeek() : TodoList.showAll();
+    if (WeekButton.classList.contains("clicked")) {
+      TodoList.showWeek();
+      TodoListHeader.update("This Week");
+    } else {
+      TodoList.showAll();
+      TodoListHeader.update("All Todos");
+    }
     TodayButton.clear();
     ProjectsList.clearAll();
   }
@@ -384,6 +396,13 @@ const ProjectButton = function (projectName) {
     if (isInEditMode()) return;
     ProjectButton.classList.toggle("clicked");
     ProjectButton.classList.contains("clicked") ? TodoList.showProject(projectName) : TodoList.showAll();
+    if (ProjectButton.classList.contains("clicked")) {
+      TodoList.showProject(projectName);
+      TodoListHeader.update(projectName);
+    } else {
+      TodoList.showAll();
+      TodoListHeader.update("All Todos");
+    }
     ProjectsList.clear(ProjectButton);
     TodayButton.clear();
     WeekButton.clear();

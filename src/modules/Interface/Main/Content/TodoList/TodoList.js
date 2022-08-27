@@ -9,7 +9,11 @@ const TodoListHeader = (function () {
   function init() {
     TodoListHeader = document.createElement("h2");
     TodoListHeader.classList.add("todo-list-header");
-    TodoListHeader.textContent = "Programming";
+    TodoListHeader.textContent = "All Todos";
+  }
+
+  function update(name) {
+    TodoListHeader.textContent = Data.capitalizeString(name);
   }
 
   function get() {
@@ -18,7 +22,7 @@ const TodoListHeader = (function () {
 
   init();
 
-  return { get };
+  return { get, update };
 })();
 
 const TodoList = (function () {
@@ -149,4 +153,4 @@ const TodoListContainer = (function () {
 })();
 
 export default TodoListContainer;
-export { TodoList };
+export { TodoList, TodoListHeader };
