@@ -19,6 +19,32 @@
 .todo-item-buttons {
 }
 
+.todo-item-icon {
+  width: 20px;
+}
+
+.priority-low {
+  /* color: #6bff51; */
+  filter: invert(82%) sepia(65%) saturate(537%) hue-rotate(49deg) brightness(105%) contrast(106%);
+}
+
+.priority-medium {
+  /* color: #ffda33; */
+  filter: invert(93%) sepia(98%) saturate(4571%) hue-rotate(326deg) brightness(102%) contrast(102%);
+}
+
+.priority-high {
+  /* color: #ff4848; */
+  filter: invert(42%) sepia(90%) saturate(4128%) hue-rotate(340deg) brightness(114%) contrast(101%);
+}
+
+.todo-item-edit-btn,
+.todo-item-delete-btn,
+.todo-item-priority-btn {
+  background-color: transparent;
+  border: none;
+}
+
 /* BOTTOM SECTION */
 .todo-item-description {
   display: flex;

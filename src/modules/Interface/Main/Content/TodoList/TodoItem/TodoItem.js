@@ -4,6 +4,9 @@ import ModalBackground from "../../TodoModal/TodoModal.js";
 import { TodoList } from "../TodoList.js";
 import { ProjectsList, TodayButton, WeekButton } from "../../../Sidebar/Sidebar.js";
 import { format, parseISO } from "date-fns";
+import iconPen from "../../../../../assets/icon-pen.svg";
+import iconDelete from "../../../../../assets/icon-delete.svg";
+import iconPriority from "../../../../../assets/icon-priority.svg";
 
 const TodoTop = function (titleVal, isFinished, priorityVal) {
   const TodoCheckbox = function () {
@@ -37,9 +40,17 @@ const TodoTop = function (titleVal, isFinished, priorityVal) {
 
   const TodoButtons = function () {
     function editButton() {
+      function Icon() {
+        const icon = document.createElement("img");
+        icon.src = iconPen;
+        icon.classList.add("todo-item-icon");
+
+        return icon;
+      }
+
       const editButton = document.createElement("button");
       editButton.classList.add("todo-item-edit-btn");
-      editButton.textContent = "Edit";
+      editButton.appendChild(Icon());
       editButton.addEventListener("click", handleEditButton);
 
       return editButton;
@@ -52,9 +63,17 @@ const TodoTop = function (titleVal, isFinished, priorityVal) {
     }
 
     function deleteButton() {
+      function Icon() {
+        const icon = document.createElement("img");
+        icon.src = iconDelete;
+        icon.classList.add("todo-item-icon");
+
+        return icon;
+      }
+
       const deleteButton = document.createElement("button");
       deleteButton.classList.add("todo-item-delete-btn");
-      deleteButton.textContent = "Delete";
+      deleteButton.appendChild(Icon());
       deleteButton.addEventListener("click", handleDeleteButton);
 
       return deleteButton;
@@ -70,11 +89,23 @@ const TodoTop = function (titleVal, isFinished, priorityVal) {
     }
 
     function priorityButton() {
+      function Icon() {
+        const icon = document.createElement("img");
+        icon.src = iconPriority;
+        icon.classList.add("todo-item-icon");
+        if (priorityVal === "low") priorityButton.classList.add("priority-low");
+        if (priorityVal === "medium") priorityButton.classList.add("priority-medium");
+        if (priorityVal === "high") priorityButton.classList.add("priority-high");
+
+        return icon;
+      }
+
       const priorityButton = document.createElement("button");
       priorityButton.classList.add("todo-item-priority-btn");
-      if (priorityVal === "low") priorityButton.textContent = "🟢";
-      if (priorityVal === "medium") priorityButton.textContent = "🟡";
-      if (priorityVal === "high") priorityButton.textContent = "🔴";
+      priorityButton.appendChild(Icon());
+      // if (priorityVal === "low") priorityButton.textContent = "🟢";
+      // if (priorityVal === "medium") priorityButton.textContent = "🟡";
+      // if (priorityVal === "high") priorityButton.textContent = "🔴";
 
       return priorityButton;
     }

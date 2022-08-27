@@ -13,6 +13,8 @@
 - deleting a todo or projects needs a confirmation popup
 - if you open the edit window of a todo that has NO PROJECT, the project selector will still select one though. it would be better if there would also be a "blank" option in the selector
 - update todo list header according to selected project/ time filter
+- bold text for selected filter
+- edit project mode: vl den reorder handle ganze nach links, andere buttons weiter rechts und hintergrund color für jedes item
 
 ### bugs
 
