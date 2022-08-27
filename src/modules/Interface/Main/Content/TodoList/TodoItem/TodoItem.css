@@ -91,15 +91,17 @@
 /* BOTTOM SECTION */
 .todo-item-bottom {
   margin-left: 2rem;
-  display: grid;
+  /* display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto auto;
-  column-gap: 0.25rem;
+  column-gap: 0.25rem; */
+  display: flex;
+  flex-direction: column;
   row-gap: 0.25rem;
   border: 1px solid rgb(183, 183, 183);
   border-radius: 5px;
   padding: 0.25rem;
-  /* background-color: #f1f1f1; */
+  overflow: auto;
 }
 
 .todo-item-label {
@@ -123,3 +125,12 @@
 .completed {
   /* background-color: red; */
 }
+
+/* MEDIA QUERIES */
+
+/* @media only screen and (max-width: 30000px) {
+  .todo-item-bottom {
+    display: flex;
+    flex-direction: column;
+  }
+} */
