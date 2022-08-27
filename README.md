@@ -22,3 +22,4 @@
 - when adding a project like "Test Project" or "Test-Project" the second word wont be capitalized anymore
 - adding a new todo not yet updating the project counts
 - todolist breite ist nicht konsistent wenn wehcseln zwischen filtern
+- wenn seite schon schmal geladen wird funktioniert "close side bar on outside clicks" nicht
