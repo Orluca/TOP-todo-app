@@ -246,19 +246,17 @@ const ProjectsList = (function () {
   }
 
   function toggleEditButtonsVisibilites() {
-    // ProjectsList.querySelectorAll(".reorder-project-handle").forEach((handle) => handle.classList.toggle("hidden"));
-    // ProjectsList.querySelectorAll(".rename-project-btn").forEach((button) => button.classList.toggle("hidden"));
-    // ProjectsList.querySelectorAll(".delete-project-btn").forEach((button) => button.classList.toggle("hidden"));
     ProjectsList.querySelectorAll(".edit-buttons").forEach((button) => button.classList.toggle("hidden"));
     ProjectsList.querySelectorAll(".project-count").forEach((counter) => counter.classList.toggle("hidden"));
+    ProjectsList.querySelectorAll(".reorder-project-handle").forEach((handle) => handle.classList.toggle("hidden"));
+    ProjectsList.querySelectorAll(".project-button").forEach((button) => button.classList.toggle("in-edit-mode"));
   }
 
   function hideEditButtonsVisibilites() {
-    // ProjectsList.querySelectorAll(".reorder-project-handle").forEach((handle) => handle.classList.add("hidden"));
-    // ProjectsList.querySelectorAll(".rename-project-btn").forEach((button) => button.classList.add("hidden"));
-    // ProjectsList.querySelectorAll(".delete-project-btn").forEach((button) => button.classList.add("hidden"));
     ProjectsList.querySelectorAll(".edit-buttons").forEach((button) => button.classList.add("hidden"));
     ProjectsList.querySelectorAll(".project-count").forEach((counter) => counter.classList.remove("hidden"));
+    ProjectsList.querySelectorAll(".reorder-project-handle").forEach((handle) => handle.classList.remove("hidden"));
+    ProjectsList.querySelectorAll(".project-button").forEach((button) => button.classList.remove("in-edit-mode"));
   }
 
   init();
@@ -276,23 +274,24 @@ const ProjectButton = function (projectName) {
 
   const projectNameCapitalized = projectName.slice(0, 1).toUpperCase() + projectName.slice(1);
 
-  function EditButtons() {
-    function ReorderHandle() {
-      function Icon() {
-        const icon = document.createElement("img");
-        icon.classList.add("edit-project-reorder-icon");
-        icon.src = iconReorder;
+  function ReorderHandle() {
+    function Icon() {
+      const icon = document.createElement("img");
+      icon.classList.add("edit-project-reorder-icon");
+      icon.src = iconReorder;
 
-        return icon;
-      }
-
-      reorderHandle = document.createElement("button");
-      reorderHandle.classList.add("reorder-project-handle");
-      reorderHandle.appendChild(Icon());
-
-      return reorderHandle;
+      return icon;
     }
 
+    reorderHandle = document.createElement("button");
+    reorderHandle.classList.add("reorder-project-handle");
+    reorderHandle.classList.add("hidden");
+    reorderHandle.appendChild(Icon());
+
+    return reorderHandle;
+  }
+
+  function EditButtons() {
     function RenameButton() {
       function Icon() {
         const icon = document.createElement("img");
@@ -346,7 +345,7 @@ const ProjectButton = function (projectName) {
     editButtons.classList.add("hidden");
     editButtons.appendChild(RenameButton());
     editButtons.appendChild(DeleteButton());
-    editButtons.appendChild(ReorderHandle());
+    // editButtons.appendChild(ReorderHandle());
 
     return editButtons;
   }
@@ -418,6 +417,7 @@ const ProjectButton = function (projectName) {
     ProjectButton.classList.add("project-button");
     ProjectButton.dataset.projectName = projectName;
     ProjectButton.dataset.editMode = false; // To disable button highlighting and filtering when in edit mode
+    ProjectButton.appendChild(ReorderHandle());
     ProjectButton.appendChild(ProjectNameLabel(projectNameCapitalized));
     ProjectButton.appendChild(EditButtons());
     ProjectButton.appendChild(Counter());
@@ -597,12 +597,6 @@ const Sidebar = (function () {
 
   function toggle() {
     Sidebar.classList.toggle("hidden");
-    // Sidebar.style.display = Sidebar.offsetParent === null ? "flex" : "none";
-    // if (Sidebar.offsetParent === null) {
-    //   console.log("Element is hidden.");
-    // } else {
-    //   console.log("Element is visible.");
-    // }
   }
 
   function hide() {

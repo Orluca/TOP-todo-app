@@ -138,11 +138,12 @@
 
 .delete-project-btn {
   background-color: rgb(241, 78, 78);
+  border-radius: 0 4px 4px 0;
 }
 
 .reorder-project-handle {
-  background-color: rgb(61, 174, 255);
-  border-radius: 0 5px 5px 0;
+  background-color: rgb(193, 193, 193);
+  border-radius: 4px 0 0 4px;
 }
 
 .reorder-project-handle:hover {
@@ -157,8 +158,8 @@
 .edit-project-rename-icon,
 .edit-project-delete-icon,
 .edit-project-reorder-icon {
-  width: 33px;
-  height: 33px;
+  width: 31px;
+  height: 31px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -250,6 +251,11 @@
 .clicked {
   background-color: #ffdeea;
   font-weight: bold;
+}
+
+.in-edit-mode {
+  background-color: rgb(255, 255, 255) !important;
+  border: 1px solid rgb(82, 82, 82);
 }
 
 /* MEDIA QUERIES */
