@@ -25,6 +25,7 @@ const TodayButton = (function () {
 
     function Label() {
       const label = document.createElement("div");
+      label.classList.add("date-filter-label");
       label.textContent = "Today";
 
       return label;
@@ -94,6 +95,7 @@ const WeekButton = (function () {
     function Label() {
       const label = document.createElement("div");
       label.textContent = "This Week";
+      label.classList.add("date-filter-label");
 
       return label;
     }

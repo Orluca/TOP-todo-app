@@ -250,6 +250,11 @@
 /* UTILITY */
 .clicked {
   background-color: #ffdeea;
+  /* font-weight: bold; */
+}
+
+.clicked > .date-filter-btn-left > .date-filter-label,
+.clicked > .project-name-input {
   font-weight: bold;
 }
 
