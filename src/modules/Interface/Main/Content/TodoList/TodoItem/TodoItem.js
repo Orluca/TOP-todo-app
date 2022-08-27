@@ -7,6 +7,9 @@ import { format, parseISO } from "date-fns";
 import iconPen from "../../../../../assets/icon-pen.svg";
 import iconDelete from "../../../../../assets/icon-delete.svg";
 import iconPriority from "../../../../../assets/icon-priority2.svg";
+import iconPriorityGreen from "../../../../../assets/icon-priority2-green.svg";
+import iconPriorityYellow from "../../../../../assets/icon-priority2-yellow.svg";
+import iconPriorityRed from "../../../../../assets/icon-priority2-red.svg";
 
 const TodoTop = function (titleVal, isFinished, priorityVal) {
   const TodoCheckbox = function () {
@@ -91,11 +94,10 @@ const TodoTop = function (titleVal, isFinished, priorityVal) {
     function priorityButton() {
       function Icon() {
         const icon = document.createElement("img");
-        icon.src = iconPriority;
         icon.classList.add("todo-item-icon");
-        if (priorityVal === "low") priorityButton.classList.add("priority-low");
-        if (priorityVal === "medium") priorityButton.classList.add("priority-medium");
-        if (priorityVal === "high") priorityButton.classList.add("priority-high");
+        if (priorityVal === "low") icon.src = iconPriorityGreen;
+        if (priorityVal === "medium") icon.src = iconPriorityYellow;
+        if (priorityVal === "high") icon.src = iconPriorityRed;
 
         return icon;
       }
@@ -103,9 +105,6 @@ const TodoTop = function (titleVal, isFinished, priorityVal) {
       const priorityButton = document.createElement("button");
       priorityButton.classList.add("todo-item-priority-btn");
       priorityButton.appendChild(Icon());
-      // if (priorityVal === "low") priorityButton.textContent = "🟢";
-      // if (priorityVal === "medium") priorityButton.textContent = "🟡";
-      // if (priorityVal === "high") priorityButton.textContent = "🔴";
 
       return priorityButton;
     }
