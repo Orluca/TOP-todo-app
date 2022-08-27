@@ -7,6 +7,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  /* position: relative; */
 }
 
 .todo-list {
@@ -18,4 +20,26 @@
 .todo-list-header {
   font-size: 2.5rem;
   margin-bottom: 1rem;
+}
+
+/* ADD TODO BUTTON */
+.add-todo-btn {
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  bottom: 5%;
+  right: 1.5%;
+  background-color: deeppink;
+}
+
+.add-todo-btn:hover {
+  cursor: pointer;
+  background-color: rgb(255, 77, 172);
+}
+
+.add-todo-btn-icon {
+  width: 35px;
+  filter: invert(100%);
 }

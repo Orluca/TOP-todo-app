@@ -255,7 +255,7 @@ const ProjectsList = (function () {
   function hideEditButtonsVisibilites() {
     ProjectsList.querySelectorAll(".edit-buttons").forEach((button) => button.classList.add("hidden"));
     ProjectsList.querySelectorAll(".project-count").forEach((counter) => counter.classList.remove("hidden"));
-    ProjectsList.querySelectorAll(".reorder-project-handle").forEach((handle) => handle.classList.remove("hidden"));
+    ProjectsList.querySelectorAll(".reorder-project-handle").forEach((handle) => handle.classList.add("hidden"));
     ProjectsList.querySelectorAll(".project-button").forEach((button) => button.classList.remove("in-edit-mode"));
   }
 

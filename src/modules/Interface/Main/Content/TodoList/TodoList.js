@@ -2,6 +2,7 @@ import todoListStyle from "./TodoList.css";
 import TodoItem from "./TodoItem/TodoItem.js";
 import Data from "../../../../Data/Data.js";
 import ModalBackground from "../TodoModal/TodoModal.js";
+import iconPlus from "../../../../assets/icon-plus.svg";
 
 const TodoListHeader = (function () {
   let TodoListHeader;
@@ -112,10 +113,18 @@ const TodoList = (function () {
 const AddTodoButton = (function () {
   let AddTodoButton;
 
+  function Icon() {
+    const icon = document.createElement("img");
+    icon.src = iconPlus;
+    icon.classList.add("add-todo-btn-icon");
+
+    return icon;
+  }
+
   function init() {
     AddTodoButton = document.createElement("button");
     AddTodoButton.classList.add("add-todo-btn");
-    AddTodoButton.textContent = "+";
+    AddTodoButton.appendChild(Icon());
     AddTodoButton.addEventListener("click", handleAddTodoButton);
   }
 
