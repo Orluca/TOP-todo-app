@@ -132,6 +132,7 @@ const TodoBottom = function (descriptionVal, dueDateVal, projectName, priorityVa
   function TodoDescription() {
     function DescriptionLabel() {
       const label = document.createElement("div");
+      label.classList.add("todo-item-label");
       label.textContent = "Description:";
 
       return label;
@@ -156,6 +157,7 @@ const TodoBottom = function (descriptionVal, dueDateVal, projectName, priorityVa
   function TodoDueDate() {
     function DateLabel() {
       const label = document.createElement("div");
+      label.classList.add("todo-item-label");
       label.textContent = "Date:";
 
       return label;
@@ -180,6 +182,7 @@ const TodoBottom = function (descriptionVal, dueDateVal, projectName, priorityVa
   function TodoProject() {
     function ProjectLabel() {
       const label = document.createElement("div");
+      label.classList.add("todo-item-label");
       label.textContent = "Project:";
 
       return label;
@@ -204,6 +207,7 @@ const TodoBottom = function (descriptionVal, dueDateVal, projectName, priorityVa
   function TodoPriority() {
     function PriorityLabel() {
       const label = document.createElement("div");
+      label.classList.add("todo-item-label");
       label.textContent = "Priority:";
 
       return label;

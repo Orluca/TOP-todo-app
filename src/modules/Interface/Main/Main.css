@@ -1,6 +1,8 @@
 .main {
-  display: flex;
-  flex-direction: row;
+  /* display: flex;
+  flex-direction: row; */
+  display: grid;
+  grid-template-columns: 350px auto;
   max-height: 100%;
   overflow: auto;
 }
