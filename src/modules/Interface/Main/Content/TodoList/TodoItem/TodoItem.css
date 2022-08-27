@@ -4,6 +4,7 @@
   flex-direction: column;
   border-bottom: 1px solid rgba(0, 0, 0, 0.256);
   padding: 0.5rem 0;
+  color: #535353;
 }
 
 /* TOP SECTION */
@@ -53,6 +54,26 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.todo-item-edit-btn:hover,
+.todo-item-delete-btn:hover,
+.todo-item-priority-btn:hover {
+  cursor: pointer;
+}
+
+.todo-item-edit-btn:hover,
+.todo-item-delete-btn:hover {
+  filter: brightness(0%);
+}
+
+.todo-item-priority-btn:hover {
+  /* filter: contrast(100%); */
+}
+
+.todo-item-edit-btn,
+.todo-item-delete-btn {
+  filter: invert(42%);
 }
 
 /* BOTTOM SECTION */

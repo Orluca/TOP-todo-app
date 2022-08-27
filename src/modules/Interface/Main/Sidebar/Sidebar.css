@@ -78,7 +78,8 @@
 
 .edit-projects-btn:hover {
   /* color: #a7ffff; */
-  filter: invert(93%) sepia(39%) saturate(3613%) hue-rotate(163deg) brightness(109%) contrast(107%);
+  /* filter: invert(93%) sepia(39%) saturate(3613%) hue-rotate(163deg) brightness(109%) contrast(107%); */
+  filter: brightness(0%);
   cursor: pointer;
 }
 
@@ -160,6 +161,15 @@
   padding: 0.5rem;
 }
 
+.edit-project-delete-icon {
+  filter: brightness(75%);
+}
+
+.delete-project-btn:hover > .edit-project-delete-icon,
+.rename-project-btn:hover > .edit-project-rename-icon {
+  filter: brightness(0%);
+}
+
 .project-count {
   margin: 0 0.5rem 0 0;
 }
@@ -190,6 +200,7 @@
   flex-direction: row;
   width: 100%;
   column-gap: 0.25rem;
+  /* margin-left: 1rem; */
 }
 
 .project-popup-name-input {

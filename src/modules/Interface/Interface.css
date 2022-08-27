@@ -4,8 +4,8 @@
 
 :root {
   --color-frame: rgb(43, 43, 43);
-  --color-todo: rgb(199, 216, 255);
-  --color-sidebar: rgb(250, 250, 250);
+  --color-todo: rgb(255, 255, 255);
+  --color-sidebar: rgb(232, 232, 232);
 }
 
 *,

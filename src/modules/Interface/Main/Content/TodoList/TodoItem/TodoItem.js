@@ -6,7 +6,7 @@ import { ProjectsList, TodayButton, WeekButton } from "../../../Sidebar/Sidebar.
 import { format, parseISO } from "date-fns";
 import iconPen from "../../../../../assets/icon-pen.svg";
 import iconDelete from "../../../../../assets/icon-delete.svg";
-import iconPriority from "../../../../../assets/icon-priority.svg";
+import iconPriority from "../../../../../assets/icon-priority2.svg";
 
 const TodoTop = function (titleVal, isFinished, priorityVal) {
   const TodoCheckbox = function () {
