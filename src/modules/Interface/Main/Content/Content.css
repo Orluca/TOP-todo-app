@@ -6,3 +6,8 @@
   /* width: 100%; */
   overflow: auto;
 }
+
+/* UTILITY */
+.todo-list-container-grid {
+  grid-column: 1 / 3;
+}

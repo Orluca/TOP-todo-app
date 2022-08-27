@@ -16,9 +16,13 @@ const Content = (function () {
     return Content;
   }
 
+  function toggleGridSetting() {
+    Content.classList.toggle("todo-list-container-grid"); // a patchwork solution for expanding to whole width when closing the sidebar
+  }
+
   init();
 
-  return { get };
+  return { get, toggleGridSetting };
 })();
 
 export default Content;

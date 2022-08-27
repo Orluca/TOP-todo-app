@@ -3,6 +3,7 @@ import Sidebar from "../Main/Sidebar/Sidebar.js";
 import iconMenu from "../../assets/icon-sidebar-toggle.svg";
 import iconSun from "../../assets/icon-sun.svg";
 import iconMoon from "../../assets/icon-moon.svg";
+import Content from "../Main/Content/Content";
 
 const Header = (function () {
   let Header;
@@ -17,8 +18,13 @@ const Header = (function () {
         return icon;
       }
 
+      function handleSidebarToggle() {
+        Sidebar.toggle();
+        Content.toggleGridSetting();
+      }
+
       const SidebarToggle = document.createElement("button");
-      SidebarToggle.addEventListener("click", Sidebar.toggle);
+      SidebarToggle.addEventListener("click", handleSidebarToggle);
       SidebarToggle.classList.add("sidebar-toggle");
       SidebarToggle.appendChild(Icon());
 
