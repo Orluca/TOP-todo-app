@@ -251,3 +251,14 @@
   background-color: #ffdeea;
   font-weight: bold;
 }
+
+/* MEDIA QUERIES */
+
+@media only screen and (max-width: 900px) {
+  .sidebar {
+    z-index: 100;
+    /* position: absolute; */
+    grid-column: 1 / 2;
+    grid-row: 1/2;
+  }
+}

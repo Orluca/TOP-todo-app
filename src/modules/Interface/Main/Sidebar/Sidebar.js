@@ -6,6 +6,7 @@ import iconPen from "../../../assets/icon-pen.svg";
 import iconDelete from "../../../assets/icon-delete.svg";
 import iconReorder from "../../../assets/icon-reorder.svg";
 import Data from "../../../Data/Data.js";
+import Content from "../Content/Content.js";
 import { ModalWindow } from "../Content/TodoModal/TodoModal.js";
 import { TodoList, TodoListHeader } from "../Content/TodoList/TodoList.js";
 
@@ -596,12 +597,46 @@ const Sidebar = (function () {
 
   function toggle() {
     Sidebar.classList.toggle("hidden");
+    // Sidebar.style.display = Sidebar.offsetParent === null ? "flex" : "none";
+    // if (Sidebar.offsetParent === null) {
+    //   console.log("Element is hidden.");
+    // } else {
+    //   console.log("Element is visible.");
+    // }
+  }
+
+  function hide() {
+    Sidebar.classList.add("hidden");
+  }
+
+  function show() {
+    Sidebar.classList.remove("hidden");
   }
 
   init();
 
-  return { get, toggle };
+  return { get, toggle, hide, show };
 })();
+
+// Auto hide sidebar under 900px of width
+const mediaQuery = "(max-width: 900px)";
+const mediaQueryList = window.matchMedia(mediaQuery);
+
+mediaQueryList.addEventListener("change", (event) => {
+  if (event.matches) {
+    Sidebar.hide();
+    Content.enableGridSetting();
+  } else {
+    Sidebar.show();
+    Content.disableGridSetting();
+  }
+});
+
+window.addEventListener("click", function (e) {
+  const sidebar = e.target.closest(".sidebar");
+  const sidebarToggle = e.target.closest(".sidebar-toggle");
+  if (!sidebar && !sidebarToggle) Sidebar.hide();
+});
 
 export default Sidebar;
 export { ProjectsList, TodayButton, WeekButton };

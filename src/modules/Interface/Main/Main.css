@@ -3,6 +3,7 @@
   flex-direction: row; */
   display: grid;
   grid-template-columns: 300px auto;
+  grid-template-rows: auto;
   max-height: 100%;
   overflow: auto;
 }

@@ -15,6 +15,7 @@
 - update todo list header according to selected project/ time filter
 - bold text for selected filter
 - edit project mode: vl den reorder handle ganze nach links, andere buttons weiter rechts und hintergrund color für jedes item
+- when width is small and sidebar is hidden by default, clicking outside of it should close it
 
 ### bugs
 

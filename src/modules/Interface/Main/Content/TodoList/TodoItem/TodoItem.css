@@ -125,12 +125,3 @@
 .completed {
   /* background-color: red; */
 }
-
-/* MEDIA QUERIES */
-
-/* @media only screen and (max-width: 30000px) {
-  .todo-item-bottom {
-    display: flex;
-    flex-direction: column;
-  }
-} */

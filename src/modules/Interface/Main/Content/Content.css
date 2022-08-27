@@ -11,3 +11,12 @@
 .todo-list-container-grid {
   grid-column: 1 / 3;
 }
+
+@media only screen and (max-width: 900px) {
+  .content {
+    z-index: 1;
+    /* position: absolute; */
+    grid-column: 1 / 3 !important;
+    grid-row: 1 / 2;
+  }
+}

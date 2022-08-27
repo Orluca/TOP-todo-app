@@ -20,9 +20,17 @@ const Content = (function () {
     Content.classList.toggle("todo-list-container-grid"); // a patchwork solution for expanding to whole width when closing the sidebar
   }
 
+  function disableGridSetting() {
+    Content.classList.remove("todo-list-container-grid");
+  }
+
+  function enableGridSetting() {
+    Content.classList.add("todo-list-container-grid");
+  }
+
   init();
 
-  return { get, toggleGridSetting };
+  return { get, toggleGridSetting, disableGridSetting, enableGridSetting };
 })();
 
 export default Content;
