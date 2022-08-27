@@ -195,7 +195,7 @@ const TodoBottom = function (descriptionVal, dueDateVal, projectName, priorityVa
     function ProjectValue() {
       const value = document.createElement("div");
       value.classList.add("todo-item-project-value");
-      value.textContent = projectName;
+      value.textContent = Data.capitalizeString(projectName);
 
       return value;
     }
@@ -219,7 +219,7 @@ const TodoBottom = function (descriptionVal, dueDateVal, projectName, priorityVa
 
     function PriorityValue() {
       const value = document.createElement("div");
-      value.textContent = priorityVal;
+      value.textContent = Data.capitalizeString(priorityVal);
 
       return value;
     }
