@@ -72,8 +72,11 @@
 .expanded > .todo-item-top > .todo-item-title {
   /* color: red; */
   font-weight: 500;
-  font-size: 1.25rem;
-  /* color: brown; */
+  /* font-size: 1.25rem; */
+  color: white;
+  padding: 0.25rem;
+  background: linear-gradient(90deg, rgba(125, 198, 255, 1) 0%, rgba(255, 0, 0, 0) 100%);
+  border-radius: 5px;
 }
 
 /* BOTTOM SECTION */
