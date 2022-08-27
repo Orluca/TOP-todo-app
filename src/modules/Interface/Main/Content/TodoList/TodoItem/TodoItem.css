@@ -1,12 +1,16 @@
 .todo-item {
-  background-color: #fff;
+  /* background-color: #fff; */
   display: flex;
   flex-direction: column;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.256);
+  padding: 0.5rem 0;
 }
 
 /* TOP SECTION */
 .todo-item-top {
   display: flex;
+  align-items: center;
+  column-gap: 1rem;
 }
 
 .todo-item-checkbox {
@@ -17,6 +21,9 @@
 }
 
 .todo-item-buttons {
+  display: flex;
+  align-items: center;
+  column-gap: 0.25rem;
 }
 
 .todo-item-icon {
@@ -43,6 +50,9 @@
 .todo-item-priority-btn {
   background-color: transparent;
   border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* BOTTOM SECTION */
