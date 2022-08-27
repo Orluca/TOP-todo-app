@@ -14,9 +14,11 @@ import iconPriorityRed from "../../../../../assets/icon-priority2-red.svg";
 const TodoTop = function (titleVal, isFinished, priorityVal) {
   const TodoCheckbox = function () {
     function handleCheckboxClicks(e) {
-      const id = e.target.closest(".todo-item").dataset.id;
+      const todoItem = e.target.closest(".todo-item");
+      const id = todoItem.dataset.id;
       const isFinished = e.target.checked;
       Data.changeTodoStatus(id, isFinished);
+      todoItem.classList.toggle("completed");
     }
 
     const TodoCheckbox = document.createElement("input");

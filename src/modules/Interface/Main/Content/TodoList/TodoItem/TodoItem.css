@@ -79,6 +79,15 @@
   border-radius: 5px;
 }
 
+.completed > .todo-item-top > .todo-item-title {
+  color: rgba(0, 0, 0, 0.256);
+  text-decoration: line-through;
+}
+.completed > .todo-item-bottom {
+  color: rgba(0, 0, 0, 0.256);
+  /* text-decoration: line-through; */
+}
+
 /* BOTTOM SECTION */
 .todo-item-bottom {
   margin-left: 2rem;
@@ -109,4 +118,8 @@
 /* UTILITY */
 .expanded {
   /* background-color: grey; */
+}
+
+.completed {
+  /* background-color: red; */
 }
