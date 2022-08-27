@@ -52,8 +52,8 @@
   filter: brightness(0%);
 }
 
-.todo-item-priority-btn:hover {
-  /* filter: contrast(100%); */
+.todo-item-priority-btn:hover > .todo-item-priority-icon {
+  filter: brightness(90%);
 }
 
 .todo-item-edit-btn,

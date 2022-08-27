@@ -95,6 +95,7 @@ const TodoTop = function (titleVal, isFinished, priorityVal) {
       function Icon() {
         const icon = document.createElement("img");
         icon.classList.add("todo-item-icon");
+        icon.classList.add("todo-item-priority-icon");
         if (priorityVal === "low") icon.src = iconPriorityGreen;
         if (priorityVal === "medium") icon.src = iconPriorityYellow;
         if (priorityVal === "high") icon.src = iconPriorityRed;
