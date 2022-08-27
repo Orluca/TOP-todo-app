@@ -5,7 +5,7 @@
   row-gap: 0.5rem;
   border-bottom: 1px solid rgba(0, 0, 0, 0.256);
 
-  padding: 0.5rem 0;
+  padding: 0.35rem 0;
   color: #535353;
 }
 
@@ -23,6 +23,7 @@
 
 .todo-item-title {
   flex-grow: 1;
+  padding: 0.25rem;
 }
 
 .todo-item-title:hover {

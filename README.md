@@ -15,10 +15,10 @@
 - update todo list header according to selected project/ time filter
 - bold text for selected filter
 - edit project mode: vl den reorder handle ganze nach links, andere buttons weiter rechts und hintergrund color für jedes item
-- when width is small and sidebar is hidden by default, clicking outside of it should close it
 
 ### bugs
 
 - if a project is highlighted and switching to eidt mode, highlight should be removed
 - when adding a project like "Test Project" or "Test-Project" the second word wont be capitalized anymore
 - adding a new todo not yet updating the project counts
+- todolist breite ist nicht konsistent wenn wehcseln zwischen filtern
