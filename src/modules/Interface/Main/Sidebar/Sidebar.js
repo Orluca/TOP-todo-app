@@ -359,8 +359,13 @@ const ProjectButton = function (projectName) {
     projectNameLabel.value = nameVal;
     projectNameLabel.disabled = true;
     projectNameLabel.addEventListener("keypress", handleProjectNameLabelEnterPresses);
+    projectNameLabel.addEventListener("focusout", handleFocusLoss);
 
     return projectNameLabel;
+  }
+
+  function handleFocusLoss(e) {
+    updateProjectName(e);
   }
 
   function handleProjectNameLabelEnterPresses(e) {

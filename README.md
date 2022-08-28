@@ -13,10 +13,9 @@
 - listen for enter keys in inputs
 - save dark mode setting
 - make dark mode toggle look better
+- fancier font for todolist header might be nice
 - animations
   - sidebar open/close
   - scrollbar appearance
 
 ### bugs
-
-- if a task is completed it won't be crossed off anymore after a page reload
