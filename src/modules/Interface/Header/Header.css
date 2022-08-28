@@ -21,11 +21,16 @@
   border-radius: 5px;
   padding: 0.1rem 0.3rem;
   justify-self: flex-start;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
 }
 
 .sidebar-toggle:hover {
   cursor: pointer;
-  background-color: rgba(255, 255, 255, 0.308);
+  background-color: #3a3a3a;
 }
 
 .sidebar-toggle-icon {
@@ -54,7 +59,6 @@
   display: block;
   background: #ebebeb;
   border-radius: 200px;
-  /* box-shadow: inset 0px 5px 15px rgba(0, 0, 0, 0.4), inset 0px -5px 15px rgba(255, 255, 255, 0.4); */
   cursor: pointer;
 }
 

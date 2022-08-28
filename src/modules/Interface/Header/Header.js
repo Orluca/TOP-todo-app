@@ -48,10 +48,15 @@ const Header = (function () {
   }
 
   function DarkModeToggle() {
+    function handleDarkModeToggle() {
+      document.body.classList.toggle("dark-mode");
+    }
+
     function Input() {
       const input = document.createElement("input");
       input.setAttribute("id", "dark-mode-toggle-input");
       input.type = "checkbox";
+      input.addEventListener("change", handleDarkModeToggle);
 
       return input;
     }

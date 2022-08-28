@@ -10,7 +10,7 @@
 }
 
 .modal-window {
-  background-color: white;
+  background-color: var(--color-todo);
   height: 300px;
   width: 550px;
   position: fixed;
@@ -25,7 +25,7 @@
 }
 
 .modal-window-header {
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid var(--color-todo-item-border);
   grid-area: 1 / 1 / 2 / 3;
 }
 
@@ -88,7 +88,7 @@
 #date-input,
 #priority-input,
 #projects-input {
-  border: 1px solid rgb(197, 197, 197);
+  border: 1px solid var(--color-todo-item-border);
   border-radius: 3px;
   color: var(--color-text);
 }
@@ -138,7 +138,7 @@
   }
 
   .modal-window-header {
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid var(--color-todo-item-border);
     grid-area: 1 / 1 / 2 / 3;
   }
 
