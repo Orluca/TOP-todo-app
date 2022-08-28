@@ -227,9 +227,9 @@ const ModalWindow = (function () {
     return saveButton;
   }
 
-  function handleSaveButton(e) {
+  function handleSaveButton() {
     const updatedData = getDataFromInputs();
-    const id = e.target.closest(".modal-window").dataset.id;
+    const id = modalWindow.dataset.id;
     Data.updateTodo(updatedData, id);
     TodoList.updateTodo(id);
     ProjectsList.updateCounts();
@@ -241,6 +241,7 @@ const ModalWindow = (function () {
   // ---------------------- WINDOW LAYOUTS ----------------------
   function newTodo() {
     modalWindow.innerHTML = "";
+    modalWindow.dataset.mode = "new-todo";
     modalWindow.appendChild(Header("New Todo"));
     modalWindow.appendChild(Title());
     modalWindow.appendChild(Description());
@@ -255,6 +256,7 @@ const ModalWindow = (function () {
   function editTodo({ title: titleVal, description: descriptionVal, dueDate: dateVal, priority: priorityVal, project: projectsVal, id }) {
     modalWindow.innerHTML = "";
     modalWindow.dataset.id = id;
+    modalWindow.dataset.mode = "edit-todo";
     modalWindow.appendChild(Header("Edit Todo"));
     modalWindow.appendChild(Title(titleVal));
     modalWindow.appendChild(Description(descriptionVal));
@@ -266,9 +268,16 @@ const ModalWindow = (function () {
     return modalWindow;
   }
 
+  function listenForEnter(e) {
+    if (e.key !== "Enter") return;
+    if (modalWindow.dataset.mode === "new-todo") handleConfirmButton();
+    if (modalWindow.dataset.mode === "edit-todo") handleSaveButton();
+  }
+
   function init() {
     modalWindow = document.createElement("div");
     modalWindow.classList.add("modal-window");
+    modalWindow.addEventListener("keypress", listenForEnter);
   }
 
   init();

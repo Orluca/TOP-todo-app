@@ -19,3 +19,5 @@
   - scrollbar appearance
 
 ### bugs
+
+- modal window closes on mouse up as well
