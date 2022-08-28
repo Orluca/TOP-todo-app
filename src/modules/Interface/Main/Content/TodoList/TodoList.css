@@ -9,6 +9,7 @@
   align-items: center;
 
   /* position: relative; */
+  /* padding-left: calc(100vw - 100%); */
 }
 
 .todo-list {
