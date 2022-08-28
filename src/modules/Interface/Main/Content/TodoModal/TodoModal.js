@@ -121,6 +121,13 @@ const ModalWindow = (function () {
       projectsInput = document.createElement("select");
       projectsInput.setAttribute("id", "projects-input");
 
+      const placeholderOption = document.createElement("option");
+      // placeholderOption.setAttribute("hidden", true);
+      // placeholderOption.setAttribute("disabled", true);
+      placeholderOption.textContent = "";
+      placeholderOption.value = "";
+      projectsInput.appendChild(placeholderOption);
+
       const projectsData = Data.getProjects();
       projectsData.forEach((project) => {
         const option = document.createElement("option");
@@ -128,13 +135,6 @@ const ModalWindow = (function () {
         option.textContent = project.slice(0, 1).toUpperCase() + project.slice(1);
         projectsInput.appendChild(option);
       });
-
-      const placeholderOption = document.createElement("option");
-      placeholderOption.setAttribute("hidden", true);
-      placeholderOption.setAttribute("disabled", true);
-      placeholderOption.textContent = "";
-      placeholderOption.value = "";
-      projectsInput.appendChild(placeholderOption);
 
       if (projectsVal) {
         projectsInput.querySelectorAll("option").forEach((option) => {
