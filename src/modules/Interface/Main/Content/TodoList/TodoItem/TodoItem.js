@@ -1,7 +1,7 @@
 import todoItemStyle from "./TodoItem.css";
 import Data from "../../../../../Data/Data.js";
 import ModalBackground from "../../TodoModal/TodoModal.js";
-import { TodoList } from "../TodoList.js";
+import TodoListContainer, { TodoList } from "../TodoList.js";
 import { ProjectsList, TodayButton, WeekButton } from "../../../Sidebar/Sidebar.js";
 import { format, parseISO } from "date-fns";
 import iconPen from "../../../../../assets/icon-pen.svg";
@@ -67,6 +67,7 @@ const TodoTop = function (titleVal, isFinished, priorityVal) {
       const id = e.target.closest(".todo-item").dataset.id;
       const todoData = Data.getTodoItem(id);
       ModalBackground.showEditTodoWindow(todoData);
+      TodoListContainer.toggleBlur();
     }
 
     function deleteButton() {

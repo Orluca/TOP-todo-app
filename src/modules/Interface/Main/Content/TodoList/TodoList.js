@@ -129,6 +129,7 @@ const AddTodoButton = (function () {
   }
 
   function handleAddTodoButton() {
+    TodoListContainer.toggleBlur();
     ModalBackground.showNewTodoWindow();
   }
 
@@ -156,9 +157,13 @@ const TodoListContainer = (function () {
     return TodoListContainer;
   }
 
+  function toggleBlur() {
+    TodoListContainer.classList.toggle("blur");
+  }
+
   init();
 
-  return { get };
+  return { get, toggleBlur };
 })();
 
 export default TodoListContainer;

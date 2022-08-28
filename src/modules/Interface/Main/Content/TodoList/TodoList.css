@@ -44,3 +44,8 @@
   width: 35px;
   filter: invert(100%);
 }
+
+/* UTILITY */
+.blur {
+  filter: blur(5px);
+}

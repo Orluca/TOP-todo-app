@@ -1,6 +1,6 @@
 import todoModalStyle from "./TodoModal.css";
 import Data from "../../../../Data/Data.js";
-import { TodoList } from "../TodoList/TodoList.js";
+import TodoListContainer, { TodoList } from "../TodoList/TodoList.js";
 import { ProjectsList, TodayButton, WeekButton } from "../../Sidebar/Sidebar.js";
 
 const ModalWindow = (function () {
@@ -179,6 +179,7 @@ const ModalWindow = (function () {
 
   function handleCancelButton() {
     ModalBackground.hide();
+    TodoListContainer.toggleBlur();
   }
 
   // ---------------------- CONFIRM BUTTON ----------------------

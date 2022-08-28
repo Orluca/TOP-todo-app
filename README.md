@@ -18,5 +18,7 @@
 - save dark mode setting
 - edit project items zu weit rechts
 - animations
+  - sidebar open/close
+  - scrollbar appearance
 
 ### bugs
