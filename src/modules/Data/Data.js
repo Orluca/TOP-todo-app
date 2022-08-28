@@ -146,11 +146,24 @@ const Data = (function () {
   }
 
   function capitalizeString(string) {
-    return string
+    // return string
+    //   .toLowerCase()
+    //   .split(" ")
+    //   .map((word) => word.charAt(0).toUpperCase() + word.substring(1))
+    //   .join(" ");
+    let capitalizedString = string
       .toLowerCase()
       .split(" ")
       .map((word) => word.charAt(0).toUpperCase() + word.substring(1))
       .join(" ");
+    if (capitalizedString.includes("-"))
+      capitalizedString = capitalizedString
+        .toLowerCase()
+        .split("-")
+        .map((word) => word.charAt(0).toUpperCase() + word.substring(1))
+        .join("-");
+
+    return capitalizedString;
   }
 
   return { addTodo, restoreFromLocalStorage, getTodos, changeTodoStatus, deleteTodo, getTodoItem, updateTodo, addProject, getProjects, changeProjectName, deleteProject, getProjectOccurrencesAmount, getTodayCount, getWeekCount, getTodaysTodos, getWeeksTodos, getProjectsTodos, capitalizeString };

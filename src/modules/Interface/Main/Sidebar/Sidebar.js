@@ -274,7 +274,8 @@ const ProjectButton = function (projectName) {
   let deleteButton;
   let counter;
 
-  const projectNameCapitalized = projectName.slice(0, 1).toUpperCase() + projectName.slice(1);
+  // const projectNameCapitalized = projectName.slice(0, 1).toUpperCase() + projectName.slice(1);
+  const projectNameCapitalized = Data.capitalizeString(projectName);
 
   function ReorderHandle() {
     function Icon() {
@@ -522,7 +523,7 @@ const ProjectsAdd = (function () {
   }
 
   function handleConfirmButton(e) {
-    const projectName = e.target.closest(".add-project-popup").querySelector(".project-name-input").value.toLowerCase();
+    const projectName = e.target.closest(".add-project-popup").querySelector(".project-popup-name-input").value.toLowerCase();
     Data.addProject(projectName);
     ProjectsList.addProject(projectName);
     clearProjectNameInput();
