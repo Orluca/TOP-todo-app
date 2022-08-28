@@ -11,10 +11,9 @@
 - todo list header doch noch nach links
 - priority button functionality einfügen
 - an entry for "no project" in projects list?
-- add project: error when not at least 1 character
-- add project: error when name already exists
+- reorder projects
+- reorder todos?
 
 ### bugs
 
-- todolist breite ist nicht konsistent wenn wehcseln zwischen filtern (wegen scrollbar)
 - add project popup is too breit

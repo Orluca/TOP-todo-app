@@ -33,6 +33,9 @@
   bottom: 5%;
   right: 1.5%;
   background-color: deeppink;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .add-todo-btn:hover {

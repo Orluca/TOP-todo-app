@@ -200,22 +200,33 @@
 }
 
 /* NEW PROJECT POPUP */
+.projects-add {
+  padding-left: 1.5rem;
+  padding-right: 0.5rem;
+  margin-top: 1rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
 .add-project-popup {
   display: flex;
-  align-items: center;
-  flex-direction: row;
+  /* align-items: center; */
+  flex-direction: column;
   width: 100%;
   column-gap: 0.25rem;
+  row-gap: 0.25rem;
   /* margin-left: 1rem; */
 }
 
 .project-popup-name-input {
   border-radius: 5px;
   height: 33px;
-  border: none;
+  border: 1px solid rgb(174, 174, 174);
   flex-grow: 1;
   padding: 0.5rem;
   /* width: 60%; */
+  width: 100%;
+  box-shadow: 1px 1px 1px 1px rgb(195, 195, 195);
 }
 
 .project-popup-buttons {
@@ -223,16 +234,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: fit-content;
   column-gap: 0.25rem;
 }
 
 .project-popup-cancel-btn,
 .project-popup-confirm-btn {
   height: 33px;
-  width: 60px;
+  /* width: 60px; */
   border: none;
   border-radius: 5px;
+  flex-grow: 1;
+  box-shadow: 1px 1px 1px 1px rgb(195, 195, 195);
 }
 
 .project-popup-cancel-btn:hover,
@@ -242,6 +254,7 @@
 
 .project-popup-cancel-btn {
   background-color: red;
+  color: white;
 }
 
 .project-popup-confirm-btn {
