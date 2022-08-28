@@ -51,8 +51,7 @@
 }
 
 .todo-item-edit-btn:hover,
-.todo-item-delete-btn:hover,
-.todo-item-priority-btn:hover {
+.todo-item-delete-btn:hover {
   cursor: pointer;
 }
 
@@ -61,9 +60,9 @@
   filter: brightness(0%);
 }
 
-.todo-item-priority-btn:hover > .todo-item-priority-icon {
+/* .todo-item-priority-btn:hover > .todo-item-priority-icon {
   filter: brightness(90%);
-}
+} */
 
 .todo-item-edit-btn,
 .todo-item-delete-btn {
