@@ -298,7 +298,7 @@ const ModalBackground = (function () {
     ModalBackground.classList.add("todo-modal-background");
     ModalBackground.classList.add("hidden");
     ModalBackground.appendChild(ModalWindow.newTodo());
-    ModalBackground.addEventListener("click", handleModalBackgroundClicks);
+    ModalBackground.addEventListener("mousedown", handleModalBackgroundClicks);
   }
 
   function get() {
