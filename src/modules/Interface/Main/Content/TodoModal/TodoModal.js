@@ -129,9 +129,20 @@ const ModalWindow = (function () {
         projectsInput.appendChild(option);
       });
 
+      const placeholderOption = document.createElement("option");
+      placeholderOption.setAttribute("hidden", true);
+      placeholderOption.setAttribute("disabled", true);
+      placeholderOption.textContent = "";
+      placeholderOption.value = "";
+      projectsInput.appendChild(placeholderOption);
+
       if (projectsVal) {
         projectsInput.querySelectorAll("option").forEach((option) => {
           if (option.value === projectsVal) option.setAttribute("selected", true);
+        });
+      } else {
+        projectsInput.querySelectorAll("option").forEach((option) => {
+          if (!option.value) option.setAttribute("selected", true);
         });
       }
 

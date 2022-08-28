@@ -15,5 +15,3 @@
 - reorder todos?
 
 ### bugs
-
-- add project popup is too breit
