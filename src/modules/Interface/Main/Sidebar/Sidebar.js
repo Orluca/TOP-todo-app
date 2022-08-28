@@ -632,14 +632,17 @@ const Sidebar = (function () {
 
   function toggle() {
     Sidebar.classList.toggle("hidden");
+    Sidebar.classList.toggle("slide-in-animation");
   }
 
   function hide() {
     Sidebar.classList.add("hidden");
+    Sidebar.classList.remove("slide-in-animation");
   }
 
   function show() {
     Sidebar.classList.remove("hidden");
+    Sidebar.classList.add("slide-in-animation");
   }
 
   init();

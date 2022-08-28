@@ -315,8 +315,23 @@
   background-color: var(--color-project-item-edit) !important;
   /* border: 1px solid rgb(151, 151, 151); */
 }
+/* ANIMATIONS */
+@keyframes slideIn {
+  0% {
+    transform: translateX(-300px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
 
 /* MEDIA QUERIES */
+
+.slide-in-animation {
+  animation-name: slideIn;
+  animation-duration: 0.25s;
+}
 
 @media only screen and (max-width: 900px) {
   .sidebar {

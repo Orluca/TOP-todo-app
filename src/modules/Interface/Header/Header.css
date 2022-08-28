@@ -60,7 +60,7 @@
   background: #c7dce3;
   border-radius: 200px;
   cursor: pointer;
-  box-shadow: 2px 2px 5px rgb(22, 22, 22), inset 5px 0px 5px 0px rgb(80, 80, 80);
+  /* box-shadow: 2px 2px 5px rgb(22, 22, 22), inset 5px 0px 5px 0px rgb(80, 80, 80); */
   border: 1px solid rgb(166, 166, 166);
 }
 
@@ -84,7 +84,7 @@
 }
 
 #dark-mode-toggle-input:checked + .dark-mode-toggle-label {
-  background: #6b6b6b;
+  background: #313131;
 }
 #dark-mode-toggle-input:checked + .dark-mode-toggle-label:after {
   left: 48px;
