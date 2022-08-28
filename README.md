@@ -7,16 +7,13 @@
 ### to implement
 
 - deleting a todo or projects needs a confirmation popup
-- todo list header doch noch nach links
-- priority button functionality einfügen?
 - reorder projects
 - reorder todos?
-- farben finalisieren
-- dark mode
 - update project name edit on outside click
 - listen for enter keys in inputs
 - save dark mode setting
 - edit project items zu weit rechts
+- close modal on save/confirm
 - animations
   - sidebar open/close
   - scrollbar appearance

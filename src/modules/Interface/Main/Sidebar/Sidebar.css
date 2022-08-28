@@ -118,6 +118,14 @@
   margin: 0 0 0 0.5rem;
 }
 
+.in-edit-mode > .project-name-input {
+  margin: 0;
+}
+
+.project-button.in-edit-mode {
+  margin-left: 0;
+}
+
 .project-name-input:disabled {
   background-color: transparent;
   color: var(--color-text);
