@@ -358,7 +358,8 @@ const ProjectButton = function (projectName) {
     projectNameLabel.classList.add("project-name-input");
     projectNameLabel.value = nameVal;
     projectNameLabel.disabled = true;
-    projectNameLabel.addEventListener("keypress", handleProjectNameLabelEnterPresses);
+    projectNameLabel.addEventListener("keypress", handleEnterPresses);
+    projectNameLabel.addEventListener("keydown", handleEscapePresses);
     projectNameLabel.addEventListener("focusout", handleFocusLoss);
 
     return projectNameLabel;
@@ -368,8 +369,16 @@ const ProjectButton = function (projectName) {
     updateProjectName(e);
   }
 
-  function handleProjectNameLabelEnterPresses(e) {
+  function handleEnterPresses(e) {
     if (e.key !== "Enter") return;
+    updateProjectName(e);
+  }
+
+  function handleEscapePresses(e) {
+    if (e.key !== "Escape") return;
+    // revert to previous name
+    const previousValue = e.target.closest(".project-button").dataset.projectName;
+    e.target.value = Data.capitalizeString(previousValue);
     updateProjectName(e);
   }
 
