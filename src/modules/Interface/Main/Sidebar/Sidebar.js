@@ -221,8 +221,7 @@ const ProjectsList = (function () {
   }
 
   function updateCounts() {
-    console.log("YO");
-    ProjectsList.querySelectorAll(".counter").forEach((counter) => {
+    ProjectsList.querySelectorAll(".project-count").forEach((counter) => {
       const projectName = counter.closest(".project-button").dataset.projectName;
       counter.textContent = Data.getProjectOccurrencesAmount(projectName);
     });
