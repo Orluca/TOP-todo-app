@@ -528,6 +528,10 @@ const ProjectsAdd = (function () {
       window.alert("Please enter at least 1 character");
       return;
     }
+    if (Data.projectNameExists(projectName)) {
+      window.alert("This project name already exists");
+      return;
+    }
     Data.addProject(projectName);
     ProjectsList.addProject(projectName);
     clearProjectNameInput();

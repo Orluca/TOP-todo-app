@@ -146,11 +146,6 @@ const Data = (function () {
   }
 
   function capitalizeString(string) {
-    // return string
-    //   .toLowerCase()
-    //   .split(" ")
-    //   .map((word) => word.charAt(0).toUpperCase() + word.substring(1))
-    //   .join(" ");
     let capitalizedString = string
       .toLowerCase()
       .split(" ")
@@ -166,7 +161,11 @@ const Data = (function () {
     return capitalizedString;
   }
 
-  return { addTodo, restoreFromLocalStorage, getTodos, changeTodoStatus, deleteTodo, getTodoItem, updateTodo, addProject, getProjects, changeProjectName, deleteProject, getProjectOccurrencesAmount, getTodayCount, getWeekCount, getTodaysTodos, getWeeksTodos, getProjectsTodos, capitalizeString };
+  function projectNameExists(projectName) {
+    return projects.includes(projectName);
+  }
+
+  return { addTodo, restoreFromLocalStorage, getTodos, changeTodoStatus, deleteTodo, getTodoItem, updateTodo, addProject, getProjects, changeProjectName, deleteProject, getProjectOccurrencesAmount, getTodayCount, getWeekCount, getTodaysTodos, getWeeksTodos, getProjectsTodos, capitalizeString, projectNameExists };
 })();
 
 export default Data;
