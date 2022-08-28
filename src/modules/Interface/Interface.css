@@ -32,6 +32,21 @@ body,
   width: 100%;
 }
 
+/* SCROLLBAR STYLING */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.367);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
 /* UTILITY CLASSES */
 .hidden {
   display: none !important;
