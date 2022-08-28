@@ -126,8 +126,6 @@
 
 @media only screen and (max-width: 600px) {
   .modal-window {
-    /* display: flex;
-    flex-direction: column; */
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto 1fr 2fr repeat(4, 1fr);
