@@ -19,6 +19,7 @@ body {
   --color-todo-item-border: #c7c7c7;
   --color-project-item-edit: rgb(248, 248, 248);
   --color-sidebar-shadow: #8e8e8e;
+  --color-scrollbar: rgba(0, 0, 0, 0.307);
   --color-icon-strong: invert(0%);
   --color-icon-fainter: invert(35%);
   --color-icon-hover: invert(0%);
@@ -36,6 +37,7 @@ body.dark-mode {
   --color-todo-item-border: #3c3c3c;
   --color-project-item-edit: #3f3f3f;
   --color-sidebar-shadow: #212121;
+  --color-scrollbar: rgba(255, 255, 255, 0.27);
   --color-icon-strong: invert(100%);
   --color-icon-fainter: invert(80%);
   --color-icon-hover: invert(100%);
