@@ -17,3 +17,4 @@
 ### bugs
 
 - todolist breite ist nicht konsistent wenn wehcseln zwischen filtern (wegen scrollbar)
+- add project popup is too breit

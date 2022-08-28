@@ -524,6 +524,10 @@ const ProjectsAdd = (function () {
 
   function handleConfirmButton(e) {
     const projectName = e.target.closest(".add-project-popup").querySelector(".project-popup-name-input").value.toLowerCase();
+    if (projectName.length === 0) {
+      window.alert("Please enter at least 1 character");
+      return;
+    }
     Data.addProject(projectName);
     ProjectsList.addProject(projectName);
     clearProjectNameInput();
