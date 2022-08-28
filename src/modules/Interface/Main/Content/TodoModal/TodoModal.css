@@ -109,20 +109,22 @@
 .cancel-btn {
   background-color: var(--color-cancel-button);
   color: white;
+  box-shadow: var(--button-box-shadow);
 }
 
 .cancel-btn:hover {
-  background-color: rgb(222, 0, 0);
+  background-color: var(--color-cancel-button-hover);
 }
 
 .save-btn,
 .confirm-btn {
   background-color: var(--color-confirm-button);
+  box-shadow: var(--button-box-shadow);
 }
 
 .save-btn:hover,
 .confirm-btn:hover {
-  background-color: rgb(123, 237, 16);
+  background-color: var(--color-confirm-button-hover);
 }
 
 @media only screen and (max-width: 600px) {

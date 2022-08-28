@@ -75,7 +75,7 @@
   /* font-size: 1.25rem; */
   color: white;
   padding: 0.25rem;
-  background: linear-gradient(90deg, rgba(125, 198, 255, 1) 0%, rgba(255, 0, 0, 0) 100%);
+  background: linear-gradient(90deg, var(--color-highlight1) 0%, rgba(255, 0, 0, 0) 100%);
   border-radius: 5px;
 }
 
@@ -85,16 +85,11 @@
 }
 .completed > .todo-item-bottom {
   color: rgba(0, 0, 0, 0.256);
-  /* text-decoration: line-through; */
 }
 
 /* BOTTOM SECTION */
 .todo-item-bottom {
   margin-left: 2rem;
-  /* display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto auto;
-  column-gap: 0.25rem; */
   display: flex;
   flex-direction: column;
   row-gap: 0.25rem;
@@ -114,14 +109,4 @@
 .todo-item-priority {
   display: grid;
   grid-template-columns: 100px auto;
-  /* border: 1px solid rgb(183, 183, 183); */
-}
-
-/* UTILITY */
-.expanded {
-  /* background-color: grey; */
-}
-
-.completed {
-  /* background-color: red; */
 }

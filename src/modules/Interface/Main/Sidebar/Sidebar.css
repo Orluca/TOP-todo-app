@@ -25,7 +25,7 @@
 
 .date-filter-btn:hover {
   cursor: pointer;
-  background-color: #ffdeea;
+  background-color: var(--color-list-highlight);
 }
 
 .date-filter-btn-left {
@@ -37,7 +37,7 @@
 .today-count,
 .week-count,
 .project-count {
-  background-color: rgb(212, 212, 212);
+  background-color: var(--color-count-background);
   width: 25px;
   height: 25px;
   border-radius: 50%;
@@ -46,6 +46,16 @@
   justify-content: center;
   align-items: center;
 }
+
+.clicked > .project-count,
+.clicked > .week-count,
+.clicked > .today-count {
+  background-color: var(--color-highlight1-hover);
+}
+
+/* .clicked > .date-filter-btn-left > .sidebar-icon {
+  filter: var(--color-highlight1-hover-filter);
+} */
 
 /* PROJECTS SECTION */
 .projects {
@@ -98,8 +108,7 @@
 
 .project-button:hover {
   cursor: pointer;
-  /* background-color: #def0ff; */
-  background-color: #ffdeea;
+  background-color: var(--color-list-highlight);
 }
 
 .project-name-input {
@@ -150,6 +159,14 @@
 .rename-project-btn:hover,
 .delete-project-btn:hover {
   cursor: pointer;
+}
+
+.rename-project-btn:hover {
+  background-color: var(--color-confirm-button-hover);
+}
+
+.delete-project-btn:hover {
+  background-color: var(--color-cancel-button-hover);
 }
 
 .edit-project-rename-icon,
@@ -222,7 +239,7 @@
   padding: 0.5rem;
   /* width: 60%; */
   width: 100%;
-  box-shadow: 1px 1px 1px 1px rgb(195, 195, 195);
+  box-shadow: var(--button-box-shadow);
 }
 
 .project-popup-buttons {
@@ -240,7 +257,7 @@
   border: none;
   border-radius: 5px;
   flex-grow: 1;
-  box-shadow: 1px 1px 1px 1px rgb(195, 195, 195);
+  box-shadow: var(--button-box-shadow);
 }
 
 .project-popup-cancel-btn:hover,
@@ -253,14 +270,21 @@
   color: white;
 }
 
+.project-popup-cancel-btn:hover {
+  background-color: var(--color-cancel-button-hover);
+}
+
 .project-popup-confirm-btn {
   background-color: var(--color-confirm-button);
 }
 
+.project-popup-confirm-btn:hover {
+  background-color: var(--color-confirm-button-hover);
+}
+
 /* UTILITY */
 .clicked {
-  background-color: #ffdeea;
-  /* font-weight: bold; */
+  background-color: var(--color-list-highlight);
 }
 
 .clicked > .date-filter-btn-left > .date-filter-label,

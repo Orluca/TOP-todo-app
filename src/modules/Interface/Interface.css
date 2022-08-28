@@ -8,9 +8,18 @@
   --color-sidebar: #e8e8e8;
   --color-text: #000000;
   --color-text-lighter: #535353;
-  /* --color-cancel-button: rgb(241, 78, 78); */
-  --color-cancel-button: rgb(255, 33, 33);
-  --color-confirm-button: rgb(111, 255, 75);
+  --color-cancel-button: #ff2121;
+  --color-cancel-button-hover: #de1d1d;
+  --color-confirm-button: #6fff4b;
+  --color-confirm-button-hover: #5ae338;
+  --color-highlight1: #ff1493;
+  --color-highlight1-hover: #ff4dac;
+  /* --color-highlight1-hover-filter: invert(44%) sepia(56%) saturate(2068%) hue-rotate(301deg) brightness(102%) contrast(103%); */
+  --color-list-highlight: #d9d9d9;
+  --color-count-background: #c5c5c5;
+  /* --color-count-background-highlighted: rgb(237, 237, 237); */
+  /* --color-count-background-highlighted: #ff4dac; */
+  --button-box-shadow: 1px 1px 4px #ababab;
 }
 
 *,

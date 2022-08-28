@@ -33,7 +33,7 @@
   position: fixed;
   bottom: 5%;
   right: 1.5%;
-  background-color: deeppink;
+  background-color: var(--color-highlight1);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -41,7 +41,7 @@
 
 .add-todo-btn:hover {
   cursor: pointer;
-  background-color: rgb(255, 77, 172);
+  background-color: var(--color-highlight1-hover);
 }
 
 .add-todo-btn-icon {
