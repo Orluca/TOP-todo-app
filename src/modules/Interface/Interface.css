@@ -8,8 +8,9 @@
   --color-sidebar: #e8e8e8;
   --color-text: #000000;
   --color-text-lighter: #535353;
-  --color-cancel-button: rgb(241, 78, 78);
-  --color-confirm-button: rgb(161, 255, 137);
+  /* --color-cancel-button: rgb(241, 78, 78); */
+  --color-cancel-button: rgb(255, 33, 33);
+  --color-confirm-button: rgb(111, 255, 75);
 }
 
 *,

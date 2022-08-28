@@ -130,11 +130,11 @@
 }
 
 .rename-project-btn {
-  background-color: rgb(161, 255, 137);
+  background-color: var(--color-confirm-button);
 }
 
 .delete-project-btn {
-  background-color: rgb(241, 78, 78);
+  background-color: var(--color-cancel-button);
   border-radius: 0 4px 4px 0;
 }
 
@@ -249,12 +249,12 @@
 }
 
 .project-popup-cancel-btn {
-  background-color: red;
+  background-color: var(--color-cancel-button);
   color: white;
 }
 
 .project-popup-confirm-btn {
-  background-color: greenyellow;
+  background-color: var(--color-confirm-button);
 }
 
 /* UTILITY */

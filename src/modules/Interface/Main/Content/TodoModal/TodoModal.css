@@ -107,7 +107,7 @@
 }
 
 .cancel-btn {
-  background-color: red;
+  background-color: var(--color-cancel-button);
   color: white;
 }
 
@@ -117,7 +117,7 @@
 
 .save-btn,
 .confirm-btn {
-  background-color: rgb(123, 255, 0);
+  background-color: var(--color-confirm-button);
 }
 
 .save-btn:hover,
