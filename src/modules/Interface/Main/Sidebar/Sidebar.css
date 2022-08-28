@@ -187,11 +187,13 @@
   justify-content: flex-start;
   column-gap: 0.5rem;
   height: 33px;
+  filter: invert(30%);
 }
 
 .add-project-btn:hover {
-  color: #88b2ff;
-  filter: invert(69%) sepia(14%) saturate(5067%) hue-rotate(192deg) brightness(103%) contrast(110%);
+  /* color: #88b2ff; */
+  /* filter: invert(69%) sepia(14%) saturate(5067%) hue-rotate(192deg) brightness(103%) contrast(110%); */
+  filter: invert(0%);
   cursor: pointer;
 }
 
