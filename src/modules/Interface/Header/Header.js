@@ -4,9 +4,11 @@ import iconMenu from "../../assets/icon-sidebar-toggle.svg";
 import iconSun from "../../assets/icon-sun.svg";
 import iconMoon from "../../assets/icon-moon.svg";
 import Content from "../Main/Content/Content";
+import Data from "../../Data/Data";
 
 const Header = (function () {
   let Header;
+  let darkModeCheckbox;
 
   function HeaderLeft() {
     function SidebarToggle() {
@@ -48,17 +50,18 @@ const Header = (function () {
   }
 
   function DarkModeToggle() {
-    function handleDarkModeToggle() {
+    function handleDarkModeToggle(e) {
       document.body.classList.toggle("dark-mode");
+      Data.setDarkMode(e.target.checked);
     }
 
     function Input() {
-      const input = document.createElement("input");
-      input.setAttribute("id", "dark-mode-toggle-input");
-      input.type = "checkbox";
-      input.addEventListener("change", handleDarkModeToggle);
+      darkModeCheckbox = document.createElement("input");
+      darkModeCheckbox.setAttribute("id", "dark-mode-toggle-input");
+      darkModeCheckbox.type = "checkbox";
+      darkModeCheckbox.addEventListener("change", handleDarkModeToggle);
 
-      return input;
+      return darkModeCheckbox;
     }
 
     function Label() {
@@ -106,9 +109,19 @@ const Header = (function () {
     return Header;
   }
 
+  function setDarkMode() {
+    if (Data.getDarkMode()) {
+      darkModeCheckbox.checked = true;
+      document.body.classList.add("dark-mode");
+    } else {
+      darkModeCheckbox.checked = false;
+      document.body.classList.remove("dark-mode");
+    }
+  }
+
   init();
 
-  return { get };
+  return { get, setDarkMode };
 })();
 
 export default Header;

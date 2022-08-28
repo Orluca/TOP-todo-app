@@ -4,6 +4,7 @@ import { isSameDay, isSameWeek, parse, parseISO } from "date-fns";
 const Data = (function () {
   let todos = [];
   let projects = [];
+  let darkMode = false;
 
   function addTodo(todo) {
     todo.isFinished = false;
@@ -36,14 +37,17 @@ const Data = (function () {
   function saveToLocalStorage() {
     localStorage.setItem("todos", JSON.stringify(todos));
     localStorage.setItem("projects", JSON.stringify(projects));
+    localStorage.setItem("darkMode", JSON.stringify(darkMode));
   }
 
   function restoreFromLocalStorage() {
     const storedTodos = JSON.parse(localStorage.getItem("todos"));
     const storedProjects = JSON.parse(localStorage.getItem("projects"));
+    const storedDarkModeSetting = JSON.parse(localStorage.getItem("darkMode"));
 
     if (storedTodos) todos = storedTodos;
     if (storedProjects) projects = storedProjects;
+    if (storedDarkModeSetting) darkMode = storedDarkModeSetting;
   }
 
   function changeTodoStatus(id, status) {
@@ -165,7 +169,16 @@ const Data = (function () {
     return projects.includes(projectName);
   }
 
-  return { addTodo, restoreFromLocalStorage, getTodos, changeTodoStatus, deleteTodo, getTodoItem, updateTodo, addProject, getProjects, changeProjectName, deleteProject, getProjectOccurrencesAmount, getTodayCount, getWeekCount, getTodaysTodos, getWeeksTodos, getProjectsTodos, capitalizeString, projectNameExists };
+  function setDarkMode(bool) {
+    darkMode = bool;
+    saveToLocalStorage();
+  }
+
+  function getDarkMode() {
+    return darkMode;
+  }
+
+  return { addTodo, restoreFromLocalStorage, getTodos, changeTodoStatus, deleteTodo, getTodoItem, updateTodo, addProject, getProjects, changeProjectName, deleteProject, getProjectOccurrencesAmount, getTodayCount, getWeekCount, getTodaysTodos, getWeeksTodos, getProjectsTodos, capitalizeString, projectNameExists, setDarkMode, getDarkMode };
 })();
 
 export default Data;

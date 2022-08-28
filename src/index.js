@@ -3,6 +3,7 @@ import Interface from "./modules/Interface/Interface.js";
 import { TodoList } from "./modules/Interface/Main/Content/TodoList/TodoList.js";
 import { ProjectsList, TodayButton, WeekButton } from "./modules/Interface/Main/Sidebar/Sidebar.js";
 import { ModalWindow } from "./modules/Interface/Main/Content/TodoModal/TodoModal.js";
+import Header from "./modules/Interface/Header/Header.js";
 
 const App = (function () {
   function start() {
@@ -17,6 +18,7 @@ const App = (function () {
     TodayButton.updateCount();
     WeekButton.updateCount();
     ModalWindow.updateProjects();
+    Header.setDarkMode();
   }
 
   start();
