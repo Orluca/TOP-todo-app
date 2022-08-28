@@ -501,8 +501,14 @@ const ProjectsAdd = (function () {
     projectNameInput = document.createElement("input");
     projectNameInput.classList.add("project-popup-name-input");
     projectNameInput.type = "text";
+    projectNameInput.addEventListener("keypress", listenForEnter);
 
     return projectNameInput;
+  }
+
+  function listenForEnter(e) {
+    if (e.key !== "Enter") return;
+    createProject(e);
   }
 
   function PopupButtons() {
@@ -537,6 +543,10 @@ const ProjectsAdd = (function () {
   }
 
   function handleConfirmButton(e) {
+    createProject(e);
+  }
+
+  function createProject(e) {
     const projectName = e.target.closest(".add-project-popup").querySelector(".project-popup-name-input").value.toLowerCase();
     if (projectName.length === 0) {
       window.alert("Please enter at least 1 character");
