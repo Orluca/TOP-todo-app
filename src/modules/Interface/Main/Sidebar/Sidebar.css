@@ -5,10 +5,13 @@
   flex-direction: column;
   row-gap: 0.75rem;
   overflow: overlay;
+  border-radius: 0 10px 10px 0;
+  /* border-radius: 10px; */
 }
 
 .sidebar-icon {
   width: 20px;
+  filter: var(--color-icon-strong);
 }
 
 /* DATE FILTERS */
@@ -82,10 +85,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  filter: var(--color-icon-fainter);
+}
+
+.edit-projects-icon {
+  width: 20px;
 }
 
 .edit-projects-btn:hover {
-  filter: brightness(0%);
+  filter: var(--color-icon-hover);
   cursor: pointer;
 }
 
@@ -137,12 +145,13 @@
 
 .delete-project-btn {
   background-color: var(--color-cancel-button);
-  border-radius: 0 4px 4px 0;
+  border-radius: 0 5px 5px 0;
 }
 
 .reorder-project-handle {
-  background-color: rgb(193, 193, 193);
-  border-radius: 4px 0 0 4px;
+  /* background-color: var(--color-count-background); */
+  background-color: transparent;
+  border-radius: 5px 0 0 5px;
 }
 
 .reorder-project-handle:hover {
@@ -165,21 +174,27 @@
 .edit-project-rename-icon,
 .edit-project-delete-icon,
 .edit-project-reorder-icon {
-  width: 31px;
-  height: 31px;
+  width: 33px;
+  height: 33px;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 0.5rem;
 }
 
-.edit-project-delete-icon {
-  filter: brightness(75%);
+.edit-project-reorder-icon {
+  filter: var(--color-icon-strong);
+}
+
+.edit-project-delete-icon,
+.edit-project-rename-icon {
+  /* filter: var(--color-icon-fainter); */
+  filter: invert(25%);
 }
 
 .delete-project-btn:hover > .edit-project-delete-icon,
 .rename-project-btn:hover > .edit-project-rename-icon {
-  filter: brightness(0%);
+  filter: invert(0%);
 }
 
 .project-count {
@@ -286,8 +301,8 @@
 }
 
 .in-edit-mode {
-  background-color: rgb(255, 255, 255) !important;
-  border: 1px solid rgb(151, 151, 151);
+  background-color: var(--color-project-item-edit) !important;
+  /* border: 1px solid rgb(151, 151, 151); */
 }
 
 /* MEDIA QUERIES */

@@ -165,7 +165,7 @@ const ProjectsHeader = (function () {
     function PenIcon() {
       const icon = document.createElement("img");
       icon.src = iconPen;
-      icon.classList.add("sidebar-icon");
+      icon.classList.add("edit-projects-icon");
 
       return icon;
     }

@@ -13,5 +13,10 @@
 - reorder todos?
 - farben finalisieren
 - dark mode
+- update project name edit on outside click
+- listen for enter keys in inputs
+- save dark mode setting
+- edit project items zu weit rechts
+- animations
 
 ### bugs

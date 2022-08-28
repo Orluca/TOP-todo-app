@@ -55,12 +55,12 @@
 
 .todo-item-edit-btn:hover,
 .todo-item-delete-btn:hover {
-  filter: brightness(0%);
+  filter: var(--color-icon-hover);
 }
 
 .todo-item-edit-btn,
 .todo-item-delete-btn {
-  filter: invert(42%);
+  filter: var(--color-icon-fainter);
 }
 
 .expanded > .todo-item-top > .todo-item-title {
