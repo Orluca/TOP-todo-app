@@ -179,7 +179,7 @@ const ModalWindow = (function () {
 
   function handleCancelButton() {
     ModalBackground.hide();
-    TodoListContainer.toggleBlur();
+    // TodoListContainer.toggleBlur();
   }
 
   // ---------------------- CONFIRM BUTTON ----------------------
@@ -200,6 +200,7 @@ const ModalWindow = (function () {
     ProjectsList.updateCounts();
     TodayButton.updateCount();
     WeekButton.updateCount();
+    ModalBackground.hide();
   }
 
   function getDataFromInputs() {
@@ -234,6 +235,7 @@ const ModalWindow = (function () {
     ProjectsList.updateCounts();
     TodayButton.updateCount();
     WeekButton.updateCount();
+    ModalBackground.hide();
   }
 
   // ---------------------- WINDOW LAYOUTS ----------------------
@@ -290,16 +292,19 @@ const ModalBackground = (function () {
 
   function hide() {
     ModalBackground.classList.add("hidden");
+    TodoListContainer.toggleBlur();
   }
 
   function showNewTodoWindow() {
     ModalBackground.classList.remove("hidden");
     ModalWindow.newTodo();
+    TodoListContainer.toggleBlur();
   }
 
   function showEditTodoWindow(todoData) {
     ModalBackground.classList.remove("hidden");
     ModalWindow.editTodo(todoData);
+    TodoListContainer.toggleBlur();
   }
 
   init();

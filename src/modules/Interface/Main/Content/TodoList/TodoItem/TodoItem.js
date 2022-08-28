@@ -67,7 +67,7 @@ const TodoTop = function (titleVal, isFinished, priorityVal) {
       const id = e.target.closest(".todo-item").dataset.id;
       const todoData = Data.getTodoItem(id);
       ModalBackground.showEditTodoWindow(todoData);
-      TodoListContainer.toggleBlur();
+      // TodoListContainer.toggleBlur();
     }
 
     function deleteButton() {
