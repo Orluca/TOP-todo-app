@@ -39,8 +39,9 @@ body,
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.367);
+  background: rgba(0, 0, 0, 0);
   border-radius: 10px;
+  /* opacity: 0; */
 }
 
 ::-webkit-scrollbar-track {

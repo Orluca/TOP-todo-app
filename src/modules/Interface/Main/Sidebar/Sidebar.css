@@ -6,6 +6,7 @@
   flex-direction: column;
   row-gap: 0.5rem;
   /* width: 350px; */
+  overflow: overlay;
 }
 
 .sidebar-icon {
@@ -194,8 +195,8 @@
   cursor: pointer;
 }
 
-.add-project-btn:hover > img {
-  /* background-color: green; */
+.sidebar:hover::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.301);
 }
 
 /* NEW PROJECT POPUP */

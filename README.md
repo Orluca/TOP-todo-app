@@ -11,6 +11,8 @@
 - todo list header doch noch nach links
 - priority button functionality einfügen
 - an entry for "no project" in projects list?
+- add project: error when not at least 1 character
+- add project: error when name already exists
 
 ### bugs
 
