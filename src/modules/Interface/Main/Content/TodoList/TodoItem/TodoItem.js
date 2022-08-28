@@ -253,6 +253,7 @@ const TodoItem = function ({ title: titleVal, description: descriptionVal, dueDa
 
   const TodoItem = document.createElement("div");
   TodoItem.classList.add("todo-item");
+  if (isFinished) TodoItem.classList.add("completed");
   TodoItem.dataset.id = uuid;
   TodoItem.appendChild(TodoTop(titleVal, isFinished, priorityVal));
   TodoItem.appendChild(TodoBottom(descriptionVal, dueDateVal, projectName, priorityVal));

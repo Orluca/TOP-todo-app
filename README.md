@@ -18,3 +18,5 @@
   - scrollbar appearance
 
 ### bugs
+
+- if a task is completed it won't be crossed off anymore after a page reload
