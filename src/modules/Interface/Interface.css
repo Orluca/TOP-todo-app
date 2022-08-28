@@ -9,6 +9,7 @@ body {
   --color-modal-window: #ffffff;
   --color-text: #000000;
   --color-text-lighter: #535353;
+  --color-text-completed-task: #acacac;
   --color-cancel-button: #ff2121;
   --color-cancel-button-hover: #de1d1d;
   --color-confirm-button: #6fff4b;
@@ -19,7 +20,7 @@ body {
   --color-count-background: #c5c5c5;
   --color-todo-item-border: #c7c7c7;
   --color-project-item-edit: #f8f8f8;
-  --color-sidebar-shadow: #b2b2b2;
+  --color-sidebar-shadow: #cecece;
   --color-scrollbar: rgba(0, 0, 0, 0.307);
   --color-icon-strong: invert(0%);
   --color-icon-fainter: invert(35%);
@@ -32,8 +33,9 @@ body.dark-mode {
   --color-todo: #252525;
   --color-sidebar: #2b2b2b;
   --color-modal-window: #343434;
-  --color-text: #e3e3e3;
-  --color-text-lighter: #d2d2d2;
+  --color-text: #f0f0f0;
+  --color-text-lighter: #f1f1f1;
+  --color-text-completed-task: rgb(84, 84, 84);
   --color-list-highlight: #515151;
   --color-count-background: #606060;
   --color-todo-item-border: #3c3c3c;

@@ -279,11 +279,17 @@ const ModalWindow = (function () {
 const ModalBackground = (function () {
   let ModalBackground;
 
+  function handleModalBackgroundClicks(e) {
+    if (e.target !== ModalBackground) return;
+    hide();
+  }
+
   function init() {
     ModalBackground = document.createElement("div");
     ModalBackground.classList.add("todo-modal-background");
     ModalBackground.classList.add("hidden");
     ModalBackground.appendChild(ModalWindow.newTodo());
+    ModalBackground.addEventListener("click", handleModalBackgroundClicks);
   }
 
   function get() {

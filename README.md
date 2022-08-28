@@ -12,7 +12,7 @@
 - update project name edit on outside click
 - listen for enter keys in inputs
 - save dark mode setting
-- close modal on save/confirm
+- make dark mode toggle look better
 - animations
   - sidebar open/close
   - scrollbar appearance
