@@ -3,9 +3,13 @@
 /* GLOBALS */
 
 :root {
-  --color-frame: rgb(43, 43, 43);
-  --color-todo: rgb(255, 255, 255);
-  --color-sidebar: rgb(232, 232, 232);
+  --color-frame: #2b2b2b;
+  --color-todo: #ffffff;
+  --color-sidebar: #e8e8e8;
+  --color-text: #000000;
+  --color-text-lighter: #535353;
+  --color-cancel-button: rgb(241, 78, 78);
+  --color-confirm-button: rgb(161, 255, 137);
 }
 
 *,
@@ -30,6 +34,7 @@ body,
   grid-template-rows: 1.5fr 30fr 1fr;
   height: 100%;
   width: 100%;
+  color: var(--color-text);
 }
 
 /* SCROLLBAR STYLING */

@@ -6,7 +6,7 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.208);
 
   padding: 0.35rem 0;
-  color: #535353;
+  color: var(--color-text-lighter);
 }
 
 /* TOP SECTION */

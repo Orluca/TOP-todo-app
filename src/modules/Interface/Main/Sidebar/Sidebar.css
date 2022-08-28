@@ -108,7 +108,7 @@
 
 .project-name-input:disabled {
   background-color: transparent;
-  color: #000000;
+  color: var(--color-text);
   border: none;
 }
 
