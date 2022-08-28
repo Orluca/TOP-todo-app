@@ -7,6 +7,9 @@
   overflow: overlay;
   border-radius: 0 10px 10px 0;
   /* border-radius: 10px; */
+  box-shadow: 2px 5px 5px 1px var(--color-sidebar-shadow);
+  margin-right: 10px;
+  border-left: 15px solid var(--color-highlight1-hover);
 }
 
 .sidebar-icon {
