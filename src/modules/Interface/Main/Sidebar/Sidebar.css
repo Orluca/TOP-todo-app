@@ -108,11 +108,12 @@
 /* PROJECT BUTTONS */
 .project-button {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  /* justify-content: space-between; */
+  /* align-items: center; */
   border-radius: 5px;
   height: 33px;
   margin-left: 1rem;
+  width: 100%;
 }
 
 .project-button:hover {
@@ -122,6 +123,7 @@
 
 .project-name-input {
   margin: 0 0 0 0.5rem;
+  flex-grow: 1;
 }
 
 .in-edit-mode > .project-name-input {
@@ -143,8 +145,8 @@
 }
 
 .edit-buttons {
-  display: flex;
-  align-items: center;
+  /* display: flex;
+  align-items: center; */
   /* column-gap: 0.25rem; */
 }
 
