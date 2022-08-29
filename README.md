@@ -1,12 +1,6 @@
-### icon credit:
+https://orluca.github.io/TOP-todo-app/
+
+### Icon Credit:
 
 - FLATICON: freepik, DinosoftLabs
 
-### next steps
-
-### to implement
-
-- favicon?
-- fancier font for todolist header might be nice
-
-### bugs
