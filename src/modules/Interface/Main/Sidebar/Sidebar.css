@@ -318,10 +318,16 @@
 
 .in-edit-mode {
   background-color: var(--color-project-item-edit) !important;
+  font-weight: 400 !important;
   /* border: 1px solid rgb(151, 151, 151); */
   animation-name: slideInShort;
   animation-duration: 0.15s;
 }
+
+.in-edit-mode > .project-name-input {
+  font-weight: 400 !important;
+}
+
 /* ANIMATIONS */
 @keyframes slideIn {
   0% {
