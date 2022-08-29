@@ -336,6 +336,7 @@ const ProjectButton = function (projectName) {
     }
 
     function handleDeleteButton(e) {
+      if (!window.confirm("This will delete the selected project. Do you want to continue?")) return;
       const projectName = e.target.closest(".project-button").dataset.projectName;
       Data.deleteProject(projectName);
       e.target.closest(".project-button").remove();
@@ -348,7 +349,6 @@ const ProjectButton = function (projectName) {
     editButtons.classList.add("hidden");
     editButtons.appendChild(RenameButton());
     editButtons.appendChild(DeleteButton());
-    // editButtons.appendChild(ReorderHandle());
 
     return editButtons;
   }

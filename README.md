@@ -11,8 +11,5 @@
 - reorder todos?
 - favicon?
 - fancier font for todolist header might be nice
-- animations
-  - sidebar open/close
-  - scrollbar appearance
 
 ### bugs

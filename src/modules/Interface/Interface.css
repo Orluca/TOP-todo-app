@@ -64,6 +64,10 @@ body,
   width: 100%;
 }
 
+/* .app {
+  background-color: var(--color-frame);
+} */
+
 .user-interface {
   display: grid;
   grid-template-columns: 1fr;
@@ -71,6 +75,7 @@ body,
   height: 100%;
   width: 100%;
   color: var(--color-text);
+  /* background-color: var(--color-frame); */
 }
 
 /* SCROLLBAR STYLING */

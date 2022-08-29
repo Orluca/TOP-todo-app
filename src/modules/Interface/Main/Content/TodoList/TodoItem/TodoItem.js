@@ -88,6 +88,7 @@ const TodoTop = function (titleVal, isFinished, priorityVal) {
     }
 
     function handleDeleteButton(e) {
+      if (!window.confirm("Are you sure you want to delete this task?")) return;
       const id = e.target.closest(".todo-item").dataset.id;
       Data.deleteTodo(id);
       TodoList.deleteTodo(id);
