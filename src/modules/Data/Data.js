@@ -178,7 +178,12 @@ const Data = (function () {
     return darkMode;
   }
 
-  return { addTodo, restoreFromLocalStorage, getTodos, changeTodoStatus, deleteTodo, getTodoItem, updateTodo, addProject, getProjects, changeProjectName, deleteProject, getProjectOccurrencesAmount, getTodayCount, getWeekCount, getTodaysTodos, getWeeksTodos, getProjectsTodos, capitalizeString, projectNameExists, setDarkMode, getDarkMode };
+  function setProjects(projectsArray) {
+    projects = projectsArray;
+    saveToLocalStorage();
+  }
+
+  return { addTodo, restoreFromLocalStorage, getTodos, changeTodoStatus, deleteTodo, getTodoItem, updateTodo, addProject, getProjects, changeProjectName, deleteProject, getProjectOccurrencesAmount, getTodayCount, getWeekCount, getTodaysTodos, getWeeksTodos, getProjectsTodos, capitalizeString, projectNameExists, setDarkMode, getDarkMode, setProjects };
 })();
 
 export default Data;

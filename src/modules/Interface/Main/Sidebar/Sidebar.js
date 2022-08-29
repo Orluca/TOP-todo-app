@@ -9,6 +9,7 @@ import Data from "../../../Data/Data.js";
 import Content from "../Content/Content.js";
 import { ModalWindow } from "../Content/TodoModal/TodoModal.js";
 import { TodoList, TodoListHeader } from "../Content/TodoList/TodoList.js";
+import Sortable from "sortablejs";
 
 // -------------------- DUE DATE FILTERS --------------------
 const TodayButton = (function () {
@@ -205,6 +206,19 @@ const ProjectsList = (function () {
   function init() {
     ProjectsList = document.createElement("div");
     ProjectsList.classList.add("projects-list");
+    // Sortable.create(ProjectsList);
+    new Sortable(ProjectsList, {
+      handle: ".reorder-project-handle",
+      onEnd: function (e) {
+        console.log(Data.getProjects());
+        const reorderedProjects = [];
+        ProjectsList.querySelectorAll(".project-name-input").forEach((projectBtn) => {
+          reorderedProjects.push(projectBtn.value.toLowerCase());
+        });
+        Data.setProjects(reorderedProjects);
+        console.log(Data.getProjects());
+      },
+    });
   }
 
   function get() {
@@ -274,7 +288,6 @@ const ProjectButton = function (projectName) {
   let deleteButton;
   let counter;
 
-  // const projectNameCapitalized = projectName.slice(0, 1).toUpperCase() + projectName.slice(1);
   const projectNameCapitalized = Data.capitalizeString(projectName);
 
   function ReorderHandle() {
