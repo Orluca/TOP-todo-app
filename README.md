@@ -9,6 +9,7 @@
 - deleting a todo or projects needs a confirmation popup
 - reorder projects
 - reorder todos?
+- favicon?
 - fancier font for todolist header might be nice
 - animations
   - sidebar open/close

@@ -91,4 +91,5 @@ body,
 /* UTILITY CLASSES */
 .hidden {
   display: none !important;
+  /* transform: translateX(-40%); */
 }

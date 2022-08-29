@@ -7,4 +7,6 @@
   max-height: 100%;
   overflow: auto;
   background-color: var(--color-todo);
+
+  transition: background-color 0.25s;
 }

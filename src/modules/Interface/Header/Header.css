@@ -90,7 +90,7 @@
   left: 48px;
   transform: translateX(-100%);
   /* background: linear-gradient(180deg, #777, #3a3a3a); */
-  background: var(--color-frame);
+  background: black;
 }
 .dark-mode-toggle-label,
 .dark-mode-toggle-label:after {

@@ -25,6 +25,9 @@
   row-gap: 1rem;
   column-gap: 1rem;
   border: 1px solid var(--color-todo-item-border);
+  animation-name: slideInTop;
+  animation-duration: 0.25s;
+  transition: background-color 0.25s;
 }
 
 .modal-window-header {
@@ -164,3 +167,21 @@
     grid-area: 6 / 1 / 7 / 3;
   }
 }
+
+/* ANIMATIONS */
+@keyframes slideInTop {
+  0% {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* .slide-in-animation {
+  animation-name: slideInTop;
+  animation-duration: 0.25s;
+} */
